@@ -4,56 +4,58 @@ export default {
   theme: {
     colors: {
       black: {
-        5: '#F3F3F4',
-        10: '#DEDEDE',
-        20: '#CFD6E1',
-        30: '#B0B8C5',
-        40: '#919AA9',
-        60: '#727C8C',
-        80: '#535E70',
+        5: '#f3f3f4',
+        10: '#dedede',
+        20: '#cfd6e1',
+        30: '#b0b8c5',
+        40: '#919aa9',
+        60: '#727c8c',
+        80: '#535e70',
         100: '#344054',
         DEFAULT: '#344054'
       },
 
       blue: {
-        10: '#F4F8FB',
-        20: '#DCEDF2',
-        40: '#B9DBE5',
-        60: '#97C9D9',
-        80: '#74B7CC',
-        100: '#51A5BF',
-        DEFAULT: '#51A5BF'
-      },
-
-      yellow: {
-        5: '#FFFBF4',
-        10: '#FFF7E5',
-        20: '#FFEECC',
-        40: '#FFDE99',
-        60: '#FFCD66',
-        80: '#FFBD33',
-        100: '#FFAC00',
-        DEFAULT: '#FFAC00'
+        10: '#f4f8fb',
+        20: '#dcedf2',
+        40: '#b9dbe5',
+        60: '#97c9d9',
+        80: '#74b7cc',
+        100: '#51a5bf',
+        DEFAULT: '#51a5bf'
       },
 
       green: {
-        10: '#F1FAF3',
-        20: '#D4F1DC',
-        40: '#C6ECD1',
-        60: '#A9E3BA',
-        80: '#70D08C',
-        100: '#4CAB66',
-        DEFAULT: '#4CAB66'
+        10: '#f1faf3',
+        20: '#d4f1dc',
+        40: '#c6ecd1',
+        60: '#a9e3ba',
+        80: '#70d08c',
+        100: '#4cab66',
+        DEFAULT: '#4cab66'
       },
 
       red: {
-        10: '#FBE6E6',
-        20: '#F7CECD',
-        40: '#EF9C9A',
-        60: '#EB8381',
-        80: '#E76B68',
-        100: '#E3524F',
-        DEFAULT: '#E3524F'
+        10: '#fbe6e6',
+        20: '#f7cecd',
+        40: '#ef9c9a',
+        60: '#eb8381',
+        80: '#e76b68',
+        100: '#e3524f',
+        DEFAULT: '#e3524f'
+      },
+
+      white: '#ffffff',
+
+      yellow: {
+        5: '#fffbf4',
+        10: '#fff7e5',
+        20: '#ffeecc',
+        40: '#ffde99',
+        60: '#ffcd66',
+        80: '#ffbd33',
+        100: '#ffac00',
+        DEFAULT: '#ffac00'
       }
     },
 
