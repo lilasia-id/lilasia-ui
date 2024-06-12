@@ -1,7 +1,7 @@
 {
   "name": "lilasia-ui",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "build": "vue-tsc && vite build",
@@ -9,10 +9,13 @@
     "format": "npx prettier --write \"src/*.{vue,ts}\"",
     "preview": "vite preview"
   },
+  "files": [
+    "dist"
+  ],
   "exports": {
     "./tailwind-preset": {
       "import": "./dist/lilasia-tailwind-preset.js",
-      "require": "./dist/lilasia-tailwind-preset.cjs"
+      "require": "./dist/lilasia-tailwind-preset.umd.cjs"
     }
   },
   "devDependencies": {
