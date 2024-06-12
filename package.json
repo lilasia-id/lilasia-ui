@@ -1,0 +1,30 @@
+{
+  "name": "lilasia-ui",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "vue-tsc && vite build",
+    "dev": "vite",
+    "format": "npx prettier --write \"src/*.{vue,ts}\"",
+    "preview": "vite preview"
+  },
+  "exports": {
+    "./tailwind-preset": {
+      "import": "./dist/lilasia-tailwind-preset.js",
+      "require": "./dist/lilasia-tailwind-preset.cjs"
+    }
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "prettier-plugin-organize-attributes": "^1.0.0",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vue": "^3.4.27",
+    "vue-tsc": "^2.0.6"
+  }
+}
