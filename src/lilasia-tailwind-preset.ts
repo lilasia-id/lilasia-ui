@@ -1,5 +1,9 @@
 import type { Config } from 'tailwindcss'
 
+const fontSizes = [8, 10, 12, 14, 16, 20, 24, 30, 32, 40, 60]
+const lineHeights = [14, 15, 20, 24, 25, 28, 29, 30, 32, 38, 48]
+const fontWeights = [500, 600, 700]
+
 export default {
   theme: {
     colors: {
@@ -12,7 +16,7 @@ export default {
         60: '#727c8c',
         80: '#535e70',
         100: '#344054',
-        DEFAULT: '#344054'
+        DEFAULT: '#000000'
       },
 
       blue: {
@@ -64,38 +68,14 @@ export default {
       serif: ['"Zilla Slab"', 'sans-serif']
     },
 
-    fontSize: {
-      8: '0.5rem',
-      10: '0.625rem',
-      12: '0.75rem',
-      14: '0.875rem',
-      16: '1rem',
-      20: '1.25rem',
-      24: '1.5rem',
-      30: '1.875rem',
-      32: '2rem',
-      40: '2.5rem',
-      60: '3.75rem'
-    },
+    fontSize: Object.fromEntries(fontSizes.map((size) => [size, `${size / 16}rem`])),
 
-    fontWeight: {
-      normal: '400',
-      500: '500',
-      600: '600',
-      700: '700'
-    },
+    fontWeight: Object.fromEntries(fontWeights.map((weight) => [weight, String(weight)])),
 
-    lineHeight: {
-      14: '0.875rem',
-      15: '0.9375rem',
-      20: '1.25rem',
-      24: '1.5rem',
-      25: '1.5625rem',
-      29: '1.8125rem',
-      30: '1.875rem',
-      32: '2rem',
-      38: '2.375rem',
-      48: '3rem'
+    lineHeight: Object.fromEntries(lineHeights.map((size) => [size, `${size / 16}rem`])),
+
+    letterSpacing: {
+      1: `${1 / 16}rem`
     }
   }
 } satisfies Partial<Config>

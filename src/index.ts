@@ -1,3 +1,3 @@
-import preset from '../lilasia-tailwind-preset.ts'
+import preset from './lilasia-tailwind-preset.ts'
 
 export { preset }
