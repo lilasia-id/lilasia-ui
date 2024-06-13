@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import { fontSizes, lineHeights } from './variables'
 
 export default {
   theme: {
@@ -64,19 +65,7 @@ export default {
       serif: ['"Zilla Slab"', 'sans-serif']
     },
 
-    fontSize: {
-      8: '0.5rem',
-      10: '0.625rem',
-      12: '0.75rem',
-      14: '0.875rem',
-      16: '1rem',
-      20: '1.25rem',
-      24: '1.5rem',
-      30: '1.875rem',
-      32: '2rem',
-      40: '2.5rem',
-      60: '3.75rem'
-    },
+    fontSize: Object.fromEntries(fontSizes.map((size) => [size, `${size / 16}rem`])),
 
     fontWeight: {
       normal: '400',
@@ -85,17 +74,6 @@ export default {
       700: '700'
     },
 
-    lineHeight: {
-      14: '0.875rem',
-      15: '0.9375rem',
-      20: '1.25rem',
-      24: '1.5rem',
-      25: '1.5625rem',
-      29: '1.8125rem',
-      30: '1.875rem',
-      32: '2rem',
-      38: '2.375rem',
-      48: '3rem'
-    }
+    lineHeight: Object.fromEntries(lineHeights.map((size) => [size, `${size / 16}rem`]))
   }
 } satisfies Partial<Config>
