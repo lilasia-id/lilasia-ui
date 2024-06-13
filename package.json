@@ -1,7 +1,7 @@
 {
   "name": "lilasia-ui",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "scripts": {
     "build": "vue-tsc && vite build",
@@ -12,10 +12,19 @@
   "files": [
     "dist"
   ],
+  "main": "./dist/lilasia-ui.umd.cjs",
+  "module": "./dist/lilasia-ui.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "./tailwind-preset": {
-      "import": "./dist/lilasia-tailwind-preset.js",
-      "require": "./dist/lilasia-tailwind-preset.umd.cjs"
+    ".": {
+      "import": {
+        "default": "./dist/lilasia-ui.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "default": "./dist/lilasia-ui.umd.cjs",
+        "types": "./dist/index.d.ts"
+      }
     }
   },
   "devDependencies": {
@@ -27,6 +36,7 @@
     "tailwindcss": "^3.4.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.9.1",
     "vue": "^3.4.27",
     "vue-tsc": "^2.0.6"
   }

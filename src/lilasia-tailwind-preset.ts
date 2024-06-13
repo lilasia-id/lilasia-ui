@@ -1,5 +1,8 @@
 import type { Config } from 'tailwindcss'
-import { fontSizes, lineHeights } from './variables'
+
+const fontSizes = [8, 10, 12, 14, 16, 20, 24, 30, 32, 40, 60]
+const lineHeights = [14, 15, 20, 24, 25, 28, 29, 30, 32, 38, 48]
+const fontWeights = [500, 600, 700]
 
 export default {
   theme: {
@@ -13,7 +16,7 @@ export default {
         60: '#727c8c',
         80: '#535e70',
         100: '#344054',
-        DEFAULT: '#344054'
+        DEFAULT: '#000000'
       },
 
       blue: {
@@ -67,13 +70,12 @@ export default {
 
     fontSize: Object.fromEntries(fontSizes.map((size) => [size, `${size / 16}rem`])),
 
-    fontWeight: {
-      normal: '400',
-      500: '500',
-      600: '600',
-      700: '700'
-    },
+    fontWeight: Object.fromEntries(fontWeights.map((weight) => [weight, String(weight)])),
 
-    lineHeight: Object.fromEntries(lineHeights.map((size) => [size, `${size / 16}rem`]))
+    lineHeight: Object.fromEntries(lineHeights.map((size) => [size, `${size / 16}rem`])),
+
+    letterSpacing: {
+      1: `${1 / 16}rem`
+    }
   }
 } satisfies Partial<Config>
