@@ -5,6 +5,7 @@ const lineHeights = [14, 15, 20, 24, 25, 28, 29, 30, 32, 38, 48]
 const fontWeights = [500, 600, 700]
 
 export default {
+  content: [],
   theme: {
     colors: {
       black: {
@@ -78,4 +79,4 @@ export default {
       1: `${1 / 16}rem`
     }
   }
-} satisfies Partial<Config>
+} satisfies Config
