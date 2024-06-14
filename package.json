@@ -1,7 +1,7 @@
 {
   "name": "lilasia-ui",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "scripts": {
     "build": "vue-tsc && vite build",
@@ -18,12 +18,12 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/lilasia-ui.js",
-        "types": "./dist/index.d.ts"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/lilasia-ui.js"
       },
       "require": {
-        "default": "./dist/lilasia-ui.umd.cjs",
-        "types": "./dist/index.d.ts"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/lilasia-ui.umd.cjs"
       }
     }
   },
