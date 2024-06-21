@@ -1,12 +1,12 @@
 import type { Config } from 'tailwindcss'
 
-const fontSizes = [8, 10, 12, 14, 16, 20, 24, 30, 32, 40, 60]
-const lineHeights = [14, 15, 20, 24, 25, 28, 29, 30, 32, 38, 48]
-const fontWeights = [500, 600, 700]
-
 export default {
   content: [],
   theme: {
+    borderRadius: Object.fromEntries(
+      [4, 8, 12, 16, 24, 9999].map((size) => [size, `${size / 16}rem`])
+    ),
+
     colors: {
       black: {
         5: '#f3f3f4',
@@ -69,14 +69,22 @@ export default {
       serif: ['"Zilla Slab"', 'sans-serif']
     },
 
-    fontSize: Object.fromEntries(fontSizes.map((size) => [size, `${size / 16}rem`])),
+    fontSize: Object.fromEntries(
+      [8, 10, 12, 14, 16, 20, 24, 30, 32, 40, 60].map((size) => [size, `${size / 16}rem`])
+    ),
 
-    fontWeight: Object.fromEntries(fontWeights.map((weight) => [weight, String(weight)])),
+    fontWeight: Object.fromEntries([500, 600, 700].map((weight) => [weight, String(weight)])),
 
-    lineHeight: Object.fromEntries(lineHeights.map((size) => [size, `${size / 16}rem`])),
+    lineHeight: Object.fromEntries(
+      [14, 15, 20, 24, 25, 28, 29, 30, 32, 38, 48].map((size) => [size, `${size / 16}rem`])
+    ),
 
     letterSpacing: {
       1: `${1 / 16}rem`
-    }
+    },
+
+    spacing: Object.fromEntries(
+      Array.from({ length: 16 }, (_, i) => [i * 4, `${(i * 4) / 16}rem`]).slice(1)
+    )
   }
 } satisfies Config
