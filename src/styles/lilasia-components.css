@@ -1,0 +1,13 @@
+@layer components {
+  .switch:before {
+    content: '';
+  }
+
+  input:checked + .switch {
+    background-color: theme('colors.blue.100');
+  }
+
+  input:checked + .switch:before {
+    transform: translateX(theme('spacing.24'));
+  }
+}

@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-import { preset } from 'lilasia-ui'
-// import preset from './src/lilasia-tailwind-preset.ts'
+// import { preset } from 'lilasia-ui'
+import preset from './src/lilasia-tailwind-preset.ts'
 
 export default {
-  content: ['./index.html', './src/*.{html,vue,ts}'],
+  content: ['./*.html', './src/**/*.{html,vue,js,ts}'],
   presets: [preset],
   theme: {
     extend: {}
