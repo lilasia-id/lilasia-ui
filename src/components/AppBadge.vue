@@ -49,17 +49,17 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-    <div class="inline-flex transition-colors" v-if="icon" :class="iconClass">
+    <div v-if="icon" class="inline-flex transition-colors" :class="iconClass">
       <Icon v-if="typeof icon === 'string'" :name="icon" size="20" />
       <Icon v-else :="{ size: 20, ...icon }" />
     </div>
 
-    <span class="text-14 font-600 leading-20" v-if="slots.default || label">
+    <span v-if="slots.default || label" class="text-14 font-600 leading-20">
       <slot v-if="slots.default"></slot>
       <template v-else-if="label">{{ label }}</template>
     </span>
 
-    <div class="inline-flex transition-colors" v-if="iconRight" :class="iconRightClass">
+    <div v-if="iconRight" class="inline-flex transition-colors" :class="iconRightClass">
       <Icon v-if="typeof iconRight === 'string'" :name="iconRight" size="20" />
       <Icon v-else :="{ size: 20, ...iconRight }" />
     </div>

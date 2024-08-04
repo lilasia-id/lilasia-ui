@@ -1,7 +1,7 @@
 {
   "name": "lilasia-ui",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "build": "vue-tsc && vite build",
@@ -45,7 +45,6 @@
     "autoprefixer": "^10.4.19",
     "pinia": "^2.1.7",
     "postcss": "^8.4.38",
-    "prettier-plugin-organize-attributes": "^1.0.0",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.4",

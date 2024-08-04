@@ -40,26 +40,27 @@ const classes = computed(() => {
   ]
 })
 
-const showPassword = () => {
-  inputType.value = 'text'
-}
+const togglePasswordVisibility = () => {
+  if (inputType.value === 'password') {
+    inputType.value = 'text'
+    return
+  }
 
-const hidePassword = () => {
   inputType.value = 'password'
 }
 </script>
 
 <template>
   <div class="flex flex-col gap-8">
-    <label class="w-fit text-14 font-500 leading-20" v-if="label" :for="id">
-      {{ label }} <span class="text-black-60" v-if="!required">(Optional)</span>
+    <label v-if="label" class="w-fit text-14 font-500 leading-20" :for="id">
+      {{ label }} <span v-if="!required" class="text-black-60">(Optional)</span>
     </label>
 
     <div class="relative">
       <input
+        :id="id"
         v-model="model"
         :class="classes"
-        :id="id"
         :type="inputType"
         :placeholder="placeholder"
         :autocomplete="autocomplete"
@@ -68,32 +69,31 @@ const hidePassword = () => {
       />
 
       <div
-        class="absolute inset-y-[0] right-[0] flex select-none items-center"
         v-if="type === 'password'"
+        class="absolute inset-y-[0] flex select-none items-center"
+        :class="error ? 'right-[40px]' : 'right-[16px]'"
       >
         <div
-          class="inline-flex pr-16"
-          v-if="inputType === 'password'"
+          class="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black-30"
           role="button"
-          @click="showPassword"
+          tabindex="0"
+          aria-label="Password Revealer"
+          @click="togglePasswordVisibility"
+          @keyup.enter="togglePasswordVisibility"
         >
-          <Icon name="visibility" size="20" />
-        </div>
-        <div
-          class="inline-flex pr-16"
-          v-if="inputType === 'text'"
-          role="button"
-          @click="hidePassword"
-        >
-          <Icon name="visibility_off" size="20" />
+          <Icon :name="inputType === 'password' ? 'visibility' : 'visibility_off'" size="20" />
         </div>
       </div>
 
-      <div class="absolute inset-y-[0] right-[10px] flex items-center text-red-100" v-if="error">
+      <div
+        v-if="error"
+        class="absolute inset-y-[0] right-[10px] flex items-center text-red-100"
+        aria-label="Form Error"
+      >
         <Icon name="error" />
       </div>
     </div>
 
-    <div class="w-fit text-14 font-500 leading-20 text-red-100" v-if="error">{{ error }}</div>
+    <div v-if="error" class="w-fit text-14 font-500 leading-20 text-red-100">{{ error }}</div>
   </div>
 </template>

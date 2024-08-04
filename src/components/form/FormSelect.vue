@@ -78,20 +78,20 @@ const displayValue = (option: unknown): string => {
 
 <template>
   <div class="flex flex-col gap-8">
-    <label class="w-fit text-14 font-500 leading-20" v-if="label" :for="id">
-      {{ label }} <span class="text-black-60" v-if="!required">(Optional)</span>
+    <label v-if="label" class="w-fit text-14 font-500 leading-20" :for="id">
+      {{ label }} <span v-if="!required" class="text-black-60">(Optional)</span>
     </label>
 
     <Combobox v-model="model" :multiple="multiple">
       <div class="relative">
         <div class="relative">
           <ComboboxInput
+            :id="id"
             :class="classes"
             :placeholder="placeholder"
             :readonly="readonly"
             spellcheck="false"
             autocomplete="off"
-            :id="id"
             :display-value="displayValue"
             @change="query = $event.target.value"
           />
@@ -108,15 +108,15 @@ const displayValue = (option: unknown): string => {
           leave="transition ease-in duration-100"
           leave-from="opacity-100"
           leave-to="opacity-0"
-          @after-leave="query = ''"
           as="template"
+          @after-leave="query = ''"
         >
           <ComboboxOptions
             class="absolute z-50 mt-4 max-h-[400px] w-full rounded-8 bg-white py-4 shadow-lg ring-1 ring-black-10"
           >
             <template v-if="filteredOptions.length === 0 && query !== ''">
               <slot v-if="slots['not-found']" name="not-found"></slot>
-              <div class="flex h-40 cursor-default select-none items-center px-16" v-else>
+              <div v-else class="flex h-40 cursor-default select-none items-center px-16">
                 Nothing found.
               </div>
             </template>
@@ -124,8 +124,8 @@ const displayValue = (option: unknown): string => {
             <ComboboxOption
               v-for="(option, index) in filteredOptions"
               v-slot="{ selected, active }"
-              as="template"
               :key="index"
+              as="template"
               :value="option"
             >
               <li
@@ -139,12 +139,12 @@ const displayValue = (option: unknown): string => {
                   :selected="selected"
                   :option="option"
                 ></slot>
-                <span class="block truncate" v-else :class="{ 'font-600': selected }">
+                <span v-else class="block truncate" :class="{ 'font-600': selected }">
                   {{ optionLabel ? option[optionLabel] : option }}
                 </span>
                 <span
-                  class="absolute inset-y-[0] right-[0] flex items-center pr-16 text-blue-100"
                   v-if="selected"
+                  class="absolute inset-y-[0] right-[0] flex items-center pr-16 text-blue-100"
                 >
                   <Icon name="check_circle" size="20" filled />
                 </span>
@@ -155,6 +155,6 @@ const displayValue = (option: unknown): string => {
       </div>
     </Combobox>
 
-    <div class="w-fit text-14 font-500 leading-20 text-red-100" v-if="error">{{ error }}</div>
+    <div v-if="error" class="w-fit text-14 font-500 leading-20 text-red-100">{{ error }}</div>
   </div>
 </template>

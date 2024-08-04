@@ -32,21 +32,21 @@ const slots = useSlots()
 
 <template>
   <div class="flex flex-col gap-8">
-    <label class="w-fit text-14 font-500 leading-20" v-if="label" :for="id">
-      {{ label }} <span class="text-black-60" v-if="!required">(Optional)</span>
+    <label v-if="label" class="w-fit text-14 font-500 leading-20" :for="id">
+      {{ label }} <span v-if="!required" class="text-black-60">(Optional)</span>
     </label>
 
     <RadioGroup v-model="model">
       <RadioGroupLabel class="sr-only">
-        <input class="hidden" type="radio" :id="id" />
+        <input :id="id" class="hidden" type="radio" />
       </RadioGroupLabel>
 
       <div class="space-y-8">
         <RadioGroupOption
           v-for="(option, index) in options"
           v-slot="{ active, checked }"
-          as="template"
           :key="index"
+          as="template"
           :value="option"
         >
           <div
@@ -62,20 +62,20 @@ const slots = useSlots()
               <div class="flex items-center">
                 <RadioGroupLabel as="template">
                   <slot v-if="slots['option-label']" name="option-label" :option="option"></slot>
-                  <p class="text-16 font-600 leading-20" v-else>
+                  <p v-else class="text-16 font-600 leading-20">
                     {{ optionLabel ? option[optionLabel] : option }}
                   </p>
                 </RadioGroupLabel>
               </div>
               <div
-                class="rounded-9999"
                 v-if="checked"
+                class="rounded-9999"
                 :class="error ? 'text-red-100' : 'text-blue-100'"
               >
                 <Icon v-if="typeof icon === 'string'" :name="icon" />
                 <Icon v-else :="icon" />
               </div>
-              <div class="rounded-9999 text-black-10" v-else>
+              <div v-else class="rounded-9999 text-black-10">
                 <Icon v-if="typeof uncheckedIcon === 'string'" :name="uncheckedIcon" />
                 <Icon v-else :="uncheckedIcon" />
               </div>
@@ -85,6 +85,6 @@ const slots = useSlots()
       </div>
     </RadioGroup>
 
-    <div class="w-fit text-14 font-500 leading-20 text-red-100" v-if="error">{{ error }}</div>
+    <div v-if="error" class="w-fit text-14 font-500 leading-20 text-red-100">{{ error }}</div>
   </div>
 </template>

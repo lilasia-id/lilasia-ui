@@ -2,21 +2,9 @@
 import useDialogStore from '@/stores/dialog'
 import { Dialog, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { storeToRefs } from 'pinia'
-import { watch } from 'vue'
 
 const dialogStore = useDialogStore()
 const { state, component } = storeToRefs(dialogStore)
-
-watch(state, (newState) => {
-  if (newState) {
-    document.body.style.overflowY = 'hidden'
-    return
-  }
-
-  setTimeout(() => {
-    document.body.style.overflowY = 'auto'
-  }, 300)
-})
 </script>
 
 <template>

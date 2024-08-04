@@ -1,4 +1,30 @@
 @layer components {
+  table.middle td,
+  table.middle th {
+    vertical-align: middle;
+  }
+
+  table.compact td,
+  table.compact th {
+    padding: theme('spacing.8');
+  }
+
+  table.rounded th:first-child {
+    border-top-left-radius: theme('borderRadius.8');
+  }
+
+  table.rounded th:last-child {
+    border-top-right-radius: theme('borderRadius.8');
+  }
+
+  table.rounded tr:last-child td:first-child {
+    border-bottom-left-radius: theme('borderRadius.8');
+  }
+
+  table.rounded tr:last-child td:last-child {
+    border-bottom-right-radius: theme('borderRadius.8');
+  }
+
   .switch:before {
     content: '';
   }

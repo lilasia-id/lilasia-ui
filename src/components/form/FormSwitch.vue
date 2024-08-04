@@ -17,7 +17,7 @@ const classes = computed(() => {
 
 <template>
   <label class="relative inline-block h-[34px] w-60" :for="id">
-    <input class="h-[0] w-[0] translate-x-24 opacity-0" v-model="model" type="checkbox" :id="id" />
+    <input :id="id" v-model="model" class="h-[0] w-[0] translate-x-24 opacity-0" type="checkbox" />
     <span :class="classes" role="button"></span>
   </label>
 </template>

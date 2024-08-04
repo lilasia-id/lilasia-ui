@@ -25,9 +25,9 @@ const classes = computed(() => {
 <template>
   <label class="inline-flex w-fit items-center" :for="id">
     <input
-      class="peer hidden"
-      v-model="model"
       :id="id"
+      v-model="model"
+      class="peer hidden"
       type="checkbox"
       :name="name"
       :value="value"

@@ -11,7 +11,7 @@
     color: theme('colors.black.100');
   }
 
-  thead {
+  thead tr th {
     background-color: theme('colors.black.5');
   }
 
@@ -23,21 +23,16 @@
     vertical-align: top;
   }
 
-  table.middle td,
-  table.middle th {
-    vertical-align: middle;
-  }
-
-  table.compact td,
-  table.compact th {
-    padding: theme('spacing.8');
-  }
-
   th {
     border-bottom-width: 0;
   }
 
   tr:last-child td {
     border-bottom-width: 0;
+  }
+
+  input[type=password]::-ms-reveal,
+  input[type=password]::-ms-clear {
+    display: none;
   }
 }

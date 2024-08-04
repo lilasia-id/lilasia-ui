@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 import Icon, { type LilasiaIcon } from 'lilasia-icons'
-import { computed, useSlots } from 'vue'
+import { computed, onMounted, ref, useSlots } from 'vue'
 import { type RouteLocationAsPathGeneric, type RouteLocationAsRelativeGeneric } from 'vue-router'
 
 const props = withDefaults(
   defineProps<{
     to?: string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric
+    href?: string
+    target?: '_blank' | '_parent' | '_self' | '_top'
     type?: 'submit' | 'button' | 'reset'
     color?: 'white' | 'light' | 'blue' | 'yellow' | 'red'
     text?: string
@@ -43,6 +45,8 @@ const props = withDefaults(
 
 const slots = useSlots()
 
+const button = ref()
+
 const variant = computed(() => {
   return props.outline ? 'outline' : props.subtle ? 'subtle' : 'solid'
 })
@@ -77,7 +81,7 @@ const colorClasses = computed(() => {
         props.loading ? '' : 'disabled:hover:bg-blue-40 disabled:hover:border-blue-40'
       ],
       outline: [
-        'text-blue-100 border border-blue-100',
+        'bg-white text-blue-100 border border-blue-100',
         props.disabled || props.loading ? '' : 'hover:bg-blue-20 hover:border-blue-100',
         props.loading ? '' : 'disabled:text-blue-40 disabled:border-blue-40',
         props.loading ? '' : 'disabled:hover:border-blue-40'
@@ -104,7 +108,7 @@ const colorClasses = computed(() => {
         props.loading ? '' : 'disabled:hover:bg-red-40 disabled:hover:border-red-40'
       ],
       outline: [
-        'text-red-100 border border-red-100',
+        'bg-white text-red-100 border border-red-100',
         props.disabled || props.loading ? '' : 'hover:bg-red-20 hover:border-red-100',
         props.loading ? '' : 'disabled:text-red-40 disabled:border-red-40',
         props.loading ? '' : 'disabled:hover:border-red-40'
@@ -135,11 +139,22 @@ const classes = computed(() => {
     colorClasses.value[props.color][variant.value]
   ]
 })
+
+onMounted(() => {
+  if (button.value instanceof HTMLAnchorElement && props.href) {
+    button.value.href = props.href
+
+    if (props.target) {
+      button.value.target = props.target
+    }
+  }
+})
 </script>
 
 <template>
   <component
-    :is="to ? 'RouterLink' : 'button'"
+    :is="to ? 'RouterLink' : href ? 'a' : 'button'"
+    ref="button"
     :to="to"
     :type="type"
     :class="classes"
@@ -147,19 +162,19 @@ const classes = computed(() => {
   >
     <div class="flex items-center justify-center gap-x-8">
       <template v-if="!loading">
-        <div class="inline-flex" v-if="icon" :class="iconClass">
+        <div v-if="icon" class="inline-flex" :class="iconClass">
           <Icon v-if="typeof icon === 'string'" :name="icon" size="20" />
           <Icon v-else :="{ size: 20, ...icon }" />
         </div>
 
-        <span class="text-16 font-600 leading-20 md:text-14" v-if="slots.default || text">
+        <span v-if="slots.default || text" class="text-16 font-600 leading-20 md:text-14">
           <slot v-if="slots.default"></slot>
           <template v-else-if="text">{{ text }}</template>
         </span>
 
         <div
-          class="inline-flex"
           v-if="(slots.default || text) && iconRight && !loading"
+          class="inline-flex"
           :class="iconRightClass"
         >
           <Icon v-if="typeof iconRight === 'string'" :name="iconRight" size="20" />

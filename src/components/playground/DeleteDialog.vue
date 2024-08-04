@@ -14,7 +14,7 @@ const { hideDialog } = useDialog()
 
     <div class="w-full px-24 pb-24">
       <div class="mb-24 text-16 leading-24">Are you sure want to delete this item?</div>
-      <AppButton color="red" @click="hideDialog" text="Yes, delete it!" outline block />
+      <AppButton color="red" text="Yes, delete it!" outline block @click="hideDialog" />
     </div>
   </AppBlock>
 </template>

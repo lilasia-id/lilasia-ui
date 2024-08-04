@@ -14,7 +14,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <div class="relative p-24 font-600" :class="classes">
+  <div class="relative p-24" :class="classes">
     <slot />
   </div>
 </template>

@@ -88,18 +88,18 @@ const triggerFocus = () => {
 
 <template>
   <div class="flex flex-col gap-8">
-    <label class="w-fit text-14 font-500 leading-20" v-if="label" @click="triggerFocus" :for="id">
-      <input class="hidden" type="text" :id="id" />
-      {{ label }} <span class="text-black-60" v-if="!required">(Optional)</span>
+    <label v-if="label" class="w-fit text-14 font-500 leading-20" :for="id" @click="triggerFocus">
+      <input :id="id" class="hidden" type="text" />
+      {{ label }} <span v-if="!required" class="text-black-60">(Optional)</span>
     </label>
 
     <div class="relative">
       <EditorContent :editor="editor" />
-      <div class="absolute right-[10px] top-[10px] flex items-center text-red-100" v-if="error">
+      <div v-if="error" class="absolute right-[10px] top-[10px] flex items-center text-red-100">
         <Icon name="error" />
       </div>
     </div>
 
-    <div class="w-fit text-14 font-500 leading-20 text-red-100" v-if="error">{{ error }}</div>
+    <div v-if="error" class="w-fit text-14 font-500 leading-20 text-red-100">{{ error }}</div>
   </div>
 </template>

@@ -10,10 +10,11 @@ const { toasts } = storeToRefs(toastStore)
 </script>
 
 <template>
-  <div class="fixed right-24 top-24 z-[52] w-fit" v-if="!!toasts.length">
+  <div v-if="!!toasts.length" class="fixed right-24 top-24 z-[52] w-fit">
     <TransitionRoot
-      class="flex justify-end"
       v-for="toast in toasts"
+      :key="toast.id"
+      class="flex justify-end"
       as="div"
       enter="duration-300 ease-out"
       enter-from="opacity-0 scale-50"
@@ -21,7 +22,6 @@ const { toasts } = storeToRefs(toastStore)
       leave="duration-200 ease-in"
       leave-from="opacity-100 scale-100"
       leave-to="opacity-0 scale-50"
-      :key="toast.id"
       :show="toast.state"
       appear
     >

@@ -160,10 +160,8 @@ const openDeleteDialog = () => {
         </div>
 
         <div class="mb-24 flex items-center gap-8">
-          <AppButton :to="{ name: 'orders.index' }">Navigate to Orders</AppButton>
-          <AppButton :to="{ name: 'products.index' }">Navigate to Products</AppButton>
-          <AppButton :to="{ name: 'categories.index' }">Navigate to Categories</AppButton>
-          <AppButton :to="{ name: 'promotions.index' }">Navigate to Promotions</AppButton>
+          <AppButton href="https://lilasia.id">Self Target</AppButton>
+          <AppButton href="https://lilasia.id" target="_blank">Blank Target</AppButton>
         </div>
 
         <div class="mb-24 mt-16 flex items-center gap-8">
@@ -232,7 +230,7 @@ const openDeleteDialog = () => {
           <AppButton color="blue" icon="info" />
           <AppButton color="yellow" icon="warning" />
           <AppButton color="red" icon="delete" @click="openDeleteDialog" />
-          <AppButton color="red" icon="delete" @click="openDeleteDialog" subtle />
+          <AppButton color="red" icon="delete" subtle @click="openDeleteDialog" />
         </div>
 
         <div class="flex items-center gap-8">
@@ -245,8 +243,8 @@ const openDeleteDialog = () => {
           <AppButton color="light" icon="close" round />
           <AppButton color="blue" icon="info" round />
           <AppButton color="yellow" icon="warning" round />
-          <AppButton color="red" icon="delete" @click="openDeleteDialog" round />
-          <AppButton color="red" icon="delete" @click="openDeleteDialog" round subtle />
+          <AppButton color="red" icon="delete" round @click="openDeleteDialog" />
+          <AppButton color="red" icon="delete" round subtle @click="openDeleteDialog" />
         </div>
       </div>
     </AppBlock>
