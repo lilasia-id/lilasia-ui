@@ -13,6 +13,7 @@
 
   thead tr th {
     background-color: theme('colors.black.5');
+    font-size: theme('fontSize.14');
   }
 
   td,

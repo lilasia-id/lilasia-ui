@@ -2,9 +2,32 @@
 import useDialogStore from '@/stores/dialog'
 import { Dialog, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { storeToRefs } from 'pinia'
+import { computed, watch } from 'vue'
 
 const dialogStore = useDialogStore()
-const { state, component } = storeToRefs(dialogStore)
+const { state, component, options } = storeToRefs(dialogStore)
+
+const classes = computed(() => {
+  return [
+    {
+      'items-start justify-center': options.value?.position === 'top',
+      'items-start justify-end': options.value?.position === 'top-right',
+      'items-start justify-start': options.value?.position === 'top-left',
+      'items-center justify-center': options.value?.position === 'middle'
+    }
+  ]
+})
+
+watch(state, (newState) => {
+  if (newState) {
+    document.body.classList.add('no-scrollbar')
+    return
+  }
+
+  setTimeout(() => {
+    document.body.classList.remove('no-scrollbar')
+  }, 300)
+})
 </script>
 
 <template>
@@ -19,11 +42,15 @@ const { state, component } = storeToRefs(dialogStore)
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <div class="fixed inset-[0] bg-black/60"></div>
+        <div class="fixed inset-[0] bg-black/60" @click.self="dialogStore.close"></div>
       </TransitionChild>
 
-      <div class="fixed inset-[0] overflow-y-auto" @click.self="dialogStore.close">
-        <div class="mx-auto flex h-fit w-fit items-center justify-center p-24">
+      <div class="fixed inset-[0] overflow-y-scroll" @click.self="dialogStore.close">
+        <div
+          :class="classes"
+          class="container mx-auto flex h-full py-24"
+          @click.self="dialogStore.close"
+        >
           <TransitionChild
             as="div"
             enter="duration-300 ease-out"

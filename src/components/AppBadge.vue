@@ -10,8 +10,8 @@ const props = withDefaults(
     iconRight?: string | LilasiaIcon
     iconClass?: string | string[]
     iconRightClass?: string | string[]
-    iconFilled?: boolean
     pill?: boolean
+    outline?: boolean
   }>(),
   {
     label: undefined,
@@ -19,30 +19,51 @@ const props = withDefaults(
     icon: undefined,
     iconRight: undefined,
     iconClass: undefined,
-    iconRightClass: undefined
+    iconRightClass: undefined,
+    pill: false,
+    outline: false
   }
 )
 
 const slots = useSlots()
 
+const variant = computed(() => {
+  return props.outline ? 'outline' : 'solid'
+})
+
 const colorClasses = computed(() => {
   return {
-    white: ['border border-black-10 bg-white', 'hover:border-black-30 hover:bg-black-5'],
-    blue: ['border border-blue-20 bg-blue-20 text-blue-100', 'hover:border-blue-100'],
-    red: ['border border-red-20 bg-red-20 text-red-100', 'hover:border-red-100'],
-    yellow: ['border border-yellow-20 bg-yellow-20 text-yellow-100', 'hover:border-yellow-100'],
-    green: ['border border-green-20 bg-green-20 text-green-100', 'hover:border-green-100']
+    white: {
+      solid: ['border border-black-10 bg-white'],
+      outline: ['border border-black-30 bg-black-5']
+    },
+    blue: {
+      solid: ['border border-blue-20 bg-blue-20 text-blue-100'],
+      outline: ['border border-blue-100 bg-blue-20 text-blue-100']
+    },
+    red: {
+      solid: ['border border-red-20 bg-red-20 text-red-100'],
+      outline: ['border border-red-100 bg-red-20 text-red-100']
+    },
+    yellow: {
+      solid: ['border border-yellow-20 bg-yellow-20 text-yellow-100'],
+      outline: ['border border-yellow-100 bg-yellow-20 text-yellow-100']
+    },
+    green: {
+      solid: ['border border-green-20 bg-green-20 text-green-100'],
+      outline: ['border border-green-100 bg-green-20 text-green-100']
+    }
   }
 })
 
 const classes = computed(() => {
   return [
-    'flex h-28 cursor-default items-center justify-center gap-x-[6px] text-nowrap px-12 transition-colors',
+    'flex h-24 cursor-default items-center justify-center gap-x-[6px] text-nowrap px-[10.5px] transition-colors',
     {
       'rounded-8': !props.pill,
       'rounded-9999': props.pill
     },
-    colorClasses.value[props.color]
+    colorClasses.value[props.color][variant.value]
   ]
 })
 </script>
@@ -50,18 +71,18 @@ const classes = computed(() => {
 <template>
   <div :class="classes">
     <div v-if="icon" class="inline-flex transition-colors" :class="iconClass">
-      <Icon v-if="typeof icon === 'string'" :name="icon" size="20" />
-      <Icon v-else :="{ size: 20, ...icon }" />
+      <Icon v-if="typeof icon === 'string'" :name="icon" size="16" />
+      <Icon v-else :="{ size: 16, ...icon }" />
     </div>
 
-    <span v-if="slots.default || label" class="text-14 font-600 leading-20">
+    <span v-if="slots.default || label" class="text-12 font-600">
       <slot v-if="slots.default"></slot>
       <template v-else-if="label">{{ label }}</template>
     </span>
 
     <div v-if="iconRight" class="inline-flex transition-colors" :class="iconRightClass">
-      <Icon v-if="typeof iconRight === 'string'" :name="iconRight" size="20" />
-      <Icon v-else :="{ size: 20, ...iconRight }" />
+      <Icon v-if="typeof iconRight === 'string'" :name="iconRight" size="16" />
+      <Icon v-else :="{ size: 16, ...iconRight }" />
     </div>
   </div>
 </template>

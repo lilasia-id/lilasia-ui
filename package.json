@@ -1,7 +1,7 @@
 {
   "name": "lilasia-ui",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "scripts": {
     "build": "vue-tsc && vite build",
@@ -43,6 +43,7 @@
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/tsconfig": "^0.5.1",
     "autoprefixer": "^10.4.19",
+    "lilasia-icons": "^0.1.1",
     "pinia": "^2.1.7",
     "postcss": "^8.4.38",
     "prettier-plugin-organize-imports": "^3.2.4",

@@ -1,17 +1,24 @@
 import { defineStore } from 'pinia'
 import { ref, shallowRef, type Component } from 'vue'
 
-const useDialogStore = defineStore('dialog', () => {
-  type ModalPayload = {
-    component: Component
-  }
+export type DialogOptions = {
+  position?: 'top' | 'middle' | 'top-left' | 'top-right'
+}
 
+type DialogPayload = {
+  component: Component
+  options?: DialogOptions
+}
+
+const useDialogStore = defineStore('dialog', () => {
   const state = ref(false)
   const component = shallowRef<Component | null>(null)
+  const options = ref<DialogOptions>()
 
-  const open = (payload: ModalPayload) => {
+  const open = (payload: DialogPayload) => {
     state.value = true
     component.value = payload.component
+    options.value = { position: 'top', ...payload.options }
   }
 
   const close = () => {
@@ -19,12 +26,14 @@ const useDialogStore = defineStore('dialog', () => {
 
     setTimeout(() => {
       component.value = null
+      options.value = undefined
     }, 300)
   }
 
   return {
     state,
     component,
+    options,
     open,
     close
   }

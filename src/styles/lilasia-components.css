@@ -1,4 +1,8 @@
 @layer components {
+  body.no-scrollbar::-webkit-scrollbar {
+    visibility: hidden;
+  }
+
   table.middle td,
   table.middle th {
     vertical-align: middle;

@@ -1,11 +1,11 @@
-import useDialogStore from '@/stores/dialog'
+import useDialogStore, { DialogOptions } from '@/stores/dialog'
 import { Component } from 'vue'
 
 export const useDialog = () => {
   const dialogStore = useDialogStore()
 
-  const showDialog = (component: Component) => {
-    dialogStore.open({ component })
+  const showDialog = (component: Component, options?: DialogOptions) => {
+    dialogStore.open({ component, options })
   }
 
   const hideDialog = () => {

@@ -1,14 +1,34 @@
 <script lang="ts" setup>
 import { Menu, MenuButton, MenuItems } from '@headlessui/vue'
-import { useSlots } from 'vue'
+import { computed, useSlots } from 'vue'
 import AppButton from '../AppButton.vue'
+import { LilasiaIcon } from 'lilasia-icons'
 
-defineProps<{
-  text?: string
-  icon?: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    text?: string
+    icon?: string | LilasiaIcon
+    menuPosition?: 'right' | 'left' | 'center'
+  }>(),
+  {
+    text: undefined,
+    icon: undefined,
+    menuPosition: 'right'
+  }
+)
 
 const slots = useSlots()
+
+const classes = computed(() => {
+  return [
+    'divide-gray-100 absolute z-50 mt-4 min-w-[12rem] origin-top-right divide-y divide-black-10 rounded-8 bg-white shadow-lg ring-1 ring-black-10 focus:outline-none',
+    {
+      'right-[0]': props.menuPosition === 'right',
+      'left-[0]': props.menuPosition === 'left',
+      'left-[50%] translate-x-[-50%]': props.menuPosition === 'center'
+    }
+  ]
+})
 </script>
 
 <template>
@@ -28,9 +48,7 @@ const slots = useSlots()
       leave-from-class="transform scale-100 opacity-100"
       leave-to-class="transform scale-95 opacity-0"
     >
-      <MenuItems
-        class="divide-gray-100 absolute right-[0] z-50 mt-4 min-w-[12rem] origin-top-right divide-y divide-black-10 rounded-8 bg-white shadow-lg ring-1 ring-black-10 focus:outline-none"
-      >
+      <MenuItems :class="classes">
         <slot></slot>
       </MenuItems>
     </transition>

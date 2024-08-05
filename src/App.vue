@@ -18,6 +18,7 @@ import FormRadioGroup from './components/form/FormRadioGroup.vue'
 import AppToast from './components/AppToast.vue'
 import AppModal from './components/AppModal.vue'
 import AppDivider from './components/AppDivider.vue'
+import { DialogOptions } from './stores/dialog'
 
 const people = [
   { id: 1, name: 'Wade Cooper' },
@@ -80,8 +81,8 @@ const showDangerToast = () => {
   toastError('This is danger toast')
 }
 
-const openDeleteDialog = () => {
-  showDialog(DeleteDialog)
+const openDeleteDialog = (position: DialogOptions['position']) => {
+  showDialog(DeleteDialog, { position: position })
 }
 </script>
 
@@ -138,13 +139,20 @@ const openDeleteDialog = () => {
           <AppButton color="yellow" disabled>Yellow Disabled</AppButton>
         </div>
 
-        <div class="mb-24 flex items-center gap-8">
+        <div class="mb-8 flex items-center gap-8">
           <AppButton color="red">Red</AppButton>
           <AppButton color="red" icon="error">Red with icon</AppButton>
           <AppButton color="red" icon-right="error">Red with icon</AppButton>
           <AppButton color="red" disabled>Red Disabled</AppButton>
           <AppButton color="red" outline>Outlined Red</AppButton>
           <AppButton color="red" outline disabled>Outlined Red Disabled</AppButton>
+        </div>
+
+        <div class="mb-24 flex items-center gap-8">
+          <AppButton color="black">Black</AppButton>
+          <AppButton color="black" icon="close">Black with icon</AppButton>
+          <AppButton color="black" icon-right="close">Black with icon</AppButton>
+          <AppButton color="black" disabled>Black Disabled</AppButton>
         </div>
 
         <div class="mb-24 max-w-screen-sm">
@@ -165,7 +173,7 @@ const openDeleteDialog = () => {
         </div>
 
         <div class="mb-24 mt-16 flex items-center gap-8">
-          <AppDropdown icon="sort" text="Dropdown Action">
+          <AppDropdown icon="sort" text="Dropdown Action" menu-position="left">
             <DropdownItemGroup>
               <DropdownItem icon="edit" text="Edit" />
               <DropdownItem icon="content_copy" text="Duplicate" />
@@ -181,7 +189,7 @@ const openDeleteDialog = () => {
             </DropdownItemGroup>
           </AppDropdown>
 
-          <AppDropdown icon="sort" text="Dropdown Action">
+          <AppDropdown icon="sort" text="Dropdown Action" menu-position="right">
             <template #button>
               <AppButton color="blue" text="Custom Dropdown Action" icon-right="more_vert" />
             </template>
@@ -201,7 +209,7 @@ const openDeleteDialog = () => {
             </DropdownItemGroup>
           </AppDropdown>
 
-          <AppDropdown icon="sort" text="Dropdown Action">
+          <AppDropdown icon="sort" text="Dropdown Action" menu-position="center">
             <template #button>
               <AppButton icon="more_vert" round />
             </template>
@@ -229,8 +237,8 @@ const openDeleteDialog = () => {
           <AppButton color="light" icon="close" />
           <AppButton color="blue" icon="info" />
           <AppButton color="yellow" icon="warning" />
-          <AppButton color="red" icon="delete" @click="openDeleteDialog" />
-          <AppButton color="red" icon="delete" subtle @click="openDeleteDialog" />
+          <AppButton color="red" icon="delete" @click="openDeleteDialog('top')" />
+          <AppButton color="red" icon="delete" subtle @click="openDeleteDialog('middle')" />
         </div>
 
         <div class="flex items-center gap-8">
@@ -243,8 +251,14 @@ const openDeleteDialog = () => {
           <AppButton color="light" icon="close" round />
           <AppButton color="blue" icon="info" round />
           <AppButton color="yellow" icon="warning" round />
-          <AppButton color="red" icon="delete" round @click="openDeleteDialog" />
-          <AppButton color="red" icon="delete" round subtle @click="openDeleteDialog" />
+          <AppButton color="red" icon="delete" round @click="openDeleteDialog('top-left')" />
+          <AppButton
+            color="red"
+            icon="delete"
+            round
+            subtle
+            @click="openDeleteDialog('top-right')"
+          />
         </div>
       </div>
     </AppBlock>
@@ -263,12 +277,28 @@ const openDeleteDialog = () => {
           <AppBadge color="green" icon="check_circle" label="Green Color" />
         </div>
 
-        <div class="flex gap-8">
+        <div class="mb-16 flex gap-8">
           <AppBadge icon="explosion" label="Pill Default Color" pill />
           <AppBadge color="blue" icon="info" label="Pill Blue Color" pill />
           <AppBadge color="red" icon="error" label="Pill Red Color" pill />
           <AppBadge color="yellow" icon="warning" label="Pill Yellow Color" pill />
           <AppBadge color="green" icon="check_circle" label="Pill Green Color" pill />
+        </div>
+
+        <div class="mb-8 flex gap-8">
+          <AppBadge icon="explosion" label="Default Color" outline />
+          <AppBadge color="blue" icon="info" label="Blue Color" outline />
+          <AppBadge color="red" icon="error" label="Red Color" outline />
+          <AppBadge color="yellow" icon="warning" label="Yellow Color" outline />
+          <AppBadge color="green" icon="check_circle" label="Green Color" outline />
+        </div>
+
+        <div class="flex gap-8">
+          <AppBadge icon="explosion" label="Pill Default Color" pill outline />
+          <AppBadge color="blue" icon="info" label="Pill Blue Color" pill outline />
+          <AppBadge color="red" icon="error" label="Pill Red Color" pill outline />
+          <AppBadge color="yellow" icon="warning" label="Pill Yellow Color" pill outline />
+          <AppBadge color="green" icon="check_circle" label="Pill Green Color" pill outline />
         </div>
       </div>
     </AppBlock>
