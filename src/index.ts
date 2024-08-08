@@ -24,7 +24,7 @@ import FormRadioGroup from '@/components/form/FormRadioGroup.vue'
 import FormSelect from '@/components/form/FormSelect.vue'
 import FormSwitch from '@/components/form/FormSwitch.vue'
 import FormTextarea from '@/components/form/FormTextarea.vue'
-import AppPagination from '@/components/pagination/AppPagination.vue'
+import AppPagination, { type PaginationMeta } from '@/components/pagination/AppPagination.vue'
 import AppSkeleton from '@/components/skeleton/AppSkeleton.vue'
 import HeadingSkeleton from '@/components/skeleton/HeadingSkeleton.vue'
 import ImageSkeleton from '@/components/skeleton/ImageSkeleton.vue'
@@ -81,3 +81,5 @@ export {
   useDialog,
   useToast
 }
+
+export type { PaginationMeta }
