@@ -6,7 +6,12 @@ import path from 'node:path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), dts()],
+  plugins: [
+    vue(),
+    dts({
+      exclude: ['src/main.ts', 'src/router.ts']
+    })
+  ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -22,6 +27,7 @@ export default defineConfig({
     rollupOptions: {
       external: [
         "vue",
+        'vue-router',
         "pinia",
         "lilasia-icons",
         "@headlessui/vue",
@@ -33,6 +39,7 @@ export default defineConfig({
       output: {
         globals: {
           vue: "Vue",
+          'vue-router': 'vue-router',
           pinia: "Pinia",
           "lilasia-icons": "lilasia-icons",
           "@headlessui/vue": "@headlessui/vue",
