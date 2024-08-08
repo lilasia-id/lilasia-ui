@@ -1,0 +1,78 @@
+<script setup lang="ts">
+import AppButton from '@/components/AppButton.vue'
+import AppSection from '@/components/AppSection.vue'
+import AppBlock from '@/components/blocks/AppBlock.vue'
+import AppDropdown from '@/components/dropdown/AppDropdown.vue'
+import DropdownItem from '@/components/dropdown/DropdownItem.vue'
+import DropdownItemGroup from '@/components/dropdown/DropdownItemGroup.vue'
+</script>
+
+<template>
+  <AppSection>
+    <AppBlock bordered>
+      <template #header>
+        <h1 class="text-24 font-600 leading-32">Dropdown</h1>
+      </template>
+
+      <div class="px-24 pb-24">
+        <div class="flex items-center gap-8">
+          <AppDropdown icon="sort" text="Dropdown Action" menu-position="left">
+            <DropdownItemGroup>
+              <DropdownItem icon="edit" text="Edit" />
+              <DropdownItem icon="content_copy" text="Duplicate" />
+            </DropdownItemGroup>
+
+            <DropdownItemGroup>
+              <DropdownItem icon="archive" text="Archive" />
+              <DropdownItem icon="open_with" text="Move" />
+            </DropdownItemGroup>
+
+            <DropdownItemGroup>
+              <DropdownItem icon="delete" text="Delete" active-color="red" />
+            </DropdownItemGroup>
+          </AppDropdown>
+
+          <AppDropdown icon="sort" text="Dropdown Action" menu-position="right">
+            <template #button>
+              <AppButton color="blue" text="Custom Dropdown Action" icon-right="more_vert" />
+            </template>
+
+            <DropdownItemGroup>
+              <DropdownItem icon="edit" text="Edit" />
+              <DropdownItem icon="content_copy" text="Duplicate" />
+            </DropdownItemGroup>
+
+            <DropdownItemGroup>
+              <DropdownItem icon="archive" text="Archive" />
+              <DropdownItem icon="open_with" text="Move" />
+            </DropdownItemGroup>
+
+            <DropdownItemGroup>
+              <DropdownItem icon="delete" text="Delete" active-color="red" />
+            </DropdownItemGroup>
+          </AppDropdown>
+
+          <AppDropdown icon="sort" text="Dropdown Action" menu-position="center">
+            <template #button>
+              <AppButton icon="more_vert" round />
+            </template>
+
+            <DropdownItemGroup>
+              <DropdownItem icon="edit" text="Edit" />
+              <DropdownItem icon="content_copy" text="Duplicate" />
+            </DropdownItemGroup>
+
+            <DropdownItemGroup>
+              <DropdownItem icon="archive" text="Archive" />
+              <DropdownItem icon="open_with" text="Move" />
+            </DropdownItemGroup>
+
+            <DropdownItemGroup>
+              <DropdownItem icon="delete" text="Delete" active-color="red" />
+            </DropdownItemGroup>
+          </AppDropdown>
+        </div>
+      </div>
+    </AppBlock>
+  </AppSection>
+</template>

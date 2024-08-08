@@ -1,15 +1,17 @@
 {
   "name": "lilasia-ui",
   "private": false,
-  "version": "0.1.2",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
-    "build": "vue-tsc && vite build",
+    "build": "npm run build:lib && npm run build:web",
+    "build:lib": "vue-tsc && vite build",
+    "build:web": "vue-tsc && vite build --config vite-web.config.ts",
     "dev": "vite",
     "type-check": "vue-tsc",
     "lint": "eslint ./src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "npx prettier --write \"src/**/*.{vue,ts}\"",
-    "preview": "vite preview"
+    "preview": "vite preview --config vite-web.config.ts"
   },
   "files": [
     "dist"

@@ -13,14 +13,14 @@ withDefaults(
   }>(),
   {
     to: undefined,
-    activeColor: 'blue',
+    activeColor: 'white',
     icon: undefined
   }
 )
 </script>
 
 <template>
-  <MenuItem v-slot="{ active }">
+  <MenuItem v-slot="{ active, close }">
     <AppButton
       :to="to"
       :color="active ? activeColor : 'light'"
@@ -28,6 +28,7 @@ withDefaults(
       :text="text"
       align="start"
       block
+      @click.capture="close"
     />
   </MenuItem>
 </template>

@@ -37,7 +37,7 @@ const editor = useEditor({
   editorProps: {
     attributes: {
       class: [
-        'block max-h-[400px] overflow-y-auto w-full rounded-8 border p-16 text-16 leading-24 shadow-sm transition duration-150 ease-in-out',
+        'bg-white block min-h-[106px] max-h-[400px] overflow-y-auto w-full rounded-8 border p-16 text-16 leading-24 shadow-sm transition duration-150 ease-in-out',
         !props.error
           ? 'border-black-10 focus:border-black-30 focus:outline-none focus:ring-1 focus:ring-black-30'
           : 'pr-40 border-red-100 focus:border-red-100 focus:outline-none focus:ring-1 focus:ring-red-100'
@@ -57,7 +57,7 @@ watch(
       editorProps: {
         attributes: {
           class: [
-            'block max-h-[400px] overflow-y-auto w-full rounded-8 border p-16 text-16 leading-24 shadow-sm transition duration-150 ease-in-out',
+            'bg-white block min-h-[106] max-h-[400px] overflow-y-auto w-full rounded-8 border p-16 text-16 leading-24 shadow-sm transition duration-150 ease-in-out',
             !error
               ? 'border-black-10 focus:border-black-30 focus:outline-none focus:ring-1 focus:ring-black-30'
               : 'pr-40 border-red-100 focus:border-red-100 focus:outline-none focus:ring-1 focus:ring-red-100'

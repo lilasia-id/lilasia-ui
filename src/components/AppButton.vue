@@ -15,11 +15,12 @@ const props = withDefaults(
     iconRight?: string | LilasiaIcon
     iconClass?: string | string[]
     iconRightClass?: string | string[]
-    align?: 'center' | 'start' | 'end'
+    align?: 'center' | 'start' | 'end' | 'between'
     outline?: boolean
     subtle?: boolean
     round?: boolean
     block?: boolean
+    noWrap?: boolean
     disabled?: boolean
     loading?: boolean
   }>(),
@@ -38,6 +39,7 @@ const props = withDefaults(
     outline: false,
     round: false,
     block: false,
+    noWrap: true,
     disabled: false,
     loading: false
   }
@@ -135,16 +137,18 @@ const colorClasses = computed(() => {
 
 const classes = computed(() => {
   return [
-    'flex h-48 flex-col justify-center text-nowrap px-16 transition duration-150 ease-in-out md:h-40',
+    'flex h-48 items-center gap-x-8 px-16 transition duration-150 ease-in-out md:h-40',
     'focus-visible:border-black-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black-30 focus-visible:ring-offset-2',
     {
       'w-full': props.block,
       'w-48 md:w-40': !(slots.default || props.text),
       'rounded-9999': props.round,
       'rounded-8': !props.round,
-      'items-center': props.align === 'center',
-      'items-start': props.align === 'start',
-      'items-end': props.align === 'end'
+      'text-nowrap': props.noWrap,
+      'justify-center': props.align === 'center',
+      'justify-start': props.align === 'start',
+      'justify-end': props.align === 'end',
+      'justify-between': props.align === 'between'
     },
     colorClasses.value[props.color][variant.value]
   ]
@@ -159,6 +163,18 @@ onMounted(() => {
     }
   }
 })
+
+const handleFocusIn = () => {
+  if (button.value instanceof HTMLElement) {
+    button.value.classList.add('z-10')
+  }
+}
+
+const handleFocusOut = () => {
+  if (button.value instanceof HTMLElement) {
+    button.value.classList.remove('z-10')
+  }
+}
 </script>
 
 <template>
@@ -169,36 +185,36 @@ onMounted(() => {
     :type="type"
     :class="classes"
     :disabled="disabled || loading"
+    @focusin="handleFocusIn"
+    @focusout="handleFocusOut"
   >
-    <div class="flex items-center justify-center gap-x-8">
-      <template v-if="!loading">
-        <div v-if="icon" class="inline-flex" :class="iconClass">
-          <Icon v-if="typeof icon === 'string'" :name="icon" size="20" />
-          <Icon v-else :="{ size: 20, ...icon }" />
-        </div>
+    <template v-if="!loading">
+      <div v-if="icon" class="inline-flex" :class="iconClass">
+        <Icon v-if="typeof icon === 'string'" :name="icon" size="20" />
+        <Icon v-else :="{ size: 20, ...icon }" />
+      </div>
 
-        <span v-if="slots.default || text" class="text-16 font-600 leading-20 md:text-14">
-          <slot v-if="slots.default"></slot>
-          <template v-else-if="text">{{ text }}</template>
-        </span>
+      <span v-if="slots.default || text" class="text-16 font-600 leading-20 md:text-14">
+        <slot v-if="slots.default"></slot>
+        <template v-else-if="text">{{ text }}</template>
+      </span>
 
-        <div
-          v-if="(slots.default || text) && iconRight && !loading"
-          class="inline-flex"
-          :class="iconRightClass"
-        >
-          <Icon v-if="typeof iconRight === 'string'" :name="iconRight" size="20" />
-          <Icon v-else :="{ size: 20, ...iconRight }" />
-        </div>
-      </template>
+      <div
+        v-if="(slots.default || text) && iconRight && !loading"
+        class="inline-flex"
+        :class="iconRightClass"
+      >
+        <Icon v-if="typeof iconRight === 'string'" :name="iconRight" size="20" />
+        <Icon v-else :="{ size: 20, ...iconRight }" />
+      </div>
+    </template>
 
-      <template v-else>
-        <div class="inline-flex animate-spin">
-          <Icon name="progress_activity" size="20" />
-        </div>
+    <template v-else>
+      <div class="inline-flex animate-spin">
+        <Icon name="progress_activity" size="20" />
+      </div>
 
-        <span class="text-16 font-600 leading-20 md:text-14"> Loading&hellip; </span>
-      </template>
-    </div>
+      <span class="text-16 font-600 leading-20 md:text-14"> Loading&hellip; </span>
+    </template>
   </component>
 </template>
