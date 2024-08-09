@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import AppButton from '@/components/AppButton.vue'
+import AppDivider from '@/components/AppDivider.vue'
 import AppSection from '@/components/AppSection.vue'
 import AppTooltip from '@/components/AppTooltip.vue'
 import AppBlock from '@/components/blocks/AppBlock.vue'
+import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 </script>
 
 <template>
@@ -42,6 +44,10 @@ import AppBlock from '@/components/blocks/AppBlock.vue'
             <AppButton icon="dock_to_right" text="Right Tooltip" />
           </AppTooltip>
         </div>
+
+        <AppDivider class="my-24" />
+
+        <MarkdownRenderer file-path="docs/tooltip.md" />
       </div>
     </AppBlock>
   </AppSection>
