@@ -1,22 +1,19 @@
 <script setup lang="ts">
 import AppSection from '@/components/AppSection.vue'
 import AppBlock from '@/components/blocks/AppBlock.vue'
+import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 import HeadingSkeleton from '@/components/skeleton/HeadingSkeleton.vue'
 import ImageSkeleton from '@/components/skeleton/ImageSkeleton.vue'
 import ParagraphSkeleton from '@/components/skeleton/ParagraphSkeleton.vue'
 </script>
 
 <template>
-  <AppSection>
-    <AppBlock bordered>
-      <template #header>
-        <h1 class="text-24 font-600 leading-32">Skeleton</h1>
-      </template>
-
-      <div class="px-24 pb-24">
-        <div class="rounded-8 bg-blue-10 p-24">
-          <div class="grid grid-cols-5 gap-16">
-            <AppBlock v-for="n in 5" :key="n" bordered>
+  <div class="prose mx-auto">
+    <AppSection>
+      <AppBlock class="bg-gradient-to-bl from-black-20 to-black-80">
+        <div class="px-24 py-48">
+          <div class="grid grid-cols-3 gap-16">
+            <AppBlock v-for="n in 3" :key="n" bordered>
               <div class="space-y-16 p-16">
                 <ImageSkeleton />
                 <HeadingSkeleton />
@@ -25,50 +22,39 @@ import ParagraphSkeleton from '@/components/skeleton/ParagraphSkeleton.vue'
             </AppBlock>
           </div>
         </div>
-      </div>
-    </AppBlock>
-  </AppSection>
+      </AppBlock>
+    </AppSection>
 
-  <AppSection>
-    <AppBlock bordered>
-      <template #header>
-        <h1 class="text-24 font-600 leading-32">Image Skeleton</h1>
-      </template>
-
-      <div class="max-w-2xl px-24 pb-24">
-        <div class="grid grid-cols-3 gap-16">
-          <ImageSkeleton aspect-ratio="square" round />
-          <ImageSkeleton aspect-ratio="square" />
-          <ImageSkeleton aspect-ratio="video" />
+    <AppSection>
+      <AppBlock class="bg-gradient-to-bl from-black-20 to-black-80">
+        <div class="px-24 py-48">
+          <div class="grid grid-cols-3 gap-16 rounded-8 bg-white p-20">
+            <ImageSkeleton aspect-ratio="square" round />
+            <ImageSkeleton aspect-ratio="square" />
+            <ImageSkeleton aspect-ratio="video" />
+          </div>
         </div>
-      </div>
-    </AppBlock>
-  </AppSection>
+      </AppBlock>
+    </AppSection>
 
-  <AppSection>
-    <AppBlock bordered>
-      <template #header>
-        <h1 class="text-24 font-600 leading-32">Heading Skeleton</h1>
-      </template>
-
-      <div class="max-w-2xl px-24 pb-24">
-        <HeadingSkeleton />
-      </div>
-    </AppBlock>
-  </AppSection>
-
-  <AppSection>
-    <AppBlock bordered>
-      <template #header>
-        <h1 class="text-24 font-600 leading-32">Paragraph Skeleton</h1>
-      </template>
-
-      <div class="max-w-2xl px-24 pb-24">
-        <div class="flex flex-col gap-24">
-          <ParagraphSkeleton />
-          <ParagraphSkeleton :rows="2" />
+    <AppSection>
+      <AppBlock class="bg-gradient-to-bl from-black-20 to-black-80">
+        <div class="px-24 py-48">
+          <div class="flex flex-col gap-24 rounded-8 bg-white p-16">
+            <HeadingSkeleton />
+            <ParagraphSkeleton />
+            <ParagraphSkeleton :rows="2" />
+          </div>
         </div>
-      </div>
-    </AppBlock>
-  </AppSection>
+      </AppBlock>
+    </AppSection>
+
+    <AppSection>
+      <AppBlock bordered>
+        <div class="p-24">
+          <MarkdownRenderer file-path="docs/skeleton.md" />
+        </div>
+      </AppBlock>
+    </AppSection>
+  </div>
 </template>

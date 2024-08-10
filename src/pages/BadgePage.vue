@@ -2,48 +2,56 @@
 import AppBadge from '@/components/AppBadge.vue'
 import AppSection from '@/components/AppSection.vue'
 import AppBlock from '@/components/blocks/AppBlock.vue'
+import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 </script>
 
 <template>
-  <AppSection>
-    <AppBlock bordered>
-      <template #header>
-        <h1 class="text-24 font-600 leading-32">Badge</h1>
-      </template>
+  <div class="prose mx-auto">
+    <AppSection>
+      <AppBlock class="bg-gradient-to-bl from-black-20 to-black-80">
+        <div class="grid grid-cols-3 gap-16 px-24 py-48">
+          <div class="flex flex-col items-center gap-16 rounded-8 bg-white p-16">
+            <div class="font-600">Without Icon</div>
+            <AppBadge class="w-fit" label="Default Color" />
+            <AppBadge class="w-fit" color="blue" label="Blue Color" />
+            <AppBadge class="w-fit" color="red" label="Red Color" />
+            <AppBadge class="w-fit" color="yellow" label="Yellow Color" />
+            <AppBadge class="w-fit" color="green" label="Green Color" />
+          </div>
 
-      <div class="px-24 pb-24">
-        <div class="mb-8 flex gap-8">
-          <AppBadge icon="explosion" label="Default Color" />
-          <AppBadge color="blue" icon="info" label="Blue Color" />
-          <AppBadge color="red" icon="error" label="Red Color" />
-          <AppBadge color="yellow" icon="warning" label="Yellow Color" />
-          <AppBadge color="green" icon="check_circle" label="Green Color" />
-        </div>
+          <div class="flex flex-col items-center gap-16 rounded-8 bg-white p-16">
+            <div class="font-600">With Icon</div>
+            <AppBadge class="w-fit" icon="explosion" label="Default Color" />
+            <AppBadge class="w-fit" color="blue" icon="info" label="Blue Color" />
+            <AppBadge class="w-fit" color="red" icon="error" label="Red Color" />
+            <AppBadge class="w-fit" color="yellow" icon="warning" label="Yellow Color" />
+            <AppBadge class="w-fit" color="green" icon="check_circle" label="Green Color" />
+          </div>
 
-        <div class="mb-16 flex gap-8">
-          <AppBadge icon="explosion" label="Pill Default Color" pill />
-          <AppBadge color="blue" icon="info" label="Pill Blue Color" pill />
-          <AppBadge color="red" icon="error" label="Pill Red Color" pill />
-          <AppBadge color="yellow" icon="warning" label="Pill Yellow Color" pill />
-          <AppBadge color="green" icon="check_circle" label="Pill Green Color" pill />
+          <div class="flex flex-col items-center gap-16 rounded-8 bg-white p-16">
+            <div class="font-600">Pills</div>
+            <AppBadge class="w-fit" icon="explosion" label="Pill Default Color" pill />
+            <AppBadge class="w-fit" color="blue" icon="info" label="Pill Blue Color" pill />
+            <AppBadge class="w-fit" color="red" icon="error" label="Pill Red Color" pill />
+            <AppBadge class="w-fit" color="yellow" icon="warning" label="Pill Yellow Color" pill />
+            <AppBadge
+              class="w-fit"
+              color="green"
+              icon="check_circle"
+              label="Pill Green Color"
+              pill
+            />
+          </div>
         </div>
+      </AppBlock>
+    </AppSection>
 
-        <div class="mb-8 flex gap-8">
-          <AppBadge icon="explosion" label="Default Color" outline />
-          <AppBadge color="blue" icon="info" label="Blue Color" outline />
-          <AppBadge color="red" icon="error" label="Red Color" outline />
-          <AppBadge color="yellow" icon="warning" label="Yellow Color" outline />
-          <AppBadge color="green" icon="check_circle" label="Green Color" outline />
+    <AppSection>
+      <AppBlock bordered>
+        <div class="p-24">
+          <MarkdownRenderer file-path="docs/badge.md" />
         </div>
-
-        <div class="flex gap-8">
-          <AppBadge icon="explosion" label="Pill Default Color" pill outline />
-          <AppBadge color="blue" icon="info" label="Pill Blue Color" pill outline />
-          <AppBadge color="red" icon="error" label="Pill Red Color" pill outline />
-          <AppBadge color="yellow" icon="warning" label="Pill Yellow Color" pill outline />
-          <AppBadge color="green" icon="check_circle" label="Pill Green Color" pill outline />
-        </div>
-      </div>
-    </AppBlock>
-  </AppSection>
+      </AppBlock>
+    </AppSection>
+  </div>
 </template>

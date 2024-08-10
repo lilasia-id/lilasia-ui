@@ -2,6 +2,7 @@
 import AppButton from '@/components/AppButton.vue'
 import AppSection from '@/components/AppSection.vue'
 import AppBlock from '@/components/blocks/AppBlock.vue'
+import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 import { useToast } from '@/composables/toast'
 
 const { toastSuccess, toastInfo, toastWarning, toastError } = useToast()
@@ -24,20 +25,24 @@ const showDangerToast = () => {
 </script>
 
 <template>
-  <AppSection>
-    <AppBlock bordered>
-      <template #header>
-        <h1 class="text-24 font-600 leading-32">Lilasia UI</h1>
-      </template>
-
-      <div class="px-24 pb-24">
-        <div class="flex gap-8">
-          <AppButton @click="showSuccessToast">Show Success Toast</AppButton>
-          <AppButton color="blue" @click="showInfoToast">Show Info Toast</AppButton>
-          <AppButton color="yellow" @click="showWarningToast">Show Warning Toast</AppButton>
-          <AppButton color="red" @click="showDangerToast">Show Danger Toast</AppButton>
+  <div class="prose mx-auto">
+    <AppSection>
+      <AppBlock bordered>
+        <div class="flex justify-center gap-8 p-24">
+          <AppButton @click="showSuccessToast"> Success Toast </AppButton>
+          <AppButton color="blue" @click="showInfoToast"> Info Toast </AppButton>
+          <AppButton color="yellow" @click="showWarningToast"> Warning Toast </AppButton>
+          <AppButton color="red" @click="showDangerToast"> Danger Toast </AppButton>
         </div>
-      </div>
-    </AppBlock>
-  </AppSection>
+      </AppBlock>
+    </AppSection>
+
+    <AppSection>
+      <AppBlock bordered>
+        <div class="p-24">
+          <MarkdownRenderer file-path="docs/toast.md" />
+        </div>
+      </AppBlock>
+    </AppSection>
+  </div>
 </template>
