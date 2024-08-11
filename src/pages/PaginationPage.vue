@@ -4,6 +4,8 @@ import AppSection from '@/components/AppSection.vue'
 import AppBlock from '@/components/blocks/AppBlock.vue'
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
+import ComponentsPreview from '@/components/playground/ComponentsPreview.vue'
 
 const route = useRoute()
 const meta = ref<PaginationMeta>()
@@ -27,31 +29,37 @@ const fetchData = async () => {
 </script>
 
 <template>
-  <AppSection>
-    <AppBlock bordered>
-      <template #header>
-        <h1 class="text-24 font-600 leading-32">Pagination</h1>
-      </template>
+  <div class="prose mx-auto">
+    <AppSection class="not-prose">
+      <ComponentsPreview>
+        <div class="flex flex-col gap-16">
+          <AppBlock>
+            <template #header>
+              <div class="font-600">Default</div>
+            </template>
+            <div class="px-24 pb-24">
+              <AppPagination v-if="meta" :meta="meta" :page-limit="5" @page-change="fetchData" />
+            </div>
+          </AppBlock>
 
-      <div class="px-24 pb-24">
-        <div class="flex flex-col gap-8">
-          <AppPagination v-if="meta" :meta="meta" :page-limit="5" @page-change="fetchData" />
+          <AppBlock>
+            <template #header>
+              <div class="font-600">Without page numbers</div>
+            </template>
+            <div class="px-24 pb-24">
+              <AppPagination v-if="meta" :meta="meta" hide-page-numbers @page-change="fetchData" />
+            </div>
+          </AppBlock>
         </div>
-      </div>
-    </AppBlock>
-  </AppSection>
+      </ComponentsPreview>
+    </AppSection>
 
-  <AppSection>
-    <AppBlock bordered>
-      <template #header>
-        <h1 class="text-24 font-600 leading-32">Pagination w/o page numbers</h1>
-      </template>
-
-      <div class="px-24 pb-24">
-        <div class="flex flex-col gap-8">
-          <AppPagination v-if="meta" :meta="meta" hide-page-numbers @page-change="fetchData" />
+    <AppSection>
+      <AppBlock bordered>
+        <div class="p-24">
+          <MarkdownRenderer file-path="docs/pagination.md" />
         </div>
-      </div>
-    </AppBlock>
-  </AppSection>
+      </AppBlock>
+    </AppSection>
+  </div>
 </template>

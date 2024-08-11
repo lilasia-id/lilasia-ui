@@ -3,6 +3,8 @@ import AppButton from '@/components/AppButton.vue'
 import AppDrawer from '@/components/AppDrawer.vue'
 import AppSection from '@/components/AppSection.vue'
 import AppBlock from '@/components/blocks/AppBlock.vue'
+import ComponentsPreview from '@/components/playground/ComponentsPreview.vue'
+import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 import { ref } from 'vue'
 
 const showRightDrawer = ref(false)
@@ -14,14 +16,10 @@ const showNoBackdropDrawer = ref(false)
 </script>
 
 <template>
-  <AppSection>
-    <AppBlock bordered>
-      <template #header>
-        <h1 class="text-24 font-600 leading-32">Drawer</h1>
-      </template>
-
-      <div class="px-24 pb-24">
-        <div class="mb-8 flex items-center gap-8">
+  <div class="prose mx-auto">
+    <AppSection class="not-prose">
+      <ComponentsPreview>
+        <div class="grid grid-cols-2 gap-8">
           <AppButton
             icon="dock_to_right"
             text="Open Right Drawer"
@@ -34,9 +32,6 @@ const showNoBackdropDrawer = ref(false)
             text="Open Bottom Drawer"
             @click="showBottomDrawer = true"
           />
-        </div>
-
-        <div class="mb-8 flex items-center gap-8">
           <AppButton
             icon="dock_to_right"
             text="Open Static Backrop Drawer"
@@ -48,9 +43,17 @@ const showNoBackdropDrawer = ref(false)
             @click="showNoBackdropDrawer = true"
           />
         </div>
-      </div>
-    </AppBlock>
-  </AppSection>
+      </ComponentsPreview>
+    </AppSection>
+
+    <AppSection>
+      <AppBlock bordered>
+        <div class="p-24">
+          <MarkdownRenderer file-path="docs/drawer.md" />
+        </div>
+      </AppBlock>
+    </AppSection>
+  </div>
 
   <Teleport to="body">
     <AppDrawer

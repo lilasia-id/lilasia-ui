@@ -13,12 +13,28 @@ export default defineConfig({
     }
   },
   build: {
+    chunkSizeWarningLimit: 1100,
     outDir: 'www',
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['pinia'],
-          vue: ['vue']
+          vue: ['vue'],
+          vendor: [
+            'pinia',
+            'shiki/core',
+            'marked-shiki',
+            'marked',
+          ],
+          shikiWasm: [
+            'shiki/wasm'
+          ],
+          shikiThemes: [
+            'shiki/themes/github-dark.mjs',
+          ],
+          shikiLangs: [
+            'shiki/langs/md.mjs',
+            'shiki/langs/vue.mjs'
+          ],
         }
       }
     }

@@ -2,76 +2,107 @@
 import AppButton from '@/components/AppButton.vue'
 import AppSection from '@/components/AppSection.vue'
 import AppBlock from '@/components/blocks/AppBlock.vue'
+import ComponentsPreview from '@/components/playground/ComponentsPreview.vue'
+import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 </script>
 
 <template>
-  <AppSection>
-    <AppBlock bordered>
-      <template #header>
-        <h1 class="text-24 font-600 leading-32">Button</h1>
-      </template>
+  <div class="prose mx-auto">
+    <AppSection class="not-prose">
+      <ComponentsPreview>
+        <div class="grid grid-cols-4 gap-16">
+          <AppBlock>
+            <template #header>
+              <div class="text-center font-600">Solid</div>
+            </template>
+            <div class="px-24 pb-24">
+              <div class="flex flex-col items-center gap-8">
+                <AppButton color="light" text="Light" />
+                <AppButton color="white" text="White" />
+                <AppButton color="blue" text="Blue" />
+                <AppButton color="yellow" text="Yellow" />
+                <AppButton color="red" text="Red" />
+                <AppButton color="black" text="Black" />
+              </div>
+            </div>
+          </AppBlock>
 
-      <div class="px-24 pb-24">
-        <div class="mb-8 flex gap-8">
-          <AppButton>Default</AppButton>
-          <AppButton icon="search">Default with icon</AppButton>
-          <AppButton icon-right="search">Default with icon</AppButton>
-          <AppButton disabled>Default Disabled</AppButton>
-        </div>
+          <AppBlock>
+            <template #header>
+              <div class="text-center font-600">Outline</div>
+            </template>
+            <div class="px-24 pb-24">
+              <div class="flex flex-col items-center gap-8">
+                <AppButton color="blue" text="Blue" outline />
+                <AppButton color="red" text="Red" outline />
+              </div>
+            </div>
+          </AppBlock>
 
-        <div class="mb-8 flex gap-8">
-          <AppButton color="light">Light</AppButton>
-          <AppButton color="light" icon="close">Light with icon</AppButton>
-          <AppButton color="light" icon-right="close">Light with icon</AppButton>
-          <AppButton color="light" disabled>Light Disabled</AppButton>
-        </div>
+          <AppBlock>
+            <template #header>
+              <div class="text-center font-600">Subtle</div>
+            </template>
+            <div class="px-24 pb-24">
+              <div class="flex flex-col items-center gap-8">
+                <AppButton color="red" text="Red" subtle />
+              </div>
+            </div>
+          </AppBlock>
 
-        <div class="mb-8 flex gap-8">
-          <AppButton color="blue">Blue</AppButton>
-          <AppButton color="blue" icon="info">Blue with icon</AppButton>
-          <AppButton color="blue" icon-right="info">Blue with icon</AppButton>
-          <AppButton color="blue" disabled>Blue Disabled</AppButton>
-          <AppButton color="blue" outline>Outlined Blue</AppButton>
-          <AppButton color="blue" outline disabled>Outlined Blue Disabled</AppButton>
-        </div>
+          <AppBlock>
+            <template #header>
+              <div class="text-center font-600">Disabled</div>
+            </template>
+            <div class="px-24 pb-24">
+              <div class="flex flex-col items-center gap-8">
+                <AppButton color="light" text="Light" disabled />
+                <AppButton color="white" text="White" disabled />
+                <AppButton color="blue" text="Blue" disabled />
+                <AppButton color="yellow" text="Yellow" disabled />
+                <AppButton color="red" text="Red" disabled />
+                <AppButton color="black" text="Black" disabled />
+              </div>
+            </div>
+          </AppBlock>
 
-        <div class="mb-8 flex gap-8">
-          <AppButton color="yellow">Yellow</AppButton>
-          <AppButton color="yellow" icon="warning">Yellow with icon</AppButton>
-          <AppButton color="yellow" icon-right="warning">Yellow with icon</AppButton>
-          <AppButton color="yellow" disabled>Yellow Disabled</AppButton>
-        </div>
+          <AppBlock class="col-span-4">
+            <template #header>
+              <div class="text-center font-600">With Icon</div>
+            </template>
+            <div class="px-24 pb-24">
+              <div class="flex flex-wrap justify-center gap-8">
+                <AppButton color="light" icon="add_reaction" text="Light" />
+                <AppButton color="white" icon="add_reaction" text="White" />
+                <AppButton color="blue" icon="add_reaction" text="Blue" />
+                <AppButton color="yellow" icon="add_reaction" text="Yellow" />
+                <AppButton color="red" icon="add_reaction" text="Red" />
+                <AppButton color="black" icon="add_reaction" text="Black" />
+              </div>
+            </div>
+          </AppBlock>
 
-        <div class="mb-8 flex items-center gap-8">
-          <AppButton color="red">Red</AppButton>
-          <AppButton color="red" icon="error">Red with icon</AppButton>
-          <AppButton color="red" icon-right="error">Red with icon</AppButton>
-          <AppButton color="red" disabled>Red Disabled</AppButton>
-          <AppButton color="red" outline>Outlined Red</AppButton>
-          <AppButton color="red" outline disabled>Outlined Red Disabled</AppButton>
+          <AppBlock class="col-span-4">
+            <template #header>
+              <div class="text-center font-600">Block</div>
+            </template>
+            <div class="px-24 pb-24">
+              <div class="flex justify-center gap-8">
+                <AppButton color="black" icon="add_reaction" text="Black" block />
+                <AppButton color="white" icon="add_reaction" text="White" block />
+              </div>
+            </div>
+          </AppBlock>
         </div>
+      </ComponentsPreview>
+    </AppSection>
 
-        <div class="mb-24 flex items-center gap-8">
-          <AppButton color="black">Black</AppButton>
-          <AppButton color="black" icon="close">Black with icon</AppButton>
-          <AppButton color="black" icon-right="close">Black with icon</AppButton>
-          <AppButton color="black" disabled>Black Disabled</AppButton>
+    <AppSection>
+      <AppBlock bordered>
+        <div class="p-24">
+          <MarkdownRenderer file-path="docs/button.md" />
         </div>
-
-        <div class="mb-24 max-w-screen-sm">
-          <AppButton color="blue" icon="add_circle" block>Block Button</AppButton>
-        </div>
-
-        <div class="mb-24 flex items-center gap-8">
-          <AppButton loading>Submit</AppButton>
-          <AppButton color="red" loading>Submit</AppButton>
-        </div>
-
-        <div class="flex items-center gap-8">
-          <AppButton href="https://lilasia.id">Self Target</AppButton>
-          <AppButton href="https://lilasia.id" target="_blank">Blank Target</AppButton>
-        </div>
-      </div>
-    </AppBlock>
-  </AppSection>
+      </AppBlock>
+    </AppSection>
+  </div>
 </template>
