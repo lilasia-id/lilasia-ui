@@ -15,7 +15,7 @@ const users = [
 
 <template>
   <div class="prose mx-auto">
-    <AppSection>
+    <AppSection class="not-prose">
       <AppBlock bordered>
         <template #header>
           <div class="text-24 font-600">Table</div>
@@ -46,7 +46,7 @@ const users = [
       </AppBlock>
     </AppSection>
 
-    <AppSection>
+    <AppSection class="not-prose">
       <AppBlock bordered>
         <template #header>
           <div class="text-24 font-600">Table Middle</div>
@@ -77,7 +77,7 @@ const users = [
       </AppBlock>
     </AppSection>
 
-    <AppSection>
+    <AppSection class="not-prose">
       <AppBlock bordered>
         <template #header>
           <div class="text-24 font-600">Table Compact</div>
@@ -105,7 +105,7 @@ const users = [
       </AppBlock>
     </AppSection>
 
-    <AppSection>
+    <AppSection class="not-prose">
       <AppBlock bordered>
         <template #header>
           <div class="text-24 font-600">Table Rounded</div>
