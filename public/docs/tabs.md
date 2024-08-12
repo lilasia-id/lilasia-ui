@@ -6,56 +6,52 @@ The `AppTabs` component is a tabbed interface that allows users to switch betwee
 
 ## Props
 
-- **defaultIndex** (optional, number):
-
-  - **Description**: The index of the tab that should be selected by default.
-  - **Default**: `0` (the first tab is selected by default)
-  - **Usage**: Use this prop to specify which tab should be active on the initial render.
-
-- **vertical** (optional, boolean):
-  - **Description**: Determines whether the tabs should be displayed vertically.
-  - **Default**: `false`
-  - **Usage**: Set this prop to `true` to display tabs in a vertical layout.
+| Prop           | Default | Description                                                 | Usage                                                                      |
+| -------------- | ------- | ----------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `defaultIndex` | 0       | The index of the tab that should be selected by default.    | Use this prop to specify which tab should be active on the initial render. |
+| `vertical`     | false   | Determines whether the tabs should be displayed vertically. | Set this prop to `true` to display tabs in a vertical layout.              |
 
 ## Emits
 
-- **change** (event):
-  - **Description**: Emitted when the active tab is changed.
-  - **Payload**: The index of the newly selected tab.
+| Event    | Description                             | Payload                              |
+| -------- | --------------------------------------- | ------------------------------------ |
+| `change` | Emitted when the active tab is changed. | The index of the newly selected tab. |
 
 ## Slots
 
-- **default**:
-  - **Description**: Slot for the tab content, which typically includes `TabList`, `TabPanels`, and their respective child components.
+| Slot      | Description                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------- |
+| `default` | Slot for the tab content, which typically includes `TabList`, `TabPanels`, and their respective child components. |
 
 ## Child Components
 
 ### TabButton
 
-- **Props**:
+| Prop       | Type      | Default | Description                                          |
+| ---------- | --------- | ------- | ---------------------------------------------------- |
+| `disabled` | `boolean` | `false` | Disables the tab, preventing it from being selected. |
 
-  - **disabled** (optional, boolean):
-    - **Description**: Disables the tab, preventing it from being selected.
-    - **Default**: `false`
-    - **Usage**: Set this prop to `true` to disable the tab.
-
-- **Slots**:
-  - **default**: Slot for the tab content, typically a button or label.
+| Slot      | Description                                            |
+| --------- | ------------------------------------------------------ |
+| `default` | Slot for the tab content, typically a button or label. |
 
 ### TabList
 
-- **Slots**:
-  - **default**: Slot for placing multiple `TabButton` components.
+| Slot      | Description                                       |
+| --------- | ------------------------------------------------- |
+| `default` | Slot for placing multiple `TabButton` components. |
 
 ### TabPanel
 
-- **Slots**:
-  - **default**: Slot for the content of a specific tab panel, which is shown when the corresponding tab is selected.
+| Slot      | Description                                                                                          |
+| --------- | ---------------------------------------------------------------------------------------------------- |
+| `default` | Slot for the content of a specific tab panel, which is shown when the corresponding tab is selected. |
 
 ### TabPanels
 
-- **Slots**:
-  - **default**: Slot for placing multiple `TabPanel` components.
+| Slot      | Description                                      |
+| --------- | ------------------------------------------------ |
+| `default` | Slot for placing multiple `TabPanel` components. |
 
 ## Usage Example
 

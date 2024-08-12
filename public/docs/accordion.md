@@ -6,21 +6,16 @@ The `AppAccordion` component provides a collapsible section for displaying conte
 
 ## Props
 
-- **defaultOpen** (optional, boolean):
-  - **Description**: Determines if the accordion should be open by default.
-  - **Default**: `undefined` (Accordion is closed by default if not specified)
-  - **Usage**: Set this prop to `true` if you want the accordion to be open when it is first rendered.
+| Prop          | Type      | Description                                            | Default                                                       | Usage                                                                                   |
+| ------------- | --------- | ------------------------------------------------------ | ------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `defaultOpen` | `boolean` | Determines if the accordion should be open by default. | `undefined` (Accordion is closed by default if not specified) | Set this prop to `true` if you want the accordion to be open when it is first rendered. |
 
 ## Slots
 
-- **button** (optional):
-
-  - **Description**: Slot for the button or header that controls the opening and closing of the accordion. The slot receives an `open` boolean indicating if the accordion is currently open.
-  - **Usage**: Use this slot to provide custom content or styling for the button that toggles the accordion.
-
-- **default**:
-  - **Description**: Slot for the content that will be displayed when the accordion is open.
-  - **Usage**: Place the content you want to show within the accordion when it is expanded.
+| Slot      | Description                                                                           | Usage                                                                                         |
+| --------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `button`  | Slot for the button or header that controls the opening and closing of the accordion. | Use this slot to provide custom content or styling for the button that toggles the accordion. |
+| `default` | Slot for the content that will be displayed when the accordion is open.               | Place the content you want to show within the accordion when it is expanded.                  |
 
 ## Usage Example
 

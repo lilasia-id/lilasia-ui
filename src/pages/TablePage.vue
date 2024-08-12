@@ -14,7 +14,7 @@ const users = [
 </script>
 
 <template>
-  <div class="prose mx-auto">
+  <div class="prose mx-auto max-w-4xl">
     <AppSection class="not-prose">
       <AppBlock bordered>
         <template #header>
@@ -136,7 +136,7 @@ const users = [
     <AppSection>
       <AppBlock bordered>
         <div class="p-24">
-          <MarkdownRenderer file-path="docs/table.md" />
+          <MarkdownRenderer class="max-w-4xl" file-path="docs/table.md" />
         </div>
       </AppBlock>
     </AppSection>

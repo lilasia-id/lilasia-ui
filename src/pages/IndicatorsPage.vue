@@ -8,7 +8,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 </script>
 
 <template>
-  <div class="prose mx-auto">
+  <div class="prose mx-auto max-w-4xl">
     <AppSection>
       <ComponentsPreview>
         <AppBlock>
@@ -30,7 +30,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
     <AppSection>
       <AppBlock bordered>
         <div class="p-24">
-          <MarkdownRenderer file-path="docs/indicators.md" />
+          <MarkdownRenderer class="max-w-4xl" file-path="docs/indicators.md" />
         </div>
       </AppBlock>
     </AppSection>

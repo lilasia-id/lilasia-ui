@@ -14,8 +14,8 @@ The `AppTooltip` component is used to display a tooltip with a text or slot cont
 - **position** (optional, string):
 
   - **Description**: Defines the position of the tooltip relative to the target element.
-  - **Options**: `'left' | 'right' | 'top' | 'bottom'`
-  - **Default**: `'bottom'`
+  - **Options**: `left' | 'right' | 'top' | 'bottom`
+  - **Default**: `bottom`
 
 - **class** (optional, any):
   - **Description**: Additional CSS classes to apply to the tooltip.

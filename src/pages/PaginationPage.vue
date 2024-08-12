@@ -29,7 +29,7 @@ const fetchData = async () => {
 </script>
 
 <template>
-  <div class="prose mx-auto">
+  <div class="prose mx-auto max-w-4xl">
     <AppSection class="not-prose">
       <ComponentsPreview>
         <div class="flex flex-col gap-16">
@@ -57,7 +57,7 @@ const fetchData = async () => {
     <AppSection>
       <AppBlock bordered>
         <div class="p-24">
-          <MarkdownRenderer file-path="docs/pagination.md" />
+          <MarkdownRenderer class="max-w-4xl" file-path="docs/pagination.md" />
         </div>
       </AppBlock>
     </AppSection>

@@ -6,63 +6,37 @@ The `AppPagination` component provides a pagination interface that allows users 
 
 ## Props
 
-- **meta** (required, `PaginationMeta` object):
+| Prop            | Type             | Default | Description                                                                                     |
+| --------------- | ---------------- | ------- | ----------------------------------------------------------------------------------------------- |
+| meta            | `PaginationMeta` |         | Contains metadata for pagination, including current page, total pages, and URLs for navigation. |
+| pageLimit       | number           | `4`     | Determines the maximum number of page buttons to display at once.                               |
+| hidePageNumbers | boolean          | `false` | Controls whether page numbers are displayed.                                                    |
 
-  - **Description**: Contains metadata for pagination, including current page, total pages, and URLs for navigation.
-  - **Type**:
-    ```ts
-    export type PaginationMeta = {
-      current_page: number
-      first_page_url: string
-      from: number
-      last_page: number
-      last_page_url: string
-      next_page_url: string | null
-      path: string
-      per_page: number
-      prev_page_url: string | null
-      to: number
-      total: number
-    }
-    ```
-  - **Usage**: This prop is required to handle pagination. It provides all necessary information for rendering and navigating through pages.
+### Pagination Meta
 
-- **pageLimit** (optional, number):
+The `PaginationMeta` object contains should have the following type:
 
-  - **Description**: Determines the maximum number of page buttons to display at once.
-  - **Default**: `4`
-  - **Usage**: Set to customize the number of visible page numbers in the pagination bar.
-
-- **hidePageNumbers** (optional, boolean):
-  - **Description**: Controls whether page numbers are displayed.
-  - **Default**: `false`
-  - **Usage**:
-    - If `true`, page numbers will be hidden, showing only "Prev" and "Next" buttons.
+```typescript
+export type PaginationMeta = {
+  current_page: number
+  first_page_url: string
+  from: number
+  last_page: number
+  last_page_url: string
+  next_page_url: string | null
+  path: string
+  per_page: number
+  prev_page_url: string | null
+  to: number
+  total: number
+}
+```
 
 ## Emits
 
-- **pageChange** (event):
-  - **Description**: Emits the current page when a page change occurs.
-  - **Payload**: The current page number.
-
-## Methods
-
-- **navigatePrev**:
-
-  - **Description**: Navigates to the previous page, if available.
-
-- **navigateNext**:
-
-  - **Description**: Navigates to the next page, if available.
-
-- **navigatePage**:
-  - **Description**: Navigates to a specific page when the page number is clicked.
-  - **Parameters**: `page` (number or string) - The page number to navigate to.
-
-## Computed Properties
-
-- **pageNumbers**:
-  - **Description**: Computes the array of page numbers to display based on the current page and total pages. Includes ellipses (`'...'`) for skipped ranges.
+| Event        | Description                                       | Payload                  |
+| ------------ | ------------------------------------------------- | ------------------------ |
+| `pageChange` | Emits the current page when a page change occurs. | The current page number. |
 
 ## Usage Example
 

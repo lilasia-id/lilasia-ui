@@ -8,7 +8,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 </script>
 
 <template>
-  <div class="prose mx-auto">
+  <div class="prose mx-auto max-w-4xl">
     <AppSection>
       <ComponentsPreview>
         <div class="flex items-center gap-8">
@@ -43,7 +43,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
     <AppSection>
       <AppBlock bordered>
         <div class="p-24">
-          <MarkdownRenderer file-path="docs/tooltip.md" />
+          <MarkdownRenderer class="max-w-4xl" file-path="docs/tooltip.md" />
         </div>
       </AppBlock>
     </AppSection>

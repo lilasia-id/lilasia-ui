@@ -8,7 +8,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 </script>
 
 <template>
-  <div class="prose mx-auto">
+  <div class="prose mx-auto max-w-4xl">
     <AppSection class="not-prose">
       <ComponentsPreview>
         <div class="flex flex-col gap-16">
@@ -116,7 +116,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
     <AppSection>
       <AppBlock bordered>
         <div class="p-24">
-          <MarkdownRenderer file-path="docs/navbar.md" />
+          <MarkdownRenderer class="max-w-4xl" file-path="docs/navbar.md" />
         </div>
       </AppBlock>
     </AppSection>

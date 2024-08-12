@@ -22,19 +22,10 @@
 
 ### Props
 
-- **aspectRatio** (optional, string):
-
-  - **Description**: Defines the aspect ratio of the image skeleton.
-  - **Default**: `'square'`
-  - **Values**: `'square'`, `'video'`
-  - **Usage**: Use `'square'` for square images and `'video'` for video-like aspect ratio (16:9).
-
-- **round** (optional, boolean):
-  - **Description**: Determines if the edges of the skeleton should be rounded.
-  - **Default**: `false` (edges are sharp by default)
-  - **Usage**: Set to `true` to apply fully rounded corners, creating a circular skeleton.
-
-### Example Usage
+| Prop          | Default Value | Values            | Description                                                | Usage                                                                          |
+| ------------- | ------------- | ----------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `aspectRatio` | `square`      | `square`, `video` | Defines the aspect ratio of the image skeleton.            | Use `square` for square images and `video` for video-like aspect ratio (16:9). |
+| `round`       | `false`       | `true`, `false`   | Determines if the edges of the skeleton should be rounded. | Set to `true` to apply fully rounded corners, creating a circular skeleton.    |
 
 ```vue
 <template>
@@ -50,10 +41,9 @@
 
 ### Props
 
-- **rows** (optional, number):
-  - **Description**: Specifies the number of simulated text rows in the skeleton.
-  - **Default**: `1`
-  - **Usage**: Set this prop based on the number of text rows you expect in the content area being loaded.
+| Prop   | Default | Description                                                  | Usage                                                                                       |
+| ------ | ------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| `rows` | `1`     | Specifies the number of simulated text rows in the skeleton. | Set this prop based on the number of text rows you expect in the content area being loaded. |
 
 ### Example Usage
 

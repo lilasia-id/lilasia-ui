@@ -2,21 +2,23 @@
 
 ## FormTextarea
 
-## Overview
+### Overview
 
 The `FormTextarea` component is designed to facilitate multi-line text input within Vue applications. It supports customizable sizing and integrates error messaging, making it suitable for a variety of text entry needs in forms, such as comments or descriptions.
 
-## Props
+### Props
 
-- **id** (`HTMLAttributes['id']`, optional): The HTML ID attribute assigned to the textarea element.
-- **label** (`string`, optional): Descriptive label displayed above the textarea.
-- **placeholder** (`HTMLAttributes['placeholder']`, optional): Placeholder text that appears within the textarea when it is empty.
-- **rows** (`string | number`, optional): Number of visible text lines in the textarea. Defaults to `3`.
-- **cols** (`string | number`, optional): Number of characters the textarea can display per line horizontally. Undefined by default, which allows the width to be controlled via CSS.
-- **required** (`boolean`, optional): Specifies whether input in the textarea is required for form submission.
-- **error** (`string`, optional): Error message that appears when input validation fails.
+| Prop          | Type                            | Description                                                                                |
+| ------------- | ------------------------------- | ------------------------------------------------------------------------------------------ |
+| `id`          | `HTMLAttributes['id']`          | The HTML ID attribute assigned to the textarea element.                                    |
+| `label`       | `string`                        | Descriptive label displayed above the textarea.                                            |
+| `placeholder` | `HTMLAttributes['placeholder']` | Placeholder text that appears within the textarea when it is empty.                        |
+| `rows`        | `string \| number`              | Number of visible text lines in the textarea. Defaults to `3`.                             |
+| `cols`        | `string \| number`              | Number of characters the textarea can display per line horizontally. Undefined by default. |
+| `required`    | `boolean`                       | Specifies whether input in the textarea is required for form submission.                   |
+| `error`       | `string`                        | Error message that appears when input validation fails.                                    |
 
-## Usage Example
+### Usage Example
 
 ```vue
 <template>
@@ -30,7 +32,7 @@ The `FormTextarea` component is designed to facilitate multi-line text input wit
 </template>
 ```
 
-## FormEditor.vue
+## FormEditor
 
 ### Overview
 
@@ -38,12 +40,14 @@ The `FormEditor` component is a rich text editor based on TiPTap and Vue 3, desi
 
 ### Props
 
-- **id** (`HTMLAttributes['id']`, optional): Specifies the HTML ID attribute for the editor input, aiding in form accessibility and label linkage.
-- **label** (`string`, optional): Text label for the editor. Clicking the label focuses the editor.
-- **modelValue** (`string`, optional): The HTML content to be edited, which is bound via v-model to allow for two-way data binding.
-- **placeholder** (`HTMLAttributes['placeholder']`, optional): Placeholder text that appears when the editor is empty, providing guidance to the user.
-- **required** (`boolean`, optional): Indicates if the input is required in a form context, useful for validation purposes.
-- **error** (`string`, optional): Error message to display when validation fails or other errors occur related to the input.
+| Prop          | Type                            | Description                                                                                           |
+| ------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `id`          | `HTMLAttributes['id']`          | Specifies the HTML ID attribute for the editor input, aiding in form accessibility and label linkage. |
+| `label`       | `string`                        | Text label for the editor. Clicking the label focuses the editor.                                     |
+| `modelValue`  | `string`                        | The HTML content to be edited, which is bound via v-model to allow for two-way data binding.          |
+| `placeholder` | `HTMLAttributes['placeholder']` | Placeholder text that appears when the editor is empty, providing guidance to the user.               |
+| `required`    | `boolean`                       | Indicates if the input is required in a form context, useful for validation purposes.                 |
+| `error`       | `string`                        | Error message to display when validation fails or other errors occur related to the input.            |
 
 ### Usage Example
 

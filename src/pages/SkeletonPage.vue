@@ -9,7 +9,7 @@ import ParagraphSkeleton from '@/components/skeleton/ParagraphSkeleton.vue'
 </script>
 
 <template>
-  <div class="prose mx-auto">
+  <div class="prose mx-auto max-w-4xl">
     <AppSection>
       <ComponentsPreview>
         <AppBlock>
@@ -59,7 +59,7 @@ import ParagraphSkeleton from '@/components/skeleton/ParagraphSkeleton.vue'
     <AppSection>
       <AppBlock bordered>
         <div class="p-24">
-          <MarkdownRenderer file-path="docs/skeleton.md" />
+          <MarkdownRenderer class="max-w-4xl" file-path="docs/skeleton.md" />
         </div>
       </AppBlock>
     </AppSection>

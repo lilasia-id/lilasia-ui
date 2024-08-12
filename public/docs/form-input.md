@@ -6,14 +6,16 @@ The `FormInput` component is a versatile input field designed for form usage wit
 
 ## Props
 
-- **id** (`HTMLAttributes['id']`, optional): The HTML ID attribute associated with the input element.
-- **type** (`InputHTMLAttributes['type']`, optional): The type of input, such as `text` or `password`. Defaults to `'text'`.
-- **label** (`string`, optional): Text label for the input field. If provided, it will display above the input.
-- **placeholder** (`InputHTMLAttributes['placeholder']`, optional): Placeholder text for the input field.
-- **autocomplete** (`InputHTMLAttributes['autocomplete']`, optional): Browser autocomplete setting. Defaults to `'off'`.
-- **required** (`boolean`, optional): Marks the input field as required. Defaults to `false`.
-- **readonly** (`boolean`, optional): Makes the input field read-only. Defaults to `false`.
-- **error** (`string`, optional): Error message to display when input validation fails.
+| Prop           | Type                                  | Description                                                                   |
+| -------------- | ------------------------------------- | ----------------------------------------------------------------------------- |
+| `id`           | `HTMLAttributes['id']`                | The HTML ID attribute associated with the input element.                      |
+| `type`         | `InputHTMLAttributes['type']`         | The type of input, such as `text` or `password`. Defaults to `text`.          |
+| `label`        | `string`                              | Text label for the input field. If provided, it will display above the input. |
+| `placeholder`  | `InputHTMLAttributes['placeholder']`  | Placeholder text for the input field.                                         |
+| `autocomplete` | `InputHTMLAttributes['autocomplete']` | Browser autocomplete setting. Defaults to `off`.                              |
+| `required`     | `boolean`                             | Marks the input field as required. Defaults to `false`.                       |
+| `readonly`     | `boolean`                             | Makes the input field read-only. Defaults to `false`.                         |
+| `error`        | `string`                              | Error message to display when input validation fails.                         |
 
 ## Computed Properties
 

@@ -16,7 +16,7 @@ const showNoBackdropDrawer = ref(false)
 </script>
 
 <template>
-  <div class="prose mx-auto">
+  <div class="prose mx-auto max-w-4xl">
     <AppSection class="not-prose">
       <ComponentsPreview>
         <div class="grid grid-cols-2 gap-8">
@@ -49,7 +49,7 @@ const showNoBackdropDrawer = ref(false)
     <AppSection>
       <AppBlock bordered>
         <div class="p-24">
-          <MarkdownRenderer file-path="docs/drawer.md" />
+          <MarkdownRenderer class="max-w-4xl" file-path="docs/drawer.md" />
         </div>
       </AppBlock>
     </AppSection>

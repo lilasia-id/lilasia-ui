@@ -6,14 +6,16 @@ The `RadioGroup` component facilitates user selection among a set of mutually ex
 
 ## Props
 
-- **id** (`HTMLAttributes['id']`, optional): HTML ID attribute for associating the label with the radio group.
-- **label** (`string`, optional): Descriptive text displayed above the radio group.
-- **options** (`any[]`, optional): Array of options that users can choose from.
-- **optionLabel** (`string`, optional): Property name in the options objects to use for display text.
-- **icon** (`string | LilasiaIcon`, optional): Icon displayed next to the radio option when it is selected. Defaults to `'radio_button_checked'`.
-- **uncheckedIcon** (`string | LilasiaIcon`, optional): Icon displayed next to the radio option when it is not selected. Defaults to `'radio_button_unchecked'`.
-- **required** (`boolean`, optional): Indicates if the radio group must have a selected option for form submission.
-- **error** (`string`, optional): Error message that displays if there is an issue with the radio group validation.
+| Prop            | Type                    | Description                                                                                            |
+| --------------- | ----------------------- | ------------------------------------------------------------------------------------------------------ |
+| `id`            | `HTMLAttributes['id']`  | HTML ID attribute for associating the label with the radio group.                                      |
+| `label`         | `string`                | Descriptive text displayed above the radio group.                                                      |
+| `options`       | `any[]`                 | Array of options that users can choose from.                                                           |
+| `optionLabel`   | `string`                | Property name in the options objects to use for display text.                                          |
+| `icon`          | `string \| LilasiaIcon` | Icon displayed next to the radio option when it is selected. Defaults to `radio_button_checked`.       |
+| `uncheckedIcon` | `string \| LilasiaIcon` | Icon displayed next to the radio option when it is not selected. Defaults to `radio_button_unchecked`. |
+| `required`      | `boolean`               | Indicates if the radio group must have a selected option for form submission.                          |
+| `error`         | `string`                | Error message that displays if there is an issue with the radio group validation.                      |
 
 ## Usage Example
 

@@ -8,14 +8,16 @@ The `FormSelect` component is a customizable dropdown select input for Vue appli
 
 ### Props
 
-- **id** (`InputHTMLAttributes['id']`, optional): HTML ID attribute for the select element.
-- **label** (`string`, optional): Label text for the select box. Displayed above the dropdown.
-- **options** (`any[]`, required): Array of options that the user can select from.
-- **optionLabel** (`string`, optional): Property name to use as the display text for each option if the options are objects.
-- **placeholder** (`InputHTMLAttributes['placeholder']`, optional): Placeholder text to display when no option is selected.
-- **required** (`boolean`, optional): Whether the select input is required for form submission.
-- **readonly** (`boolean`, optional): Makes the select box non-interactive, effectively displaying but preventing modification.
-- **error** (`string`, optional): Error message to display when validation fails.
+| Prop          | Type                                 | Description                                                                               |
+| ------------- | ------------------------------------ | ----------------------------------------------------------------------------------------- |
+| `id`          | `InputHTMLAttributes['id']`          | HTML ID attribute for the select element.                                                 |
+| `label`       | `string`                             | Label text for the select box. Displayed above the dropdown.                              |
+| `options`     | `any[]`                              | Array of options that the user can select from.                                           |
+| `optionLabel` | `string`                             | Property name to use as the display text for each option if the options are objects.      |
+| `placeholder` | `InputHTMLAttributes['placeholder']` | Placeholder text to display when no option is selected.                                   |
+| `required`    | `boolean`                            | Whether the select input is required for form submission.                                 |
+| `readonly`    | `boolean`                            | Makes the select box non-interactive, effectively displaying but preventing modification. |
+| `error`       | `string`                             | Error message to display when validation fails.                                           |
 
 #### Usage Example
 
@@ -43,17 +45,19 @@ The `FormCombobox` is a Vue component built with `@headlessui/vue` that offers a
 
 ### Props
 
-- **id** (`InputHTMLAttributes['id']`, optional): HTML ID attribute for the combobox input element.
-- **label** (`string`, optional): Descriptive label for the combobox.
-- **options** (`any[]`, required): Array of options available for selection.
-- **optionLabel** (`string`, optional): Specifies the property name of the option object to display as the label.
-- **filterKey** (`string`, optional): Property name used to filter the options based on the query.
-- **displayValueKey** (`string`, optional): Property name used to display the value in the combobox input when selected.
-- **placeholder** (`InputHTMLAttributes['placeholder']`, optional): Placeholder text displayed in the input field.
-- **multiple** (`boolean`, optional): Allows multiple selections if true.
-- **required** (`boolean`, optional): Specifies whether the input is required.
-- **readonly** (`boolean`, optional): If true, the input is non-interactive.
-- **error** (`string`, optional): Displays an error message when the input fails validation.
+| Prop              | Type                                 | Description                                                                  |
+| ----------------- | ------------------------------------ | ---------------------------------------------------------------------------- |
+| `id`              | `InputHTMLAttributes['id']`          | HTML ID attribute for the combobox input element.                            |
+| `label`           | `string`                             | Descriptive label for the combobox.                                          |
+| `options`         | `any[]`                              | Array of options available for selection.                                    |
+| `optionLabel`     | `string`                             | Specifies the property name of the option object to display as the label.    |
+| `filterKey`       | `string`                             | Property name used to filter the options based on the query.                 |
+| `displayValueKey` | `string`                             | Property name used to display the value in the combobox input when selected. |
+| `placeholder`     | `InputHTMLAttributes['placeholder']` | Placeholder text displayed in the input field.                               |
+| `multiple`        | `boolean`                            | Allows multiple selections if true.                                          |
+| `required`        | `boolean`                            | Specifies whether the input is required.                                     |
+| `readonly`        | `boolean`                            | If true, the input is non-interactive.                                       |
+| `error`           | `string`                             | Displays an error message when the input fails validation.                   |
 
 ### Usage Example
 

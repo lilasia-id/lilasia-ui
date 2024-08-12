@@ -6,12 +6,14 @@ The `AppDivider` component is a simple horizontal line (`<hr>`) used to separate
 
 ## Props
 
-- **dashed** (optional, boolean):
-  - **Description**: Determines whether the divider line should be dashed or solid.
-  - **Default**: `false`
-  - **Usage**:
-    - If `false`, the divider will be displayed as a solid line (`border-solid`).
-    - If `true`, the divider will be displayed as a dashed line (`border-dashed`).
+| Prop     | Type      | Default | Description                                                    |
+| -------- | --------- | ------- | -------------------------------------------------------------- |
+| `dashed` | `boolean` | `false` | Determines whether the divider line should be dashed or solid. |
+
+**Usage**:
+
+- If `false`, the divider will be displayed as a solid line (`border-solid`).
+- If `true`, the divider will be displayed as a dashed line (`border-dashed`).
 
 ## Usage Example
 

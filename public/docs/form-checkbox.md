@@ -8,10 +8,12 @@ The `FormCheckbox` component is a stylized checkbox suitable for Vue application
 
 ### Props
 
-- **id** (`InputHTMLAttributes['id']`, optional): HTML ID attribute for the checkbox input, useful for associating the label with the input element.
-- **name** (`InputHTMLAttributes['name']`, optional): Name attribute for the checkbox input, which identifies the form data entry associated with this component.
-- **value** (`InputHTMLAttributes['value']`, optional): Value attribute for the checkbox input, which will be the actual value sent in the form when the checkbox is checked.
-- **label** (`string`, optional): Text label displayed next to the checkbox, providing context or instruction associated with the checkbox.
+| Prop    | Type                           | Description                                                                                                           |
+| ------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `id`    | `InputHTMLAttributes['id']`    | HTML ID attribute for the checkbox input, useful for associating the label with the input element.                    |
+| `name`  | `InputHTMLAttributes['name']`  | Name attribute for the checkbox input, which identifies the form data entry associated with this component.           |
+| `value` | `InputHTMLAttributes['value']` | Value attribute for the checkbox input, which will be the actual value sent in the form when the checkbox is checked. |
+| `label` | `string`                       | Text label displayed next to the checkbox, providing context or instruction associated with the checkbox.             |
 
 ### Usage Example
 
@@ -36,7 +38,9 @@ The `FormSwitch` component is a toggle switch that provides a more visually enga
 
 ### Props
 
-- **id** (`HTMLAttributes['id']`, optional): HTML ID attribute for the switch component, used to link the label and the actual switch input for accessibility purposes.
+| Prop | Type                   | Description                                                                                                                |
+| ---- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `id` | `HTMLAttributes['id']` | HTML ID attribute for the switch component, used to link the label and the actual switch input for accessibility purposes. |
 
 ### Usage Example
 

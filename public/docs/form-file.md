@@ -8,14 +8,16 @@ The `FormFile` component provides a user-friendly interface for file uploads, re
 
 ### Props
 
-- **modelValue** (`any`, optional): The value that binds to the file input's state, which can be a file or files, depending on whether multiple file selection is enabled.
-- **id** (`HTMLAttributes['id']`, optional): HTML ID attribute for associating the label with the file input.
-- **label** (`string`, optional): Text label displayed above the file input.
-- **placeholder** (`InputHTMLAttributes['placeholder']`, optional): Text displayed on the button when no file is selected. Defaults to 'Choose File'.
-- **multiple** (`boolean`, optional): Determines if multiple files can be selected. Defaults to `false`.
-- **required** (`boolean`, optional): Indicates if file selection is required for form submission.
-- **readonly** (`boolean`, optional): If true, disables file selection.
-- **error** (`string`, optional): Error message displayed if there is an issue with the file input validation.
+| Prop          | Type                                            | Description                                                                                                                            |
+| ------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`          | `HTMLAttributes['id']` (optional)               | HTML ID attribute for associating the label with the file input.                                                                       |
+| `modelValue`  | `any` (optional)                                | The value that binds to the file input's state, which can be a file or files, depending on whether multiple file selection is enabled. |
+| `label`       | `string` (optional)                             | Text label displayed above the file input.                                                                                             |
+| `placeholder` | `InputHTMLAttributes['placeholder']` (optional) | Text displayed on the button when no file is selected. Defaults to 'Choose File'.                                                      |
+| `multiple`    | `boolean` (optional)                            | Determines if multiple files can be selected. Defaults to `false`.                                                                     |
+| `required`    | `boolean` (optional)                            | Indicates if file selection is required for form submission.                                                                           |
+| `readonly`    | `boolean` (optional)                            | If true, disables file selection.                                                                                                      |
+| `error`       | `string` (optional)                             | Error message displayed if there is an issue with the file input validation.                                                           |
 
 ### Usage Example
 
@@ -39,15 +41,17 @@ The `FormImageUploader` component allows users to upload images, providing immed
 
 ### Props
 
-- **modelValue** (`any`, optional): The value that binds to the image file's state.
-- **id** (`HTMLAttributes['id']`, optional): HTML ID attribute for associating the label with the image input.
-- **label** (`string`, optional): Text label displayed above the image uploader.
-- **placeholder** (`InputHTMLAttributes['placeholder']`, optional): Text displayed within the uploader area when no image is selected. Defaults to 'Choose Image'.
-- **required** (`boolean`, optional): Specifies whether the image upload is required for form submission.
-- **readonly** (`boolean`, optional): If true, disables the ability to change the image.
-- **error** (`string`, optional): Error message displayed if there is an issue with the image upload.
-- **aspectRatio** (`'video' | 'square'`, optional): Defines the aspect ratio of the image preview; supports 'video' (16:9) and 'square' (1:1) ratios.
-- **class** (`any`, optional): Custom CSS classes that can be applied to the uploader container for additional styling.
+| Prop          | Type                                            | Description                                                                                       |
+| ------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `id`          | `HTMLAttributes['id']` (optional)               | HTML ID attribute for associating the label with the image input.                                 |
+| `modelValue`  | `any` (optional)                                | The value that binds to the image file's state.                                                   |
+| `label`       | `string` (optional)                             | Text label displayed above the image uploader.                                                    |
+| `placeholder` | `InputHTMLAttributes['placeholder']` (optional) | Text displayed within the uploader area when no image is selected. Defaults to 'Choose Image'.    |
+| `required`    | `boolean` (optional)                            | Specifies whether the image upload is required for form submission.                               |
+| `readonly`    | `boolean` (optional)                            | If true, disables the ability to change the image.                                                |
+| `error`       | `string` (optional)                             | Error message displayed if there is an issue with the image upload.                               |
+| `aspectRatio` | `video' \| 'square` (optional)                  | Defines the aspect ratio of the image preview; supports 'video' (16:9) and 'square' (1:1) ratios. |
+| `class`       | `any` (optional)                                | Custom CSS classes that can be applied to the uploader container for additional styling.          |
 
 ### Usage Example
 

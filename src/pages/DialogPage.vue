@@ -26,7 +26,7 @@ const openTopLeftDialog = () => {
 </script>
 
 <template>
-  <div class="prose mx-auto">
+  <div class="prose mx-auto max-w-4xl">
     <AppSection>
       <AppBlock bordered>
         <div class="flex justify-center gap-8 p-24">
@@ -45,7 +45,7 @@ const openTopLeftDialog = () => {
     <AppSection>
       <AppBlock bordered>
         <div class="p-24">
-          <MarkdownRenderer file-path="docs/dialog.md" />
+          <MarkdownRenderer class="max-w-4xl" file-path="docs/dialog.md" />
         </div>
       </AppBlock>
     </AppSection>

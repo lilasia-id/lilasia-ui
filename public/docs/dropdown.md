@@ -6,58 +6,35 @@ The `AppDropdown` component is a customizable dropdown menu built using `@headle
 
 ## Props
 
-- **text** (optional, string):
-
-  - **Description**: The text to display on the dropdown button.
-  - **Default**: `undefined`
-  - **Usage**: Use this prop to provide a label for the dropdown button.
-
-- **icon** (optional, string | LilasiaIcon):
-
-  - **Description**: The icon to display on the dropdown button, either as a string or a `LilasiaIcon` component.
-  - **Default**: `undefined`
-  - **Usage**: Use this prop to provide an icon next to the dropdown button's text.
-
-- **menuPosition** (optional, string):
-  - **Description**: Determines the position of the dropdown menu relative to the button. Possible values are `'right'`, `'left'`, and `'center'`.
-  - **Default**: `'right'`
-  - **Usage**: Set this prop to position the dropdown menu accordingly.
+| Prop           | Type                                  | Default     | Description                                                                                                             | Usage                                                                |
+| -------------- | ------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `text`         | `string` (optional)                   | `undefined` | The text to display on the dropdown button.                                                                             | Use this prop to provide a label for the dropdown button.            |
+| `icon`         | `string`, or `LilasiaIcon` (optional) | `undefined` | The icon to display on the dropdown button, either as a string or a LilasiaIcon component.                              | Use this prop to provide an icon next to the dropdown button's text. |
+| `menuPosition` | `string` (optional)                   | `right`     | Determines the position of the dropdown menu relative to the button. Possible values are `right`, `left`, and `center`. | Set this prop to position the dropdown menu accordingly.             |
 
 ## Slots
 
-- **button** (optional):
-
-  - **Description**: Slot for custom button content that triggers the dropdown.
-  - **Usage**: Use this slot if you want to replace the default button with a custom one.
-
-- **default**:
-  - **Description**: Slot for the dropdown menu items.
-  - **Usage**: Use this slot to include `DropdownItem` and `DropdownItemGroup` components as the dropdown's content.
+| Slot      | Description                                                | Usage                                                                                                 |
+| --------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `button`  | Slot for custom button content that triggers the dropdown. | Use this slot if you want to replace the default button with a custom one.                            |
+| `default` | Slot for the dropdown menu items.                          | Use this slot to include `DropdownItem` and `DropdownItemGroup` components as the dropdown's content. |
 
 ## Child Components
 
 ### DropdownItem
 
-- **Props**:
-
-  - **to** (optional, string | RouteLocationAsRelativeGeneric | RouteLocationAsPathGeneric):
-    - **Description**: The route or URL to navigate to when the dropdown item is clicked.
-    - **Default**: `undefined`
-    - **Usage**: Use this prop to make the dropdown item a navigable link.
-  - **activeColor** (optional, string):
-    - **Description**: The color of the item when it is active. Possible values are `'white'`, `'light'`, `'blue'`, `'yellow'`, and `'red'`.
-    - **Default**: `'white'`
-    - **Usage**: Use this prop to define the active color of the item when it is selected.
-  - **text** (required, string):
-    - **Description**: The text to display for the dropdown item.
-  - **icon** (optional, string | LilasiaIcon):
-    - **Description**: The icon to display next to the item's text.
+| Props         | Type                                                                                    | Default     | Description                                                                                                 | Usage                                                                     |
+| ------------- | --------------------------------------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `to`          | `string` or `RouteLocationAsRelativeGeneric` or `RouteLocationAsPathGeneric` (optional) | `undefined` | The route or URL to navigate to when the dropdown item is clicked.                                          | Use this prop to make the dropdown item a navigable link.                 |
+| `activeColor` | `string` (optional)                                                                     | `white`     | The color of the item when it is active. Possible values are `white`, `light`, `blue`, `yellow`, and `red`. | Use this prop to define the active color of the item when it is selected. |
+| `text`        | `string` (required)                                                                     |             | The text to display for the dropdown item.                                                                  |                                                                           |
+| `icon`        | `string` or `LilasiaIcon` (optional)                                                    |             | The icon to display next to the item's text.                                                                |                                                                           |
 
 ### DropdownItemGroup
 
-- **Slots**:
-  - **default**:
-    - **Description**: Slot for grouping multiple `DropdownItem` components together.
+| Slots     | Description                                                    |
+| --------- | -------------------------------------------------------------- |
+| `default` | Slot for grouping multiple `DropdownItem` components together. |
 
 ## Usage Example
 
