@@ -32,7 +32,13 @@ const components = [
     icon: 'description',
     children: [
       { label: 'Form', name: 'form', icon: 'description' },
-      { label: 'Button', name: 'button', icon: 'radio_button_checked' }
+      { label: 'Input', name: 'form.input', icon: 'border_color' },
+      { label: 'Select', name: 'form.select', icon: 'tv_options_edit_channels' },
+      { label: 'Textarea', name: 'form.textarea', icon: 'edit_note' },
+      { label: 'Checkbox', name: 'form.checkbox', icon: 'event_list' },
+      { label: 'Radio Group', name: 'form.radio-group', icon: 'radio_button_checked' },
+      { label: 'File', name: 'form.file', icon: 'perm_media' },
+      { label: 'Button', name: 'button', icon: 'check_box_outline_blank' }
     ]
   },
   {

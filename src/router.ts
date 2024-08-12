@@ -51,6 +51,36 @@ const router = createRouter({
           component: () => import('@/pages/FormPage.vue')
         },
         {
+          path: 'form-input',
+          name: 'form.input',
+          component: () => import('@/pages/FormInputPage.vue')
+        },
+        {
+          path: 'form-select',
+          name: 'form.select',
+          component: () => import('@/pages/FormSelectPage.vue')
+        },
+        {
+          path: 'form-textarea',
+          name: 'form.textarea',
+          component: () => import('@/pages/FormTextareaPage.vue')
+        },
+        {
+          path: 'form-checkbox',
+          name: 'form.checkbox',
+          component: () => import('@/pages/FormCheckbox.vue')
+        },
+        {
+          path: 'form-radio-group',
+          name: 'form.radio-group',
+          component: () => import('@/pages/FormRadioGroupPage.vue')
+        },
+        {
+          path: 'form-file',
+          name: 'form.file',
+          component: () => import('@/pages/FormFilePage.vue')
+        },
+        {
           path: 'indicators',
           name: 'indicators',
           component: () => import('@/pages/IndicatorsPage.vue')
