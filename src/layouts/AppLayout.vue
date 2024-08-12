@@ -31,7 +31,6 @@ const components = [
     label: 'Form',
     icon: 'description',
     children: [
-      { label: 'Form', name: 'form', icon: 'description' },
       { label: 'Input', name: 'form.input', icon: 'border_color' },
       { label: 'Select', name: 'form.select', icon: 'tv_options_edit_channels' },
       { label: 'Textarea', name: 'form.textarea', icon: 'edit_note' },

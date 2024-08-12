@@ -46,11 +46,6 @@ const router = createRouter({
           component: () => import('@/pages/DropdownPage.vue')
         },
         {
-          path: 'form',
-          name: 'form',
-          component: () => import('@/pages/FormPage.vue')
-        },
-        {
           path: 'form-input',
           name: 'form.input',
           component: () => import('@/pages/FormInputPage.vue')
