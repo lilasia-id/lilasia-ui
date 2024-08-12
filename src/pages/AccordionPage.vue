@@ -3,14 +3,15 @@ import AppAccordion from '@/components/AppAccordion.vue'
 import AppButton from '@/components/AppButton.vue'
 import AppSection from '@/components/AppSection.vue'
 import AppBlock from '@/components/blocks/AppBlock.vue'
+import ComponentsPreview from '@/components/playground/ComponentsPreview.vue'
 import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 </script>
 
 <template>
   <div class="prose mx-auto">
     <AppSection>
-      <AppBlock class="bg-gradient-to-bl from-black-20 to-black-80">
-        <div class="px-24 py-48">
+      <ComponentsPreview>
+        <AppBlock>
           <div class="flex flex-col gap-8 rounded-8 bg-white p-16">
             <AppAccordion default-open>
               <template #button="{ open }">
@@ -52,8 +53,8 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
               </div>
             </AppAccordion>
           </div>
-        </div>
-      </AppBlock>
+        </AppBlock>
+      </ComponentsPreview>
     </AppSection>
 
     <AppSection>
