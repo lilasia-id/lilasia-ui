@@ -5,6 +5,7 @@ import { default as AppDialog, default as AppModal } from '@/components/AppDialo
 import AppDivider from '@/components/AppDivider.vue'
 import AppDrawer from '@/components/AppDrawer.vue'
 import AppIndicators from '@/components/AppIndicators.vue'
+import AppNavbar from '@/components/AppNavbar.vue'
 import AppSection from '@/components/AppSection.vue'
 import AppToast from '@/components/AppToast.vue'
 import AppTooltip from '@/components/AppTooltip.vue'
@@ -50,6 +51,7 @@ export {
   AppDropdown,
   AppIndicators,
   AppModal,
+  AppNavbar,
   AppPagination,
   AppSection,
   AppSkeleton,
