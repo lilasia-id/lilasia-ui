@@ -1,15 +1,2 @@
-@import 'tailwindcss/base';
 @import './lilasia-base.css';
-
-@import 'tailwindcss/components';
 @import './lilasia-components.css';
-
-@import 'tailwindcss/utilities';
-
-.ProseMirror p.is-editor-empty:first-child::before {
-  color: theme('colors.black.60');
-  content: attr(data-placeholder);
-  float: left;
-  height: 0;
-  pointer-events: none;
-}

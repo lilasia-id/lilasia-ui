@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <section :class="{ 'mt-16': !noGap }">
+  <section :class="{ 'mt-24 lg:mt-40': !noGap }">
     <div :class="{ 'container mx-auto': !fluid }">
       <slot></slot>
     </div>

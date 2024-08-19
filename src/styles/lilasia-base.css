@@ -1,50 +1,48 @@
-@layer base {
-  body {
-    background-color: theme('colors.blue.10');
-    color: theme('colors.black.100');
-  }
+body {
+  background-color: theme('colors.blue.10');
+  color: theme('colors.black.100');
+}
 
-  select {
-    -moz-appearance:none;
-    -webkit-appearance:none;
-    appearance:none;
+select {
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  appearance:none;
 
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224px%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224px%22%20fill%3D%22%23344054%22%3E%3Cpath%20d%3D%22M480-120%20300-300l58-58%20122%20122%20122-122%2058%2058-180%20180ZM358-598l-58-58%20180-180%20180%20180-58%2058-122-122-122%20122Z%22%2F%3E%3C%2Fsvg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px top 50%;
-    background-size: theme('size.20') auto;
-  }
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224px%22%20viewBox%3D%220%20-960%20960%20960%22%20width%3D%2224px%22%20fill%3D%22%23344054%22%3E%3Cpath%20d%3D%22M480-120%20300-300l58-58%20122%20122%20122-122%2058%2058-180%20180ZM358-598l-58-58%20180-180%20180%20180-58%2058-122-122-122%20122Z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px top 50%;
+  background-size: theme('size.20') auto;
+}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    border-style: none;
-    color: theme('colors.black.100');
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-style: none;
+  color: theme('colors.black.100');
+}
 
-  thead tr th {
-    background-color: theme('colors.black.5');
-    font-size: theme('fontSize.14');
-  }
+thead tr th {
+  background-color: theme('colors.black.5');
+  font-size: theme('fontSize.14');
+}
 
-  td,
-  th {
-    border-bottom: 1px solid theme('colors.black.10');
-    padding: theme('spacing.16');
-    text-align: left;
-    vertical-align: top;
-  }
+td,
+th {
+  border-bottom: 1px solid theme('colors.black.10');
+  padding: theme('spacing.16');
+  text-align: left;
+  vertical-align: top;
+}
 
-  th {
-    border-bottom-width: 0;
-  }
+th {
+  border-bottom-width: 0;
+}
 
-  tr:last-child td {
-    border-bottom-width: 0;
-  }
+tr:last-child td {
+  border-bottom-width: 0;
+}
 
-  input[type=password]::-ms-reveal,
-  input[type=password]::-ms-clear {
-    display: none;
-  }
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+  display: none;
 }
