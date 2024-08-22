@@ -120,7 +120,7 @@ const displayValue = (option: unknown): string => {
           @after-leave="query = ''"
         >
           <ComboboxOptions
-            class="absolute z-50 mt-4 max-h-[400px] w-full rounded-8 bg-white py-4 shadow-lg ring-1 ring-black-10"
+            class="absolute z-50 mt-4 max-h-[400px] w-full overflow-y-auto rounded-8 bg-white py-4 shadow-lg ring-1 ring-black-10"
           >
             <template v-if="filteredOptions.length === 0 && query !== ''">
               <slot v-if="slots['not-found']" name="not-found"></slot>
