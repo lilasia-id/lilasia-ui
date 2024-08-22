@@ -83,13 +83,8 @@ const showNoBackdropDrawer = ref(false)
       </AppBlock>
     </AppDrawer>
 
-    <AppDrawer
-      v-model="showRightDrawer"
-      position="right"
-      class="h-screen w-1/5 rounded-l-8 border-l border-l-black-10 bg-white"
-      backdrop
-    >
-      <AppBlock>
+    <AppDrawer v-model="showRightDrawer" position="right" class="w-1/5 rounded-l-8" backdrop>
+      <AppBlock class="flex h-screen flex-col">
         <template #header>
           <div class="flex items-center justify-between gap-8">
             <AppButton color="light" icon="close" @click="showRightDrawer = false" />
@@ -97,21 +92,21 @@ const showNoBackdropDrawer = ref(false)
           </div>
         </template>
 
-        <div class="px-24">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quas dicta maxime
-          pariatur et quasi eum nam nostrum distinctio, reprehenderit temporibus ab iusto at debitis
-          repellendus impedit amet. Quibusdam, saepe.
+        <div class="h-full flex-1 overflow-y-auto px-24 pb-24">
+          <p v-for="n in 10" :key="n">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quas dicta maxime
+            pariatur et quasi eum nam nostrum distinctio, reprehenderit temporibus ab iusto at
+            debitis repellendus impedit amet. Quibusdam, saepe. Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Beatae quas dicta maxime pariatur et quasi eum nam nostrum
+            distinctio, reprehenderit temporibus ab iusto at debitis repellendus impedit amet.
+            Quibusdam, saepe.
+          </p>
         </div>
       </AppBlock>
     </AppDrawer>
 
-    <AppDrawer
-      v-model="showLeftDrawer"
-      position="left"
-      class="h-screen w-1/5 rounded-r-8 border-r border-r-black-10 bg-white"
-      backdrop
-    >
-      <AppBlock>
+    <AppDrawer v-model="showLeftDrawer" position="left" class="w-1/5 rounded-r-8" backdrop>
+      <AppBlock class="flex h-screen flex-col">
         <template #header>
           <div class="flex items-center justify-between gap-8">
             <h5 class="text-16 font-600 leading-24">Left Drawer</h5>
@@ -119,10 +114,15 @@ const showNoBackdropDrawer = ref(false)
           </div>
         </template>
 
-        <div class="px-24">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quas dicta maxime
-          pariatur et quasi eum nam nostrum distinctio, reprehenderit temporibus ab iusto at debitis
-          repellendus impedit amet. Quibusdam, saepe.
+        <div class="h-full flex-1 overflow-y-auto px-24 pb-24">
+          <p v-for="n in 10" :key="n">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quas dicta maxime
+            pariatur et quasi eum nam nostrum distinctio, reprehenderit temporibus ab iusto at
+            debitis repellendus impedit amet. Quibusdam, saepe. Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Beatae quas dicta maxime pariatur et quasi eum nam nostrum
+            distinctio, reprehenderit temporibus ab iusto at debitis repellendus impedit amet.
+            Quibusdam, saepe.
+          </p>
         </div>
       </AppBlock>
     </AppDrawer>

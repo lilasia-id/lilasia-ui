@@ -50,4 +50,17 @@ const openTopLeftDialog = () => {
       </AppBlock>
     </AppSection>
   </div>
+
+  <!-- <Teleport to="body">
+    <div class="relative z-50">
+      <div class="fixed inset-[0] bg-black/60"></div>
+      <div class="fixed inset-[0] overflow-y-auto">
+        <div class="container mx-auto my-24 flex items-center justify-center">
+          <AppBlock class="w-[200px]">
+            <div v-for="n in 20" :key="n" class="p-24">Lorem</div>
+          </AppBlock>
+        </div>
+      </div>
+    </div>
+  </Teleport> -->
 </template>

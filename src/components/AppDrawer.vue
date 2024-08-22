@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 
 const props = defineProps<{
   position: 'left' | 'right' | 'bottom' | 'top'
@@ -48,6 +48,19 @@ const classes = computed(() => {
     },
     props.class
   ]
+})
+
+watch(show, (newValue) => {
+  const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
+
+  if (newValue && props.backdrop) {
+    document.body.style.overflow = 'hidden'
+    document.body.style.paddingRight = `${scrollBarWidth}px`
+    return
+  }
+
+  document.body.style.overflow = 'auto'
+  document.body.style.paddingRight = '0'
 })
 
 const onBackdropClick = () => {

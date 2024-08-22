@@ -7,13 +7,16 @@ const { hideDialog } = useDialog()
 </script>
 
 <template>
-  <AppBlock class="w-[28rem]">
+  <AppBlock class="w-full md:w-[28rem]">
     <template #header>
       <h5 class="text-16 font-600 leading-24">Delete Confirmation</h5>
     </template>
 
     <div class="w-full px-24 pb-24">
-      <div class="mb-24 text-16 leading-24">Are you sure want to delete this item?</div>
+      <div v-for="n in 18" :key="n" class="mb-24 text-16 leading-24">
+        Are you sure want to delete this item?
+      </div>
+      <!-- <div class="mb-24 text-16 leading-24">Are you sure want to delete this item?</div> -->
       <AppButton color="red" text="Yes, delete it!" outline block @click="hideDialog" />
     </div>
   </AppBlock>
