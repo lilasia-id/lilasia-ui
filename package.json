@@ -1,7 +1,7 @@
 {
   "name": "lilasia-ui",
   "private": false,
-  "version": "0.2.4",
+  "version": "0.2.5",
   "type": "module",
   "scripts": {
     "build": "npm run build:lib && npm run build:web",
@@ -72,5 +72,8 @@
     "pinia": "^2.1.7",
     "vue": "^3.3.0",
     "vue-router": "^4.3.3"
+  },
+  "dependencies": {
+    "tailwind-merge": "^2.5.2"
   }
 }

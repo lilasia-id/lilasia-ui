@@ -6,7 +6,11 @@ export default {
   content: ['./*.html', './src/**/*.{html,vue,js,ts}'],
   presets: [preset],
   theme: {
-    extend: {}
+    extend: {
+      container: {
+        padding: '24px'
+      }
+    }
   },
   plugins: [typography]
 }

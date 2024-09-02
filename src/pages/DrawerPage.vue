@@ -19,7 +19,7 @@ const showNoBackdropDrawer = ref(false)
   <div class="prose mx-auto max-w-4xl">
     <AppSection class="not-prose">
       <ComponentsPreview>
-        <div class="grid grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
           <AppButton
             icon="dock_to_right"
             text="Open Right Drawer"

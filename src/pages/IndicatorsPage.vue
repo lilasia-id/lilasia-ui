@@ -12,15 +12,12 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
     <AppSection>
       <ComponentsPreview>
         <AppBlock>
-          <div class="flex justify-center gap-8 rounded-8 bg-white p-16">
-            <AppIndicators label="5" class="bg-blue-100 text-white">
+          <div class="flex items-center justify-center gap-8 rounded-8 bg-white p-16">
+            <AppIndicators label="10" class="bg-green-100 text-white">
               <AppButton icon="notifications" />
             </AppIndicators>
-            <AppIndicators label="10" round class="bg-red-100 text-white">
+            <AppIndicators label="5" round>
               <AppButton color="light" :icon="{ name: 'local_mall', size: 32 }" />
-            </AppIndicators>
-            <AppIndicators round class="bg-green-100 text-white">
-              <AppButton color="light" :icon="{ name: 'account_circle', size: 32 }" />
             </AppIndicators>
           </div>
         </AppBlock>

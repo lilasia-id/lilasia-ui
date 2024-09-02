@@ -1,14 +1,15 @@
 <script lang="ts" setup>
-import { computed, ref, type HTMLAttributes, type InputHTMLAttributes } from 'vue'
+import { computed, ref, type InputHTMLAttributes } from 'vue'
 import Icon from 'lilasia-icons'
+import FormLabel from './FormLabel.vue'
 
 const props = withDefaults(
   defineProps<{
-    id?: HTMLAttributes['id']
+    id?: string
     type?: InputHTMLAttributes['type']
     label?: string
-    placeholder?: InputHTMLAttributes['placeholder']
-    autocomplete?: InputHTMLAttributes['autocomplete']
+    placeholder?: string
+    autocomplete?: string
     required?: boolean
     readonly?: boolean
     error?: string
@@ -52,47 +53,45 @@ const togglePasswordVisibility = () => {
 
 <template>
   <div class="flex flex-col gap-8">
-    <label v-if="label" class="w-fit text-14 font-500 leading-20" :for="id">
-      {{ label }} <span v-if="!required" class="text-black-60">(Optional)</span>
-    </label>
+    <FormLabel :for="id" :label="label" :required="required">
+      <div class="relative">
+        <input
+          :id="id"
+          v-model="model"
+          :class="classes"
+          :type="inputType"
+          :placeholder="placeholder"
+          :autocomplete="autocomplete"
+          :required="required"
+          :readonly="readonly"
+        />
 
-    <div class="relative">
-      <input
-        :id="id"
-        v-model="model"
-        :class="classes"
-        :type="inputType"
-        :placeholder="placeholder"
-        :autocomplete="autocomplete"
-        :required="required"
-        :readonly="readonly"
-      />
-
-      <div
-        v-if="type === 'password'"
-        class="absolute inset-y-[0] flex select-none items-center"
-        :class="error ? 'right-[40px]' : 'right-[16px]'"
-      >
         <div
-          class="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black-30"
-          role="button"
-          tabindex="0"
-          aria-label="Password Revealer"
-          @click="togglePasswordVisibility"
-          @keyup.enter="togglePasswordVisibility"
+          v-if="type === 'password'"
+          class="absolute inset-y-[0] flex select-none items-center"
+          :class="error ? 'right-[40px]' : 'right-[16px]'"
         >
-          <Icon :name="inputType === 'password' ? 'visibility' : 'visibility_off'" size="20" />
+          <div
+            class="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black-30"
+            role="button"
+            tabindex="0"
+            aria-label="Password Revealer"
+            @click="togglePasswordVisibility"
+            @keyup.enter="togglePasswordVisibility"
+          >
+            <Icon :name="inputType === 'password' ? 'visibility' : 'visibility_off'" size="20" />
+          </div>
+        </div>
+
+        <div
+          v-if="error"
+          class="absolute inset-y-[0] right-[10px] flex items-center text-red-100"
+          aria-label="Form Error"
+        >
+          <Icon name="error" />
         </div>
       </div>
-
-      <div
-        v-if="error"
-        class="absolute inset-y-[0] right-[10px] flex items-center text-red-100"
-        aria-label="Form Error"
-      >
-        <Icon name="error" />
-      </div>
-    </div>
+    </FormLabel>
 
     <div v-if="error" class="w-fit text-14 font-500 leading-20 text-red-100">{{ error }}</div>
   </div>

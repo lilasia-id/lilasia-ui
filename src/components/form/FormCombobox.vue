@@ -8,17 +8,18 @@ import {
   TransitionRoot
 } from '@headlessui/vue'
 import Icon from 'lilasia-icons'
-import { computed, ref, useSlots, type InputHTMLAttributes } from 'vue'
+import { computed, ref, useSlots } from 'vue'
+import FormLabel from './FormLabel.vue'
 
 const props = withDefaults(
   defineProps<{
-    id?: InputHTMLAttributes['id']
+    id?: string
     label?: string
     options: any[]
     optionLabel?: string
     filterKey?: string
     displayValueKey?: string
-    placeholder?: InputHTMLAttributes['placeholder']
+    placeholder?: string
     multiple?: boolean
     required?: boolean
     readonly?: boolean
@@ -78,90 +79,88 @@ const displayValue = (option: unknown): string => {
 
 <template>
   <div class="flex flex-col gap-8">
-    <label v-if="label" class="w-fit text-14 font-500 leading-20" :for="id">
-      {{ label }} <span v-if="!required" class="text-black-60">(Optional)</span>
-    </label>
-
-    <Combobox v-model="model" :multiple="multiple">
-      <div class="relative">
+    <FormLabel :for="id" :label="label" :required="required">
+      <Combobox v-model="model" :multiple="multiple">
         <div class="relative">
-          <ComboboxInput
-            :id="id"
-            :class="classes"
-            :placeholder="placeholder"
-            :readonly="readonly"
-            spellcheck="false"
-            autocomplete="off"
-            :display-value="displayValue"
-            @change="query = $event.target.value"
-          />
+          <div class="relative">
+            <ComboboxInput
+              :id="id"
+              :class="classes"
+              :placeholder="placeholder"
+              :readonly="readonly"
+              spellcheck="false"
+              autocomplete="off"
+              :display-value="displayValue"
+              @change="query = $event.target.value"
+            />
 
-          <div
-            v-if="error"
-            class="absolute inset-y-[0] right-[40px] flex items-center text-red-100"
-            aria-label="Form Error"
-          >
-            <Icon name="error" />
+            <div
+              v-if="error"
+              class="absolute inset-y-[0] right-[40px] flex items-center text-red-100"
+              aria-label="Form Error"
+            >
+              <Icon name="error" />
+            </div>
+
+            <ComboboxButton
+              class="absolute inset-y-[0] right-[0] flex items-center pr-16"
+              :disabled="readonly"
+            >
+              <Icon name="unfold_more" size="20" />
+            </ComboboxButton>
           </div>
 
-          <ComboboxButton
-            class="absolute inset-y-[0] right-[0] flex items-center pr-16"
-            :disabled="readonly"
+          <TransitionRoot
+            leave="transition ease-in duration-100"
+            leave-from="opacity-100"
+            leave-to="opacity-0"
+            as="template"
+            @after-leave="query = ''"
           >
-            <Icon name="unfold_more" size="20" />
-          </ComboboxButton>
-        </div>
-
-        <TransitionRoot
-          leave="transition ease-in duration-100"
-          leave-from="opacity-100"
-          leave-to="opacity-0"
-          as="template"
-          @after-leave="query = ''"
-        >
-          <ComboboxOptions
-            class="absolute z-50 mt-4 max-h-[400px] w-full overflow-y-auto rounded-8 bg-white py-4 shadow-lg ring-1 ring-black-10"
-          >
-            <template v-if="filteredOptions.length === 0 && query !== ''">
-              <slot v-if="slots['not-found']" name="not-found"></slot>
-              <div v-else class="flex h-40 cursor-default select-none items-center px-16">
-                Nothing found.
-              </div>
-            </template>
-
-            <ComboboxOption
-              v-for="(option, index) in filteredOptions"
-              v-slot="{ selected, active }"
-              :key="index"
-              as="template"
-              :value="option"
+            <ComboboxOptions
+              class="absolute z-50 mt-4 max-h-[400px] w-full overflow-y-auto rounded-8 bg-white py-4 shadow-lg ring-1 ring-black-10"
             >
-              <li
-                class="relative flex cursor-pointer select-none items-center px-16 py-[10px] pr-48"
-                :class="{ 'bg-black-5': active || selected }"
+              <template v-if="filteredOptions.length === 0 && query !== ''">
+                <slot v-if="slots['not-found']" name="not-found"></slot>
+                <div v-else class="flex h-40 cursor-default select-none items-center px-16">
+                  Nothing found.
+                </div>
+              </template>
+
+              <ComboboxOption
+                v-for="(option, index) in filteredOptions"
+                v-slot="{ selected, active }"
+                :key="index"
+                as="template"
+                :value="option"
               >
-                <slot
-                  v-if="slots['option-label']"
-                  name="option-label"
-                  :active="active"
-                  :selected="selected"
-                  :option="option"
-                ></slot>
-                <span v-else class="block truncate" :class="{ 'font-600': selected }">
-                  {{ optionLabel ? option[optionLabel] : option }}
-                </span>
-                <span
-                  v-if="selected"
-                  class="absolute inset-y-[0] right-[0] flex items-center pr-16 text-blue-100"
+                <li
+                  class="relative flex cursor-pointer select-none items-center px-16 py-[10px] pr-48"
+                  :class="{ 'bg-black-5': active || selected }"
                 >
-                  <Icon name="check_circle" size="20" filled />
-                </span>
-              </li>
-            </ComboboxOption>
-          </ComboboxOptions>
-        </TransitionRoot>
-      </div>
-    </Combobox>
+                  <slot
+                    v-if="slots['option-label']"
+                    name="option-label"
+                    :active="active"
+                    :selected="selected"
+                    :option="option"
+                  ></slot>
+                  <span v-else class="block truncate" :class="{ 'font-600': selected }">
+                    {{ optionLabel ? option[optionLabel] : option }}
+                  </span>
+                  <span
+                    v-if="selected"
+                    class="absolute inset-y-[0] right-[0] flex items-center pr-16 text-blue-100"
+                  >
+                    <Icon name="check_circle" size="20" filled />
+                  </span>
+                </li>
+              </ComboboxOption>
+            </ComboboxOptions>
+          </TransitionRoot>
+        </div>
+      </Combobox>
+    </FormLabel>
 
     <div v-if="error" class="w-fit text-14 font-500 leading-20 text-red-100">{{ error }}</div>
   </div>

@@ -21,13 +21,13 @@ const useDialogStore = defineStore('dialog', () => {
     options.value = { position: 'top', ...payload.options }
   }
 
-  const close = () => {
+  const close = async () => {
     state.value = false
 
-    setTimeout(() => {
-      component.value = null
-      options.value = undefined
-    }, 300)
+    await new Promise((resolve) => setTimeout(resolve, 300))
+
+    component.value = null
+    options.value = undefined
   }
 
   return {

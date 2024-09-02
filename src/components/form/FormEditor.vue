@@ -2,16 +2,17 @@
 import Placeholder from '@tiptap/extension-placeholder'
 import StarterKit from '@tiptap/starter-kit'
 import { EditorContent, useEditor } from '@tiptap/vue-3'
-import { watch, type HTMLAttributes } from 'vue'
+import { watch } from 'vue'
 import Icon from 'lilasia-icons'
+import FormLabel from './FormLabel.vue'
 
 const emit = defineEmits(['update:model-value'])
 
 const props = defineProps<{
-  id?: HTMLAttributes['id']
+  id?: string
   label?: string
   modelValue?: string
-  placeholder?: HTMLAttributes['placeholder']
+  placeholder?: string
   required?: boolean
   error?: string
 }>()
@@ -88,10 +89,9 @@ const triggerFocus = () => {
 
 <template>
   <div class="flex flex-col gap-8">
-    <label v-if="label" class="w-fit text-14 font-500 leading-20" :for="id" @click="triggerFocus">
+    <FormLabel :for="id" :label="label" :required="required" @click="triggerFocus">
       <input :id="id" class="hidden" type="text" />
-      {{ label }} <span v-if="!required" class="text-black-60">(Optional)</span>
-    </label>
+    </FormLabel>
 
     <div class="relative">
       <EditorContent :editor="editor" />

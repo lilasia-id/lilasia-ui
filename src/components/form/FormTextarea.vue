@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 import Icon from 'lilasia-icons'
-import { computed, HTMLAttributes } from 'vue'
+import { computed } from 'vue'
+import FormLabel from './FormLabel.vue'
 
 const props = withDefaults(
   defineProps<{
-    id?: HTMLAttributes['id']
+    id?: string
     label?: string
-    placeholder?: HTMLAttributes['placeholder']
+    placeholder?: string
     rows?: string | number
     cols?: string | number
     required?: boolean
@@ -38,24 +39,21 @@ const classes = computed(() => {
 
 <template>
   <div class="flex flex-col gap-8">
-    <label v-if="label" class="w-fit text-14 font-500 leading-20" :for="id">
-      {{ label }} <span v-if="!required" class="text-black-60">(Optional)</span>
-    </label>
-
-    <div class="relative">
-      <textarea
-        :id="id"
-        v-model="model"
-        :class="classes"
-        :rows="rows"
-        :cols="cols"
-        :placeholder="placeholder"
-      ></textarea>
-
-      <div v-if="error" class="absolute right-[10px] top-[10px] flex items-center text-red-100">
-        <Icon name="error" />
+    <FormLabel :for="id" :label="label" :required="required">
+      <div class="relative">
+        <textarea
+          :id="id"
+          v-model="model"
+          :class="classes"
+          :rows="rows"
+          :cols="cols"
+          :placeholder="placeholder"
+        ></textarea>
+        <div v-if="error" class="absolute right-[10px] top-[10px] flex items-center text-red-100">
+          <Icon name="error" />
+        </div>
       </div>
-    </div>
+    </FormLabel>
 
     <div v-if="error" class="w-fit text-14 font-500 leading-20 text-red-100">{{ error }}</div>
   </div>

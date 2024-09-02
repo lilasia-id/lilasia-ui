@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { twMerge } from 'tailwind-merge'
 import { computed, ref, useSlots } from 'vue'
 
 const props = withDefaults(
@@ -20,14 +21,14 @@ const state = ref(false)
 
 const classes = computed(() => {
   return [
-    'absolute z-50 flex h-32 items-center text-nowrap rounded-8 px-12 text-12 font-500',
+    twMerge('bg-black-100 text-white', props.class),
     {
+      'absolute z-50 flex h-32 items-center text-nowrap rounded-8 px-12 text-12 font-500': true,
       '-ml-4 top-[50%] translate-y-[-50%] left-[0] -translate-x-full': props.position === 'left',
       '-mr-4 top-[50%] translate-y-[-50%] right-[0] translate-x-full': props.position === 'right',
       '-mt-4 top-[0] left-[50%] translate-x-[-50%] -translate-y-full': props.position === 'top',
       'mt-4 left-[50%] translate-x-[-50%]': props.position === 'bottom'
-    },
-    props.class
+    }
   ]
 })
 </script>

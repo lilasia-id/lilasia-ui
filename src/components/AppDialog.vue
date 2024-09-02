@@ -8,6 +8,7 @@ const dialogStore = useDialogStore()
 const { state, component, options } = storeToRefs(dialogStore)
 
 const wrapper = ref<HTMLElement>()
+const hiddenRef = ref()
 
 const classes = computed(() => {
   return [
@@ -15,7 +16,7 @@ const classes = computed(() => {
       'items-start justify-center': options.value?.position === 'top',
       'items-start justify-end': options.value?.position === 'top-right',
       'items-start justify-start': options.value?.position === 'top-left',
-      'items-center justify-center relative': options.value?.position === 'middle'
+      'items-center justify-center': options.value?.position === 'middle'
     }
   ]
 })
@@ -38,6 +39,7 @@ watch(state, (newState) => {
 watch(
   () => wrapper.value?.clientHeight,
   (clientHeight) => {
+    if (options.value?.position !== 'middle') return
     if (clientHeight && clientHeight < window.innerHeight) {
       wrapper.value?.classList.add('h-full')
     } else {
@@ -50,7 +52,7 @@ watch(
 
 <template>
   <TransitionRoot appear :show="state" as="div">
-    <Dialog class="relative z-50" as="div" @close="dialogStore.close">
+    <Dialog class="relative z-50" as="div" :initial-focus="hiddenRef" @close="dialogStore.close">
       <TransitionChild
         as="div"
         enter="duration-300 ease-out"
@@ -71,7 +73,7 @@ watch(
           @click.self="dialogStore.close"
         >
           <TransitionChild
-            as="template"
+            as="div"
             enter="duration-300 ease-out"
             enter-from="opacity-0 scale-95"
             enter-to="opacity-100 scale-100"
@@ -79,6 +81,7 @@ watch(
             leave-from="opacity-100 scale-100"
             leave-to="opacity-0 scale-95"
           >
+            <div ref="hiddenRef" class="hidden"></div>
             <component :is="component" />
           </TransitionChild>
         </div>

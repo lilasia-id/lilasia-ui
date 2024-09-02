@@ -22,6 +22,7 @@ withDefaults(
 <template>
   <MenuItem v-slot="{ active, close }">
     <AppButton
+      v-if="!$slots.default"
       :to="to"
       :color="active ? activeColor : 'light'"
       :icon="icon"
@@ -30,5 +31,6 @@ withDefaults(
       block
       @click.capture="close"
     />
+    <slot v-else :active="active" :close="close"></slot>
   </MenuItem>
 </template>

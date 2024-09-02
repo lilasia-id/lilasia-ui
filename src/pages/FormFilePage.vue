@@ -69,6 +69,7 @@ const setError = (value: boolean) => {
                 <FormImageUploader
                   id="square-image"
                   label="Square (1/1) Image"
+                  hint="JPEG or PNG, up to 5MB"
                   :required="required"
                   :error="error"
                   :readonly="readonly"
@@ -77,6 +78,7 @@ const setError = (value: boolean) => {
                   id="video-image"
                   label="Video (16/9) Image"
                   aspect-ratio="video"
+                  hint="JPEG or PNG, up to 5MB"
                   :required="required"
                   :error="error"
                   :readonly="readonly"

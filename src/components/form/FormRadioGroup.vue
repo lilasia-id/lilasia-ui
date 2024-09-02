@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import Icon, { type LilasiaIcon } from 'lilasia-icons'
-import { useSlots, type HTMLAttributes } from 'vue'
+import { useSlots } from 'vue'
 
 withDefaults(
   defineProps<{
-    id?: HTMLAttributes['id']
+    id?: string
     label?: string
     options?: any[]
     optionLabel?: string

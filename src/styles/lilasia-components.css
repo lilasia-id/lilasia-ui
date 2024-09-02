@@ -37,7 +37,7 @@ input:checked + .switch {
 }
 
 input:checked + .switch:before {
-  transform: translateX(theme('spacing.24'));
+  transform: translate(23.5px, -50%);
 }
 
 .ProseMirror p.is-editor-empty:first-child::before {

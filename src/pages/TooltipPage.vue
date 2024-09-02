@@ -15,14 +15,14 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
           <AppTooltip
             text="This is left tooltip"
             position="left"
-            class="border border-black-10 bg-white"
+            class="border border-black-10 bg-white text-black-100"
           >
             <AppButton icon="dock_to_left" text="Left Tooltip" />
           </AppTooltip>
           <AppTooltip
             text="This is top tooltip"
             position="top"
-            class="border border-black-10 bg-white"
+            class="border border-black-10 bg-white text-black-100"
           >
             <AppButton icon="dock_to_bottom" text="Top Tooltip" />
           </AppTooltip>

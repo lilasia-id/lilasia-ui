@@ -9,7 +9,7 @@ const props = withDefaults(
     href?: string
     target?: '_blank' | '_parent' | '_self' | '_top'
     type?: 'submit' | 'button' | 'reset'
-    color?: 'white' | 'light' | 'blue' | 'yellow' | 'red' | 'black'
+    color?: 'white' | 'light' | 'blue' | 'yellow' | 'red' | 'green' | 'black'
     text?: string
     icon?: string | LilasiaIcon
     iconRight?: string | LilasiaIcon
@@ -121,6 +121,21 @@ const colorClasses = computed(() => {
         props.loading ? '' : 'disabled:text-red-40 disabled:bg-red-5 disabled:border-red-5',
         props.loading ? '' : 'disabled:hover:border-red-5'
       ]
+    },
+    green: {
+      solid: [
+        'text-white bg-green-100 border border-green-100',
+        props.loading ? '' : 'hover:bg-green-80 hover:border-green-80',
+        props.loading ? '' : 'disabled:bg-green-40 disabled:border-green-40',
+        props.loading ? '' : 'disabled:hover:bg-green-40 disabled:hover:border-green-40'
+      ],
+      outline: [
+        'bg-white text-green-100 border border-green-100',
+        props.disabled || props.loading ? '' : 'hover:bg-green-10 hover:border-green-100',
+        props.loading ? '' : 'disabled:text-green-40 disabled:border-green-40',
+        props.loading ? '' : 'disabled:hover:border-green-40'
+      ],
+      subtle: []
     },
     black: {
       solid: [

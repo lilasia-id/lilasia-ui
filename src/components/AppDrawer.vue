@@ -39,14 +39,14 @@ const transition = {
 
 const classes = computed(() => {
   return [
-    'fixed',
+    props.class,
     {
+      fixed: true,
       'top-[0]': props.position === 'top',
       'top-[0] right-[0]': props.position === 'right',
       'top-[0] left-[0]': props.position === 'left',
       'bottom-[0]': props.position === 'bottom'
-    },
-    props.class
+    }
   ]
 })
 

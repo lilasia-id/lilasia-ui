@@ -1,15 +1,17 @@
 <script lang="ts" setup>
-import { HTMLAttributes, InputHTMLAttributes, ref } from 'vue'
+import { ref } from 'vue'
 import AppButton from '../AppButton.vue'
+import FormLabel from './FormLabel.vue'
 
 const emit = defineEmits(['update:model-value'])
 
 const props = withDefaults(
   defineProps<{
     modelValue?: any
-    id?: HTMLAttributes['id']
+    id?: string
+    name?: string
     label?: string
-    placeholder?: InputHTMLAttributes['placeholder']
+    placeholder?: string
     multiple?: boolean
     required?: boolean
     readonly?: boolean
@@ -18,6 +20,7 @@ const props = withDefaults(
   {
     modelValue: undefined,
     id: undefined,
+    name: undefined,
     label: undefined,
     placeholder: 'Choose File',
     required: false,
@@ -49,33 +52,31 @@ const triggerInputFileClick = () => {
 
 <template>
   <div class="flex flex-col gap-8">
-    <label v-if="label" class="w-fit text-14 font-500 leading-20" :for="id">
-      {{ label }} <span v-if="!required" class="text-black-60">(Optional)</span>
-    </label>
-
     <div class="relative">
-      <input
-        :id="id"
-        ref="inputFile"
-        type="file"
-        :multiple="multiple"
-        :required="required"
-        :disabled="readonly"
-        :value="modelValue"
-        class="hidden"
-        @change="handleFileChange"
-      />
-
-      <AppButton
-        :color="error ? 'red' : 'white'"
-        :outline="!!error"
-        :no-wrap="false"
-        icon="upload"
-        block
-        @click="triggerInputFileClick"
-      >
-        <div class="line-clamp-1">{{ fileInfo ?? placeholder }}</div>
-      </AppButton>
+      <FormLabel :for="id" :label="label" :required="required">
+        <input
+          :id="id"
+          ref="inputFile"
+          type="file"
+          :name="name"
+          :multiple="multiple"
+          :required="required"
+          :disabled="readonly"
+          :value="modelValue"
+          class="hidden"
+          @change="handleFileChange"
+        />
+        <AppButton
+          :color="error ? 'red' : 'white'"
+          :outline="!!error"
+          :no-wrap="false"
+          icon="upload"
+          block
+          @click="triggerInputFileClick"
+        >
+          <div class="line-clamp-1">{{ fileInfo ?? placeholder }}</div>
+        </AppButton>
+      </FormLabel>
     </div>
 
     <div v-if="error" class="w-fit text-14 font-500 leading-20 text-red-100">{{ error }}</div>

@@ -22,6 +22,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
                 <AppButton color="blue" text="Blue" />
                 <AppButton color="yellow" text="Yellow" />
                 <AppButton color="red" text="Red" />
+                <AppButton color="green" text="Green" />
                 <AppButton color="black" text="Black" />
               </div>
             </div>
@@ -33,8 +34,9 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
             </template>
             <div class="px-24 pb-24">
               <div class="flex flex-col items-center gap-8">
-                <AppButton color="blue" text="Blue" outline />
                 <AppButton color="red" text="Red" outline />
+                <AppButton color="green" text="Green" outline />
+                <AppButton color="blue" text="Blue" outline />
               </div>
             </div>
           </AppBlock>
@@ -61,6 +63,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
                 <AppButton color="blue" text="Blue" disabled />
                 <AppButton color="yellow" text="Yellow" disabled />
                 <AppButton color="red" text="Red" disabled />
+                <AppButton color="green" text="Green" disabled />
                 <AppButton color="black" text="Black" disabled />
               </div>
             </div>
@@ -77,6 +80,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
                 <AppButton color="blue" icon="add_reaction" text="Blue" />
                 <AppButton color="yellow" icon="add_reaction" text="Yellow" />
                 <AppButton color="red" icon="add_reaction" text="Red" />
+                <AppButton color="green" icon="add_reaction" text="Green" />
                 <AppButton color="black" icon="add_reaction" text="Black" />
               </div>
             </div>

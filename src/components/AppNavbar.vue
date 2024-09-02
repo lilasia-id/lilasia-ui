@@ -7,7 +7,13 @@ const props = defineProps<{
 }>()
 
 const classes = computed(() => {
-  return [props.sticky ? 'sticky top-[0] z-30' : 'static', props.class]
+  return [
+    props.class,
+    {
+      'sticky top-[0] z-30': props.sticky,
+      static: !props.sticky
+    }
+  ]
 })
 </script>
 

@@ -79,5 +79,5 @@ const addCopyButtons = () => {
 
 <template>
   <!-- eslint-disable-next-line vue/no-v-html -->
-  <article class="prose mx-auto max-w-4xl" v-html="html"></article>
+  <article class="prose mx-auto max-w-4xl overflow-x-auto" v-html="html"></article>
 </template>

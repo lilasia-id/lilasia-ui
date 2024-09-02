@@ -15,7 +15,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
       <ComponentsPreview>
         <AppBlock bordered>
           <div class="p-24">
-            <div class="flex items-center justify-center gap-8">
+            <div class="flex flex-wrap items-center justify-center gap-8">
               <AppDropdown icon="sort" text="Dropdown Action" menu-position="left">
                 <DropdownItemGroup>
                   <DropdownItem icon="edit" text="Edit" />
@@ -80,7 +80,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
     <AppSection>
       <AppBlock bordered>
         <div class="p-24">
-          <MarkdownRenderer class="max-w-4xl" file-path="docs/dropdown.md" />
+          <MarkdownRenderer file-path="docs/dropdown.md" />
         </div>
       </AppBlock>
     </AppSection>
