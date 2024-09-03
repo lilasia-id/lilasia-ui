@@ -14,10 +14,10 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
         <AppBlock>
           <div class="flex items-center justify-center gap-8 rounded-8 bg-white p-16">
             <AppIndicators label="10" class="bg-green-100 text-white">
-              <AppButton icon="notifications" />
+              <AppButton color="light" :icon="{ name: 'notifications', size: 28 }" />
             </AppIndicators>
             <AppIndicators label="5" round>
-              <AppButton color="light" :icon="{ name: 'local_mall', size: 32 }" />
+              <AppButton color="light" :icon="{ name: 'local_mall', size: 28 }" />
             </AppIndicators>
           </div>
         </AppBlock>

@@ -48,6 +48,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
             <div class="px-24 pb-24">
               <div class="flex flex-col items-center gap-8">
                 <AppButton color="red" text="Red" subtle />
+                <AppButton color="green" text="Green" subtle />
               </div>
             </div>
           </AppBlock>

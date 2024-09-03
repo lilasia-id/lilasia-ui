@@ -35,12 +35,14 @@ const getPositionClass = (toastPosition: 'start' | 'center' | 'end') => {
   }
 }
 
-const getToastClass = (toastType: string) => {
+const getToastClass = (toastType: string, toastRound: boolean) => {
   return {
-    'bg-green-10': toastType === 'success',
-    'bg-blue-10': toastType === 'info',
-    'bg-yellow-10': toastType === 'warning',
-    'bg-red-10': toastType === 'danger'
+    'bg-green-10 ring-1 ring-green-100': toastType === 'success',
+    'bg-blue-20 ring-1 ring-blue-100': toastType === 'info',
+    'bg-yellow-10 ring-1 ring-yellow-100': toastType === 'warning',
+    'bg-red-10 ring-1 ring-red-100': toastType === 'danger',
+    'rounded-9999': toastRound,
+    'rounded-8': !toastRound
   }
 }
 
@@ -112,10 +114,9 @@ const getIconName = (toastType: string) => {
     >
       <AppBlock
         class="shadow ring-1 ring-black-10 md:max-w-[432px]"
-        :class="getToastClass(toast.type)"
-        :rounded="16"
+        :class="getToastClass(toast.type, toast.round)"
       >
-        <div class="flex items-center gap-16 p-16">
+        <div class="flex items-center gap-16 px-16 py-8">
           <TransitionChild
             as="div"
             enter="duration-300 delay-100 ease-out"
@@ -169,12 +170,8 @@ const getIconName = (toastType: string) => {
       appear
       @click="dismissToast(toast.id)"
     >
-      <AppBlock
-        class="shadow ring-1 ring-black-10 md:max-w-[432px]"
-        :class="getToastClass(toast.type)"
-        :rounded="16"
-      >
-        <div class="flex items-center gap-16 p-16">
+      <AppBlock class="shadow md:max-w-[432px]" :class="getToastClass(toast.type, toast.round)">
+        <div class="flex items-center gap-16 px-16 py-8">
           <TransitionChild
             as="div"
             enter="duration-300 delay-100 ease-out"
@@ -227,10 +224,9 @@ const getIconName = (toastType: string) => {
     >
       <AppBlock
         class="shadow ring-1 ring-black-10 md:max-w-[432px]"
-        :class="getToastClass(toast.type)"
-        :rounded="16"
+        :class="getToastClass(toast.type, toast.round)"
       >
-        <div class="flex items-center gap-16 p-16">
+        <div class="flex items-center gap-16 px-16 py-8">
           <TransitionChild
             as="div"
             enter="duration-300 delay-100 ease-out"

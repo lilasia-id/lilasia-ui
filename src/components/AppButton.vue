@@ -135,7 +135,12 @@ const colorClasses = computed(() => {
         props.loading ? '' : 'disabled:text-green-40 disabled:border-green-40',
         props.loading ? '' : 'disabled:hover:border-green-40'
       ],
-      subtle: []
+      subtle: [
+        'text-green-100 bg-green-20 border border-green-20',
+        props.disabled || props.loading ? '' : 'hover:bg-green-40 hover:border-green-40',
+        props.loading ? '' : 'disabled:text-green-40 disabled:bg-green-5 disabled:border-green-5',
+        props.loading ? '' : 'disabled:hover:border-green-5'
+      ]
     },
     black: {
       solid: [

@@ -2,6 +2,7 @@
 import Icon from 'lilasia-icons'
 import { computed, onMounted, ref } from 'vue'
 import FormLabel from './FormLabel.vue'
+import { twJoin, twMerge } from 'tailwind-merge'
 
 const emit = defineEmits(['update:model-value'])
 
@@ -17,6 +18,7 @@ const props = withDefaults(
     readonly?: boolean
     error?: string
     src?: string
+    uploading?: boolean
     aspectRatio?: 'video' | 'square'
     class?: any
   }>(),
@@ -31,6 +33,7 @@ const props = withDefaults(
     readonly: false,
     error: undefined,
     src: undefined,
+    uploading: false,
     aspectRatio: 'square',
     class: undefined
   }
@@ -43,12 +46,12 @@ const classes = computed(() => {
   return [
     props.class,
     {
-      'relative rounded-8 border-2 border-dashed bg-blue-10 transition-colors hover:bg-blue-20':
-        true,
+      'relative rounded-8 bg-blue-10 transition-colors hover:bg-blue-20': true,
+      'border border-black-10': imagePreview.value && !props.error,
+      'border-2 border-dashed border-blue-100': !imagePreview.value && !props.error,
       'aspect-square': props.aspectRatio === 'square',
       'aspect-video': props.aspectRatio === 'video',
-      'hover:border-red-30 border-red-100': props.error,
-      'border-blue-100': !props.error
+      'hover:border-red-30 border-red-100': props.error
     }
   ]
 })
@@ -91,21 +94,60 @@ const handleFileChange = (event: Event) => {
           class="hidden"
           @change="handleFileChange"
         />
-        <div :class="classes" :role="!readonly ? 'button' : 'none'">
+
+        <div class="group" :class="classes" :role="!readonly ? 'button' : 'none'">
           <div
-            v-if="!imagePreview"
-            class="absolute inset-[0] flex h-full w-full flex-col items-center justify-center p-16 text-blue-100"
+            :class="
+              twMerge([
+                'absolute inset-[0] z-10 flex h-full w-full flex-col items-center justify-center p-16',
+                imagePreview
+                  ? 'rounded-8 bg-black/40 opacity-0 transition-opacity group-hover:opacity-100'
+                  : '',
+                uploading ? 'opacity-100' : ''
+              ])
+            "
           >
-            <Icon name="cloud_upload" size="48" />
-            <span class="text-center text-16 font-600 text-black-100 md:text-20">
-              {{ placeholder }}
-            </span>
-            <span class="text-center text-12 leading-20 text-black-60 md:text-16 md:leading-24">
-              {{ hint }}
-            </span>
+            <!-- Uploading Text -->
+            <div v-if="uploading" class="flex items-center gap-8">
+              <div class="inline-flex animate-spin text-white">
+                <Icon name="progress_activity" />
+              </div>
+              <span class="text-center text-16 font-600 text-white md:text-20">
+                Uploading&hellip;
+              </span>
+            </div>
+
+            <!-- Browse Image Text -->
+            <template v-else>
+              <div :class="twJoin(['inline-flex text-blue-100', imagePreview ? 'text-white' : ''])">
+                <Icon name="cloud_upload" size="48" />
+              </div>
+              <span
+                :class="
+                  twMerge([
+                    'text-center text-16 font-600 text-black-100 md:text-20',
+                    imagePreview ? 'text-white' : ''
+                  ])
+                "
+              >
+                {{ placeholder }}
+              </span>
+              <span
+                :class="
+                  twMerge([
+                    'text-center text-12 leading-20 text-black-60 md:text-16 md:leading-24',
+                    imagePreview ? 'text-black-5' : ''
+                  ])
+                "
+              >
+                {{ hint }}
+              </span>
+            </template>
           </div>
 
+          <!-- Image Preview -->
           <div
+            v-if="imagePreview"
             class="absolute inset-[0] flex h-full w-full flex-col items-center justify-center text-black-40"
           >
             <img

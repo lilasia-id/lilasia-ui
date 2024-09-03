@@ -8,8 +8,8 @@ export const useDialog = () => {
     dialogStore.open({ component, options })
   }
 
-  const hideDialog = () => {
-    dialogStore.close()
+  const hideDialog = async () => {
+    await dialogStore.close()
   }
 
   return {

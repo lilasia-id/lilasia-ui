@@ -8,18 +8,22 @@ import { useToast } from '@/composables/toast'
 const { toastSuccess, toastInfo, toastWarning, toastError } = useToast()
 
 const showSuccessToast = () => {
-  toastSuccess('This is success toast', { position: 'start' })
+  toastSuccess('This is success toast', {
+    position: 'start'
+  })
 }
 
 const showInfoToast = () => {
   toastInfo('This is info toast', {
-    position: 'center'
+    position: 'center',
+    round: false
   })
 }
 
 const showWarningToast = () => {
   toastWarning('This is warning toast', {
-    position: 'center'
+    position: 'center',
+    round: false
   })
 }
 

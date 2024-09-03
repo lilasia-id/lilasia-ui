@@ -36,7 +36,7 @@ const classes = computed(() => {
 
     <span :class="classes" tabindex="0" @keyup.enter="checked = !checked">
       <div class="inline-flex text-white">
-        <Icon name="check" size="14" weight="700" />
+        <Icon name="check" size="14" />
       </div>
     </span>
 
