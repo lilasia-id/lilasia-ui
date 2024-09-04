@@ -15,15 +15,13 @@ const showSuccessToast = () => {
 
 const showInfoToast = () => {
   toastInfo('This is info toast', {
-    position: 'center',
-    round: false
+    position: 'center'
   })
 }
 
 const showWarningToast = () => {
   toastWarning('This is warning toast', {
-    position: 'center',
-    round: false
+    position: 'center'
   })
 }
 

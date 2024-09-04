@@ -48,6 +48,14 @@ watch(
   },
   { immediate: true }
 )
+
+const hideDialog = () => {
+  if (options.value?.staticBackdrop) {
+    return
+  }
+
+  dialogStore.close()
+}
 </script>
 
 <template>
@@ -62,15 +70,15 @@ watch(
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <div class="fixed inset-[0] bg-black/60" @click.self="dialogStore.close"></div>
+        <div class="fixed inset-[0] bg-black/60" @click.self="hideDialog"></div>
       </TransitionChild>
 
-      <div class="fixed inset-[0] overflow-y-auto" @click.self="dialogStore.close">
+      <div class="fixed inset-[0] overflow-y-auto" @click.self="hideDialog">
         <div
           ref="wrapper"
           :class="classes"
           class="container mx-auto flex py-24"
-          @click.self="dialogStore.close"
+          @click.self="hideDialog"
         >
           <TransitionChild
             as="div"

@@ -24,7 +24,8 @@ const components = [
       { label: 'Navbar', name: 'navbar', icon: 'menu' },
       { label: 'Pagination', name: 'pagination', icon: 'more_horiz' },
       { label: 'Tabs', name: 'tabs', icon: 'tab' },
-      { label: 'Dropdown', name: 'dropdown', icon: 'arrow_drop_down' }
+      { label: 'Dropdown', name: 'dropdown', icon: 'arrow_drop_down' },
+      { label: 'Popover', name: 'popover', icon: 'arrow_circle_down' }
     ]
   },
   {
@@ -37,7 +38,8 @@ const components = [
       { label: 'Checkbox', name: 'form.checkbox', icon: 'event_list' },
       { label: 'Radio Group', name: 'form.radio-group', icon: 'radio_button_checked' },
       { label: 'File', name: 'form.file', icon: 'perm_media' },
-      { label: 'Button', name: 'button', icon: 'check_box_outline_blank' }
+      { label: 'Button', name: 'button', icon: 'check_box_outline_blank' },
+      { label: 'Button Link', name: 'button.link', icon: 'link' }
     ]
   },
   {

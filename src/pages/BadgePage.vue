@@ -23,7 +23,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 
             <div class="flex flex-col items-center gap-16 rounded-8 bg-white p-16">
               <div class="font-600">With Icon</div>
-              <AppBadge class="w-fit" icon="explosion" label="Default Color" />
+              <AppBadge class="w-fit" icon="check" label="Default Color" />
               <AppBadge class="w-fit" color="blue" icon="info" label="Blue Color" />
               <AppBadge class="w-fit" color="red" icon="error" label="Red Color" />
               <AppBadge class="w-fit" color="yellow" icon="warning" label="Yellow Color" />
@@ -32,7 +32,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
 
             <div class="flex flex-col items-center gap-16 rounded-8 bg-white p-16">
               <div class="font-600">Pills</div>
-              <AppBadge class="w-fit" icon="explosion" label="Pill Default Color" pill />
+              <AppBadge class="w-fit" icon="check" label="Pill Default Color" pill />
               <AppBadge class="w-fit" color="blue" icon="info" label="Pill Blue Color" pill />
               <AppBadge class="w-fit" color="red" icon="error" label="Pill Red Color" pill />
               <AppBadge

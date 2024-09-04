@@ -22,7 +22,7 @@ const slots = useSlots()
 const classes = computed(() => {
   return [
     {
-      'divide-gray-100 absolute z-50 mt-4 min-w-[12rem] origin-top-right divide-y divide-black-10 rounded-8 bg-white shadow-lg ring-1 ring-black-10 focus:outline-none':
+      'divide-gray-100 absolute z-50 mt-8 min-w-[12rem] origin-top-right divide-y divide-black-10 rounded-8 bg-white shadow-lg ring-1 ring-black-10 focus:outline-none':
         true,
       'right-[0]': props.menuPosition === 'right',
       'left-[0]': props.menuPosition === 'left',

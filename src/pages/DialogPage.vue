@@ -23,6 +23,10 @@ const openTopRightDialog = () => {
 const openTopLeftDialog = () => {
   showDialog(DeleteDialog, { position: 'top-left' })
 }
+
+const openBackdropStaticDialog = () => {
+  showDialog(DeleteDialog, { position: 'top', staticBackdrop: true })
+}
 </script>
 
 <template>
@@ -37,6 +41,9 @@ const openTopLeftDialog = () => {
           </AppButton>
           <AppButton icon="align_justify_flex_start" @click="openTopLeftDialog">
             Top-left
+          </AppButton>
+          <AppButton icon="equalizer" @click="openBackdropStaticDialog">
+            Static Backdrop
           </AppButton>
         </div>
       </AppBlock>

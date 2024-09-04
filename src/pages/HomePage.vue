@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppSection from '@/components/AppSection.vue'
 import AppBlock from '@/components/blocks/AppBlock.vue'
+import ButtonLink from '@/components/ButtonLink.vue'
 </script>
 
 <template>
@@ -14,6 +15,9 @@ import AppBlock from '@/components/blocks/AppBlock.vue'
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quis delectus eius itaque
         necessitatibus neque voluptates laborum. Natus non ratione deleniti atque laborum harum
         blanditiis necessitatibus consequatur, tempora, laboriosam rem?
+
+        <ButtonLink :to="{ name: 'home' }" text="Click here" />
+        <ButtonLink href="https://google.com" target="_blank" text="Click here 2" />
       </div>
     </AppBlock>
   </AppSection>

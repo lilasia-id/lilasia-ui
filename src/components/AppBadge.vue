@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Icon, { type LilasiaIcon } from 'lilasia-icons'
+import { twJoin } from 'tailwind-merge'
 import { computed, useSlots } from 'vue'
 
 const props = withDefaults(
@@ -57,14 +58,14 @@ const colorClasses = computed(() => {
 })
 
 const classes = computed(() => {
-  return [
-    'flex h-24 cursor-default items-center justify-center gap-x-[6px] text-nowrap px-[10.5px] transition-colors',
-    {
-      'rounded-8': !props.pill,
-      'rounded-9999': props.pill
-    },
+  return twJoin(
+    'flex h-24 cursor-default items-center justify-center gap-x-4 text-nowrap transition-colors',
+    (props.icon || props.iconRight) && 'px-[6px]',
+    !props.icon && !props.iconRight && 'px-[12px]',
+    props.pill && 'rounded-9999',
+    !props.pill && 'rounded-4',
     colorClasses.value[props.color][variant.value]
-  ]
+  )
 })
 </script>
 

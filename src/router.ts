@@ -31,6 +31,11 @@ const router = createRouter({
           component: () => import('@/pages/ButtonPage.vue')
         },
         {
+          path: 'button-link',
+          name: 'button.link',
+          component: () => import('@/pages/ButtonLinkPage.vue')
+        },
+        {
           path: 'dialog',
           name: 'dialog',
           component: () => import('@/pages/DialogPage.vue')
@@ -109,6 +114,11 @@ const router = createRouter({
           path: 'pagination',
           name: 'pagination',
           component: () => import('@/pages/PaginationPage.vue')
+        },
+        {
+          path: 'popover',
+          name: 'popover',
+          component: () => import('@/pages/PopoverPage.vue')
         },
         {
           path: 'accordion',

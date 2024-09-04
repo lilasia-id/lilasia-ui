@@ -12,6 +12,7 @@ import AppTooltip from '@/components/AppTooltip.vue'
 import AppBlock from '@/components/blocks/AppBlock.vue'
 import BlockFooter from '@/components/blocks/BlockFooter.vue'
 import BlockHeader from '@/components/blocks/BlockHeader.vue'
+import ButtonLink from '@/components/ButtonLink.vue'
 import AppDropdown from '@/components/dropdown/AppDropdown.vue'
 import DropdownItem from '@/components/dropdown/DropdownItem.vue'
 import DropdownItemGroup from '@/components/dropdown/DropdownItemGroup.vue'
@@ -26,6 +27,8 @@ import FormSelect from '@/components/form/FormSelect.vue'
 import FormSwitch from '@/components/form/FormSwitch.vue'
 import FormTextarea from '@/components/form/FormTextarea.vue'
 import AppPagination, { type PaginationMeta } from '@/components/pagination/AppPagination.vue'
+import AppPopover from '@/components/popover/AppPopover.vue'
+import PopoverPanel from '@/components/popover/PopoverPanel.vue'
 import AppSkeleton from '@/components/skeleton/AppSkeleton.vue'
 import HeadingSkeleton from '@/components/skeleton/HeadingSkeleton.vue'
 import ImageSkeleton from '@/components/skeleton/ImageSkeleton.vue'
@@ -53,6 +56,7 @@ export {
   AppModal,
   AppNavbar,
   AppPagination,
+  AppPopover,
   AppSection,
   AppSkeleton,
   AppTabs,
@@ -60,6 +64,7 @@ export {
   AppTooltip,
   BlockFooter,
   BlockHeader,
+  ButtonLink,
   DropdownItem,
   DropdownItemGroup,
   FormCheckbox,
@@ -75,6 +80,7 @@ export {
   HeadingSkeleton,
   ImageSkeleton,
   ParagraphSkeleton,
+  PopoverPanel,
   preset,
   TabButton,
   TabList,

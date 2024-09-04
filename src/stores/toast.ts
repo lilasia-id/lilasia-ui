@@ -7,7 +7,6 @@ const useToastStore = defineStore('toast', () => {
     state?: boolean
     message: string
     type: string
-    round: boolean
     position: 'start' | 'center' | 'end'
   }
 
@@ -21,7 +20,6 @@ const useToastStore = defineStore('toast', () => {
       state: true,
       message: options.message,
       type: options.type,
-      round: options.round,
       position: options.position
     })
 

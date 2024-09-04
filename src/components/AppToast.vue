@@ -35,14 +35,13 @@ const getPositionClass = (toastPosition: 'start' | 'center' | 'end') => {
   }
 }
 
-const getToastClass = (toastType: string, toastRound: boolean) => {
+const getToastClass = (toastType: string) => {
   return {
-    'bg-green-10 ring-1 ring-green-100': toastType === 'success',
-    'bg-blue-20 ring-1 ring-blue-100': toastType === 'info',
-    'bg-yellow-10 ring-1 ring-yellow-100': toastType === 'warning',
-    'bg-red-10 ring-1 ring-red-100': toastType === 'danger',
-    'rounded-9999': toastRound,
-    'rounded-8': !toastRound
+    'rounded-8': true,
+    'bg-green-10 ring-1 ring-green-60': toastType === 'success',
+    'bg-blue-20 ring-1 ring-blue-60': toastType === 'info',
+    'bg-yellow-10 ring-1 ring-yellow-60': toastType === 'warning',
+    'bg-red-10 ring-1 ring-red-60': toastType === 'danger'
   }
 }
 
@@ -114,7 +113,7 @@ const getIconName = (toastType: string) => {
     >
       <AppBlock
         class="shadow ring-1 ring-black-10 md:max-w-[432px]"
-        :class="getToastClass(toast.type, toast.round)"
+        :class="getToastClass(toast.type)"
       >
         <div class="flex items-center gap-16 px-16 py-8">
           <TransitionChild
@@ -170,7 +169,7 @@ const getIconName = (toastType: string) => {
       appear
       @click="dismissToast(toast.id)"
     >
-      <AppBlock class="shadow md:max-w-[432px]" :class="getToastClass(toast.type, toast.round)">
+      <AppBlock class="shadow md:max-w-[432px]" :class="getToastClass(toast.type)">
         <div class="flex items-center gap-16 px-16 py-8">
           <TransitionChild
             as="div"
@@ -224,7 +223,7 @@ const getIconName = (toastType: string) => {
     >
       <AppBlock
         class="shadow ring-1 ring-black-10 md:max-w-[432px]"
-        :class="getToastClass(toast.type, toast.round)"
+        :class="getToastClass(toast.type)"
       >
         <div class="flex items-center gap-16 px-16 py-8">
           <TransitionChild

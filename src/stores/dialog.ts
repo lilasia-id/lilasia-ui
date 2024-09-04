@@ -3,6 +3,7 @@ import { ref, shallowRef, type Component } from 'vue'
 
 export type DialogOptions = {
   position?: 'top' | 'middle' | 'top-left' | 'top-right'
+  staticBackdrop?: boolean
 }
 
 type DialogPayload = {
