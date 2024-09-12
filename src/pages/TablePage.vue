@@ -51,7 +51,7 @@ const users = [
         <template #header>
           <div class="text-24 font-600">Table Middle</div>
         </template>
-        <table class="mt-0 middle">
+        <table class="middle mt-0">
           <thead>
             <tr>
               <th class="w-[40px] text-center">#</th>
@@ -83,7 +83,7 @@ const users = [
           <div class="text-24 font-600">Table Compact</div>
         </template>
         <div class="px-24 pb-24">
-          <table class="mt-0 compact">
+          <table class="compact mt-0">
             <thead>
               <tr>
                 <th class="w-[40px] text-center">#</th>
@@ -111,7 +111,7 @@ const users = [
           <div class="text-24 font-600">Table Rounded</div>
         </template>
         <div class="px-24 pb-24">
-          <table class="mt-0 rounded">
+          <table class="rounded mt-0">
             <thead>
               <tr>
                 <th class="w-[40px] text-center">#</th>

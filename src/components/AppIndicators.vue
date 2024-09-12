@@ -28,7 +28,7 @@ const classes = computed(() => {
 <template>
   <div class="relative z-10">
     <div v-if="!hide" :class="classes">
-      <span v-if="label" class="font-400 text-12">
+      <span v-if="label" class="text-12 font-400">
         {{ label }}
       </span>
     </div>

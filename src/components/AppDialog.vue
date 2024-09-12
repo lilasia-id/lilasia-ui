@@ -13,6 +13,7 @@ const hiddenRef = ref()
 const classes = computed(() => {
   return [
     {
+      'container mx-auto flex py-24': true,
       'items-start justify-center': options.value?.position === 'top',
       'items-start justify-end': options.value?.position === 'top-right',
       'items-start justify-start': options.value?.position === 'top-left',
@@ -25,12 +26,14 @@ watch(state, (newState) => {
   const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
 
   if (newState) {
+    document.documentElement.classList.add('!overflow-visible')
     document.body.style.overflow = 'hidden'
     document.body.style.paddingRight = `${scrollBarWidth}px`
     return
   }
 
   setTimeout(() => {
+    document.documentElement.classList.remove('!overflow-visible')
     document.body.style.overflow = 'auto'
     document.body.style.paddingRight = '0'
   }, 300)
@@ -62,7 +65,7 @@ const hideDialog = () => {
   <TransitionRoot appear :show="state" as="div">
     <Dialog class="relative z-50" as="div" :initial-focus="hiddenRef" @close="dialogStore.close">
       <TransitionChild
-        as="div"
+        as="template"
         enter="duration-300 ease-out"
         enter-from="opacity-0"
         enter-to="opacity-100"
@@ -74,25 +77,20 @@ const hideDialog = () => {
       </TransitionChild>
 
       <div class="fixed inset-[0] overflow-y-auto" @click.self="hideDialog">
-        <div
-          ref="wrapper"
-          :class="classes"
-          class="container mx-auto flex py-24"
-          @click.self="hideDialog"
+        <TransitionChild
+          as="template"
+          enter="duration-300 ease-out"
+          enter-from="opacity-0 scale-95"
+          enter-to="opacity-100 scale-100"
+          leave="duration-200 ease-in"
+          leave-from="opacity-100 scale-100"
+          leave-to="opacity-0 scale-95"
         >
-          <TransitionChild
-            as="div"
-            enter="duration-300 ease-out"
-            enter-from="opacity-0 scale-95"
-            enter-to="opacity-100 scale-100"
-            leave="duration-200 ease-in"
-            leave-from="opacity-100 scale-100"
-            leave-to="opacity-0 scale-95"
-          >
+          <div ref="wrapper" :class="classes" @click.self="hideDialog">
             <div ref="hiddenRef" class="hidden"></div>
             <component :is="component" />
-          </TransitionChild>
-        </div>
+          </div>
+        </TransitionChild>
       </div>
     </Dialog>
   </TransitionRoot>

@@ -16,7 +16,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
             <div class="flex flex-col gap-16">
               <FormCheckbox id="checkbox" label="Remember Me" required />
               <div class="border-b border-b-black-10"></div>
-              <FormSwitch id="switch" />
+              <FormSwitch id="switch" label="Toggle Active" />
             </div>
           </div>
         </AppBlock>

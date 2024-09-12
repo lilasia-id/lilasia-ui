@@ -40,28 +40,26 @@ const colorClasses = computed(() => {
     },
     blue: {
       solid: ['border border-blue-20 bg-blue-20 text-blue-100'],
-      outline: ['border border-blue-100 bg-blue-20 text-blue-100']
+      outline: ['border border-blue-100 bg-blue-10 text-blue-100']
     },
     red: {
       solid: ['border border-red-20 bg-red-20 text-red-100'],
-      outline: ['border border-red-100 bg-red-20 text-red-100']
+      outline: ['border border-red-100 bg-red-10 text-red-100']
     },
     yellow: {
       solid: ['border border-yellow-20 bg-yellow-20 text-yellow-100'],
-      outline: ['border border-yellow-100 bg-yellow-20 text-yellow-100']
+      outline: ['border border-yellow-100 bg-yellow-10 text-yellow-100']
     },
     green: {
       solid: ['border border-green-20 bg-green-20 text-green-100'],
-      outline: ['border border-green-100 bg-green-20 text-green-100']
+      outline: ['border border-green-100 bg-green-10 text-green-100']
     }
   }
 })
 
 const classes = computed(() => {
   return twJoin(
-    'flex h-24 cursor-default items-center justify-center gap-x-4 text-nowrap transition-colors',
-    (props.icon || props.iconRight) && 'px-[6px]',
-    !props.icon && !props.iconRight && 'px-[12px]',
+    'flex h-24 cursor-default items-center justify-center gap-x-4 text-nowrap p-[6px] transition-colors',
     props.pill && 'rounded-9999',
     !props.pill && 'rounded-4',
     colorClasses.value[props.color][variant.value]

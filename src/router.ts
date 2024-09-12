@@ -68,7 +68,7 @@ const router = createRouter({
         {
           path: 'form-checkbox',
           name: 'form.checkbox',
-          component: () => import('@/pages/FormCheckbox.vue')
+          component: () => import('@/pages/FormCheckboxPage.vue')
         },
         {
           path: 'form-radio-group',

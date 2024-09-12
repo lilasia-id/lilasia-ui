@@ -5,6 +5,7 @@ const model = defineModel<boolean>()
 
 defineProps<{
   id?: string
+  label?: string
 }>()
 
 const classes = computed(() => {
@@ -16,8 +17,19 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <label class="relative inline-block h-[26px] w-48" :for="id">
-    <input :id="id" v-model="model" class="h-[0] w-[0] translate-x-24 opacity-0" type="checkbox" />
-    <span :class="classes" role="button"></span>
+  <label class="flex w-fit items-center gap-8" :for="id">
+    <div class="relative inline-block h-[26px] w-48">
+      <input
+        :id="id"
+        v-model="model"
+        class="h-[0] w-[0] translate-x-24 opacity-0"
+        type="checkbox"
+      />
+      <span :class="classes" role="button"></span>
+    </div>
+
+    <div v-if="label" class="w-fit text-14 font-500 leading-20">
+      {{ label }}
+    </div>
   </label>
 </template>
