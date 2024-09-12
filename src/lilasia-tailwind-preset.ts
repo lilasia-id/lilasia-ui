@@ -73,7 +73,7 @@ export default {
       [8, 10, 12, 14, 16, 20, 24, 30, 32, 40, 60].map((size) => [size, `${size / 16}rem`])
     ),
 
-    fontWeight: Object.fromEntries([500, 600, 700].map((weight) => [weight, String(weight)])),
+    fontWeight: Object.fromEntries([400, 500, 600, 700].map((weight) => [weight, String(weight)])),
 
     lineHeight: Object.fromEntries(
       [14, 15, 20, 24, 25, 28, 29, 30, 32, 38, 48].map((size) => [size, `${size / 16}rem`])
@@ -83,8 +83,6 @@ export default {
       1: `${1 / 16}rem`
     },
 
-    spacing: Object.fromEntries(
-      Array.from({ length: 16 }, (_, i) => [i * 4, `${(i * 4) / 16}rem`]).slice(1)
-    )
+    spacing: Object.fromEntries(Array.from({ length: 16 }, (_, i) => [i * 4, `${(i * 4) / 16}rem`]))
   }
 } satisfies Config
