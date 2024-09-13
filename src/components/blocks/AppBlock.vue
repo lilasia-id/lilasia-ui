@@ -12,7 +12,7 @@ const props = withDefaults(
   }>(),
   {
     bordered: false,
-    rounded: 8,
+    rounded: 16,
     class: undefined
   }
 )
