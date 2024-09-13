@@ -63,7 +63,7 @@
     "vue-tsc": "^2.0.6"
   },
   "peerDependencies": {
-    "@headlessui/vue": "^1.7.22",
+    "@headlessui/vue": "1.7.16",
     "@tiptap/extension-placeholder": "^2.5.6",
     "@tiptap/pm": "^2.5.6",
     "@tiptap/starter-kit": "^2.5.6",
