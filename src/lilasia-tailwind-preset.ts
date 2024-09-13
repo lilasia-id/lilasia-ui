@@ -46,8 +46,8 @@ export default {
         40: '#ef9c9a',
         60: '#eb8381',
         80: '#e76b68',
-        100: '#e3524f',
-        DEFAULT: '#e3524f'
+        100: '#d73f3c',
+        DEFAULT: '#d73f3c'
       },
 
       white: '#ffffff',
