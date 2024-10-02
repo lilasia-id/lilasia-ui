@@ -83,6 +83,15 @@ export default {
       1: `${1 / 16}rem`
     },
 
+    screens: {
+      xs: { max: '360px' },
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px'
+    },
+
     spacing: Object.fromEntries(Array.from({ length: 16 }, (_, i) => [i * 4, `${(i * 4) / 16}rem`]))
   }
 } satisfies Config
