@@ -19,6 +19,8 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
               <AppBadge class="w-fit" color="red" label="Red Color" />
               <AppBadge class="w-fit" color="yellow" label="Yellow Color" />
               <AppBadge class="w-fit" color="green" label="Green Color" />
+              <AppBadge class="w-fit" color="purple" label="Purple Color" />
+              <AppBadge class="w-fit" color="brown" label="Brown Color" />
             </div>
 
             <div class="flex flex-col items-center gap-16 rounded-8 bg-white p-16">
@@ -28,6 +30,8 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
               <AppBadge class="w-fit" color="red" icon="error" label="Red Color" />
               <AppBadge class="w-fit" color="yellow" icon="warning" label="Yellow Color" />
               <AppBadge class="w-fit" color="green" icon="check_circle" label="Green Color" />
+              <AppBadge class="w-fit" color="purple" icon="palette" label="Purple Color" />
+              <AppBadge class="w-fit" color="brown" icon="palette" label="Brown Color" />
             </div>
 
             <div class="flex flex-col items-center gap-16 rounded-8 bg-white p-16">
@@ -49,6 +53,8 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
                 label="Pill Green Color"
                 pill
               />
+              <AppBadge class="w-fit" color="purple" icon="palette" label="Purple Color" pill />
+              <AppBadge class="w-fit" color="brown" icon="palette" label="Brown Color" pill />
             </div>
           </div>
         </AppBlock>

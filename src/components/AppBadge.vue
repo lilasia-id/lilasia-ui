@@ -6,7 +6,7 @@ import { computed, useSlots } from 'vue'
 const props = withDefaults(
   defineProps<{
     label?: string
-    color?: 'white' | 'blue' | 'red' | 'yellow' | 'green'
+    color?: 'white' | 'blue' | 'red' | 'yellow' | 'green' | 'purple' | 'brown'
     icon?: string | LilasiaIcon
     iconRight?: string | LilasiaIcon
     iconClass?: string | string[]
@@ -53,6 +53,14 @@ const colorClasses = computed(() => {
     green: {
       solid: ['border border-green-20 bg-green-20 text-green-100'],
       outline: ['border border-green-100 bg-green-10 text-green-100']
+    },
+    purple: {
+      solid: ['border border-purple-10 bg-purple-10 text-purple-100'],
+      outline: ['border border-purple-100 bg-purple-10 text-purple-100']
+    },
+    brown: {
+      solid: ['border border-brown-5 bg-brown-5 text-brown-100'],
+      outline: ['border border-brown-100 bg-brown-10 text-brown-100']
     }
   }
 })
