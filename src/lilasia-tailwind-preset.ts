@@ -30,6 +30,17 @@ export default {
         DEFAULT: '#51a5bf'
       },
 
+      brown: {
+        5: '#f8e0ca',
+        10: '#f1d1b3',
+        20: '#e9c29d',
+        40: '#e2b386',
+        60: '#d4945a',
+        80: '#c5762d',
+        100: '#b75800',
+        DEFAULT: '#b75800'
+      },
+
       green: {
         10: '#f1faf3',
         20: '#d4f1dc',
@@ -38,6 +49,17 @@ export default {
         80: '#70d08c',
         100: '#4cab66',
         DEFAULT: '#4cab66'
+      },
+
+      purple: {
+        5: '#f2ecf8',
+        10: '#e4daf1',
+        20: '#d7c7ea',
+        40: '#c9b5e3',
+        60: '#af90d5',
+        80: '#946bc7',
+        100: '#7946b9',
+        DEFAULT: '#7946b9'
       },
 
       red: {
