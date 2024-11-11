@@ -87,7 +87,7 @@ export default {
     },
 
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
+      sans: ['Plus Jakarta Sans', 'sans-serif'],
       serif: ['"Zilla Slab"', 'sans-serif']
     },
 
@@ -95,7 +95,7 @@ export default {
       [8, 10, 12, 14, 16, 20, 24, 30, 32, 40, 60].map((size) => [size, `${size / 16}rem`])
     ),
 
-    fontWeight: Object.fromEntries([400, 500, 600, 700].map((weight) => [weight, String(weight)])),
+    fontWeight: Object.fromEntries([500, 600, 700, 800].map((weight) => [weight, String(weight)])),
 
     lineHeight: Object.fromEntries(
       [14, 15, 20, 24, 25, 28, 29, 30, 32, 38, 48].map((size) => [size, `${size / 16}rem`])
