@@ -6,22 +6,26 @@ import FormCombobox from '@/components/form/FormCombobox.vue'
 import FormSelect from '@/components/form/FormSelect.vue'
 import ComponentsPreview from '@/components/playground/ComponentsPreview.vue'
 import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
-const people = [
-  { id: 1, name: 'Wade Cooper' },
-  { id: 2, name: 'Arlene Mccoy' },
-  { id: 3, name: 'Devon Webb' },
-  { id: 4, name: 'Tom Cook' },
-  { id: 5, name: 'Tanya Fox' },
-  { id: 6, name: 'Hellen Schmidt' }
-]
+const people = ref<any[]>([])
 
 const selectedPeople = ref()
 const required = ref(false)
 const readonly = ref(false)
 const error = ref()
 const showError = ref(false)
+
+onMounted(() => {
+  people.value = [
+    { id: 1, name: 'Wade Cooper' },
+    { id: 2, name: 'Arlene Mccoy' },
+    { id: 3, name: 'Devon Webb' },
+    { id: 4, name: 'Tom Cook' },
+    { id: 5, name: 'Tanya Fox' },
+    { id: 6, name: 'Hellen Schmidt' }
+  ]
+})
 
 const setError = (value: boolean) => {
   if (value) {

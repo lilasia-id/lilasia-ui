@@ -8,7 +8,7 @@ import {
   TransitionRoot
 } from '@headlessui/vue'
 import Icon from 'lilasia-icons'
-import { computed, ref, useSlots } from 'vue'
+import { computed, ref, useSlots, watch } from 'vue'
 import FormLabel from './FormLabel.vue'
 
 const props = withDefaults(
@@ -19,6 +19,7 @@ const props = withDefaults(
     optionLabel?: string
     filterKey?: string
     displayValueKey?: string
+    lazyLoadLimit?: number
     placeholder?: string
     multiple?: boolean
     required?: boolean
@@ -31,16 +32,20 @@ const props = withDefaults(
     optionLabel: undefined,
     filterKey: undefined,
     displayValueKey: undefined,
+    lazyLoadLimit: 60,
     placeholder: undefined,
     error: undefined
   }
 )
 
 const model = defineModel<any>()
-
 const slots = useSlots()
-
 const query = ref('')
+const displayedOptions = ref<any[]>([])
+const itemsPerPage = props.lazyLoadLimit
+const currentPage = ref(0)
+const optionSelected = ref(false)
+const buttonClicked = ref(false)
 
 const classes = computed(() => {
   return [
@@ -53,18 +58,81 @@ const classes = computed(() => {
   ]
 })
 
-const filteredOptions = computed(() =>
-  query.value === ''
-    ? props.options
-    : props.options.filter((option) => {
-        const key = props.filterKey ? option[props.filterKey] : option
-        return key
-          .toString()
-          .toLowerCase()
-          .replace(/\s+/g, '')
-          .includes(query.value.toLowerCase().replace(/\s+/g, ''))
-      })
+const filteredOptions = computed(() => {
+  const filtered =
+    query.value === ''
+      ? props.options
+      : props.options.filter((option) => {
+          const key = props.filterKey ? option[props.filterKey] : option
+          return key
+            .toString()
+            .toLowerCase()
+            .replace(/\s+/g, '')
+            .includes(query.value.toLowerCase().replace(/\s+/g, ''))
+        })
+
+  return filtered
+})
+
+const loadMoreOptions = () => {
+  const start = currentPage.value * itemsPerPage
+  const end = start + itemsPerPage
+
+  const nextOptions = filteredOptions.value.slice(start, end)
+  if (nextOptions.length > 0) {
+    displayedOptions.value.push(...nextOptions)
+    currentPage.value++
+  }
+}
+
+watch(
+  () => query.value,
+  () => {
+    currentPage.value = 0
+    displayedOptions.value = []
+    loadMoreOptions()
+  },
+  {
+    immediate: true
+  }
 )
+
+const onOptionsScroll = () => {
+  const container = window.document.getElementById('options-container')
+  if (container) {
+    const bottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 10
+    if (bottom) {
+      loadMoreOptions()
+    }
+  }
+}
+
+const onInputFocusIn = (e: Event) => {
+  if (displayedOptions.value.length < 1) {
+    currentPage.value = 0
+    displayedOptions.value = []
+    loadMoreOptions()
+  }
+
+  const target = e.target as HTMLElement
+  const button = target?.nextSibling as HTMLButtonElement
+
+  if (!optionSelected.value && !buttonClicked.value) {
+    button?.click()
+  }
+
+  setTimeout(() => {
+    optionSelected.value = false
+    buttonClicked.value = false
+  })
+}
+
+const afterLeaveCombobox = () => {
+  query.value = ''
+  currentPage.value = 0
+  displayedOptions.value = []
+  loadMoreOptions()
+}
 
 const displayValue = (option: unknown): string => {
   if (option instanceof Array) {
@@ -89,10 +157,19 @@ const displayValue = (option: unknown): string => {
               :placeholder="placeholder"
               :readonly="readonly"
               spellcheck="false"
-              autocomplete="off"
+              autocomplete="nope"
               :display-value="displayValue"
               @change="query = $event.target.value"
+              @focusin="onInputFocusIn"
             />
+
+            <ComboboxButton
+              class="absolute right-[0] top-1/2 flex -translate-y-1/2 items-center pr-16"
+              :disabled="readonly"
+              @click="buttonClicked = true"
+            >
+              <Icon name="unfold_more" size="20" />
+            </ComboboxButton>
 
             <div
               v-if="error"
@@ -101,13 +178,6 @@ const displayValue = (option: unknown): string => {
             >
               <Icon name="error" />
             </div>
-
-            <ComboboxButton
-              class="absolute inset-y-[0] right-[0] flex items-center pr-16"
-              :disabled="readonly"
-            >
-              <Icon name="unfold_more" size="20" />
-            </ComboboxButton>
           </div>
 
           <TransitionRoot
@@ -115,10 +185,12 @@ const displayValue = (option: unknown): string => {
             leave-from="opacity-100"
             leave-to="opacity-0"
             as="template"
-            @after-leave="query = ''"
+            @after-leave="afterLeaveCombobox"
           >
             <ComboboxOptions
+              id="options-container"
               class="absolute z-50 mt-4 max-h-[400px] w-full overflow-y-auto rounded-8 bg-white py-4 shadow-lg ring-1 ring-black-10"
+              @scroll="onOptionsScroll"
             >
               <template v-if="filteredOptions.length === 0 && query !== ''">
                 <slot v-if="slots['not-found']" name="not-found"></slot>
@@ -128,7 +200,7 @@ const displayValue = (option: unknown): string => {
               </template>
 
               <ComboboxOption
-                v-for="(option, index) in filteredOptions"
+                v-for="(option, index) in displayedOptions"
                 v-slot="{ selected, active }"
                 :key="index"
                 as="template"
@@ -137,6 +209,7 @@ const displayValue = (option: unknown): string => {
                 <li
                   class="relative flex cursor-pointer select-none items-center px-16 py-[10px] pr-48"
                   :class="{ 'bg-black-5': active || selected }"
+                  @click="optionSelected = true"
                 >
                   <slot
                     v-if="slots['option-label']"
