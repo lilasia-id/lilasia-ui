@@ -97,6 +97,18 @@ watch(
   }
 )
 
+watch(
+  () => props.options,
+  () => {
+    currentPage.value = 0
+    displayedOptions.value = []
+    loadMoreOptions()
+  },
+  {
+    immediate: true
+  }
+)
+
 const onOptionsScroll = () => {
   const container = window.document.getElementById('options-container')
   if (container) {
@@ -108,12 +120,6 @@ const onOptionsScroll = () => {
 }
 
 const onInputFocusIn = (e: Event) => {
-  if (displayedOptions.value.length < 1) {
-    currentPage.value = 0
-    displayedOptions.value = []
-    loadMoreOptions()
-  }
-
   const target = e.target as HTMLElement
   const button = target?.nextSibling as HTMLButtonElement
 
@@ -135,6 +141,10 @@ const afterLeaveCombobox = () => {
 }
 
 const displayValue = (option: unknown): string => {
+  if (model.value === null) {
+    return ''
+  }
+
   if (option instanceof Array) {
     return option
       .map((opt) => (props.displayValueKey ? opt[props.displayValueKey] : opt))
@@ -148,7 +158,7 @@ const displayValue = (option: unknown): string => {
 <template>
   <div class="flex flex-col gap-8">
     <FormLabel :for="id" :label="label" :required="required">
-      <Combobox v-model="model" :multiple="multiple">
+      <Combobox v-model="model" :multiple="multiple" nullable>
         <div class="relative">
           <div class="relative">
             <ComboboxInput
