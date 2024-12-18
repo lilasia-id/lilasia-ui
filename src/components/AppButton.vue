@@ -99,7 +99,12 @@ const colorClasses = computed(() => {
           : 'disabled:text-black-40 disabled:bg-yellow-40 disabled:border-yellow-40',
         props.loading ? '' : 'disabled:hover:bg-yellow-40 disabled:hover:border-yellow-40'
       ],
-      outline: [],
+      outline: [
+        'bg-white text-yellow-100 border border-yellow-100',
+        props.disabled || props.loading ? '' : 'hover:bg-yellow-20 hover:border-yellow-100',
+        props.loading ? '' : 'disabled:text-yellow-40 disabled:border-yellow-40',
+        props.loading ? '' : 'disabled:hover:border-yellow-40'
+      ],
       subtle: []
     },
     red: {

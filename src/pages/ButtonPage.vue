@@ -37,6 +37,7 @@ import MarkdownRenderer from '@/components/playground/MarkdownRenderer.vue'
                 <AppButton color="red" text="Red" outline />
                 <AppButton color="green" text="Green" outline />
                 <AppButton color="blue" text="Blue" outline />
+                <AppButton color="yellow" text="Yellow" outline />
               </div>
             </div>
           </AppBlock>
